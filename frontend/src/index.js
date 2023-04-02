@@ -6,18 +6,17 @@ const app = require('./config/server').init();
 const API_URL = process.env.API_URL;
 // router(app);
 
-app.get('/', async (req, res, next) => {
-    const { id } = req.query;
-    await fetch(API_URL + 'users/getUser/' + id, {
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'}
-    }).then(async result => {
-        let data = await result.json();
-        return res.json(data);
-    })
-    
-})
+// app.get('/', async (req, res, next) => {
+//     const { id } = req.query;
+//     await fetch(API_URL + 'users/getUser/' + id, {
+//         method: 'GET',
+//         headers: { 'Content-Type': 'application/json' },
+//     }).then(async (result) => {
+//         let data = await result.json();
+//         return res.json(data);
+//     });
+// });
 
 app.listen(PORT, () => {
-    console.log(`Server running on ${PORT}`);
-})
+    console.log(`Server running on http://localhost:${PORT}`);
+});
