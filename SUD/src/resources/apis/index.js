@@ -1,0 +1,1 @@
+module.exports.API_USER = require('./User');
