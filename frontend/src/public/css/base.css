@@ -1,0 +1,43 @@
+body {
+    --google-font-color-materialiconstwotone: none;
+}
+body {
+    color: #484848;
+    overflow-x: hidden;
+}
+body {
+    font-feature-settings: normal !important;
+    font-variant: normal !important;
+}
+body {
+    --google-font-color-materialiconstwotone: none;
+}
+body {
+    margin: 0px;
+    font-family: ProximaNova, sans-serif;
+    font-weight: normal;
+    color: rgb(42, 45, 52);
+    min-height: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    color: #1890ff;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0);
+    outline: none;
+    cursor: pointer;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+    -webkit-text-decoration-skip: objects;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
