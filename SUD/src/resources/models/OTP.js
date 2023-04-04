@@ -8,9 +8,10 @@ const OTP = new Schema({
     },
     code: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
-    creatAt: {
+    createdAt: {
         type: Date,
         expires: '60s',
         default: Date.now()

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { createCode, sendMail } = require('../utils');
 require('dotenv').config();
-const { API_USER } = require('../apis');
+const { API_USER,API_OTP } = require('../apis');
 const { VALIDATE_USER } = require('../validators');
 const path = require('path');
 const host = process.env.EMAIL_HOST;
@@ -45,6 +45,39 @@ router.post('/login', async (req, res, next) => {
     return res.status(200).json({success: true, data: user, msg: 'Đăng nhập thành công'});
 })
 
+router.post('/generate-OTP', async (req, res, next) => {
+    const { code, UserEmail } = req.body;
+    
+    await API_OTP.create({code, UserEmail})
+        .then(otp => {
+            return res.status(200).json({success: true, data: otp});
+        })
+        .catch(err => {
+            console.log(err)
+            return res.status(500).json({success: false, msg: err});
+        })
+})
+
+// [POST] Confirm OTP -> /api/users/confirm-OTP
+router.post('/confirm-OTP', async (req, res, next) => {
+    const { code } = req.body;
+    
+    await API_OTP.readOne({code})
+        .then(otp => {
+            
+            if(otp) {
+                return res.status(200).json({success: true, data: otp, msg: 'Xác nhân OTP thành công'});
+            }
+
+            return res.status(404).json({success: false, msg: 'Không tìm thấy OTP'});
+        })
+        .catch(err => {
+            console.log(err)
+            return res.status(500).json({success: false, msg: err});
+        })
+        
+})
+
 // [POST] Recover account password -> /api/user/recover-password
 router.post('/recover-password', async (req, res, next) => {
     const { email } = req.body;
@@ -60,7 +93,7 @@ router.post('/recover-password', async (req, res, next) => {
             const options = {
                 from: host,
                 to: user.email,
-                subject: 'Tìm lại mật khẩu tài khoản',
+                subject: '[EZTICKET] Tìm lại mật khẩu tài khoản',
                 html: `
                 
                 <div 
