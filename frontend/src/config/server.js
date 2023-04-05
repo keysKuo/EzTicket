@@ -17,7 +17,7 @@ const init = () => {
         'hbs',
         handlebars.engine({
             extname: 'hbs',
-            defaultView: 'main',
+            defaultLayout: 'main',
             layoutsDir: path.join(__dirname, '../resources/views/layouts/'),
             partialsDir: path.join(__dirname, '../resources/views/partials/'),
             helpers: {},

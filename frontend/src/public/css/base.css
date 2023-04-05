@@ -41,3 +41,7 @@ img {
     vertical-align: middle;
     border-style: none;
 }
+
+p {
+    margin: 0;
+}

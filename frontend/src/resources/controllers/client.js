@@ -3,19 +3,20 @@ const catchAsync = require('../utils/catchAsync');
 const clientController = {
     // GET /
     index: catchAsync(async (req, res) => {
-        res.render('client', {
-            title: 'Đặt vé xe',
+        res.render('client/index', {
+            title: 'Đặt vé xem phim',
+            layout: 'secondary.hbs',
         });
     }),
-    CheckTicketInfoPage: catchAsync(async (req, res) => {
-        res.render('client/checkTicketInfo', {
-            title: 'Kiểm tra đơn hàng',
+    ticketDetailPage: catchAsync(async (req, res) => {
+        res.render('client/ticketDetail', {
+            title: 'Chi tiết vé xem phim',
         });
     }),
 
     BookingPage: catchAsync(async (req, res) => {
         res.render('client/booking', {
-            title: 'Đặt vé xe từ Sài Gòn đến Đà Lạt',
+            title: 'Đặt vé xem phim từ Sài Gòn đến Đà Lạt',
         });
     }),
 };
