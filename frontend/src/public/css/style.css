@@ -539,12 +539,6 @@
     height: 40px;
 }
 
-.card-thumbnail-wrapper .card-thumbnail-container .card-thumbnail-info .dvxxyr .card-thumbnail-caption {
-}
-
-.card-thumbnail-wrapper .dDmCsh {
-}
-
 .card-thumbnail-wrapper .dDmCsh .card-ticket-heading {
     cursor: pointer;
     color: rgb(42, 45, 52);
@@ -611,4 +605,282 @@
     outline: none;
     cursor: pointer;
     white-space: nowrap;
+}
+
+.ticket-detail-container::before,
+.ticket-detail-container .row::before {
+    display: table;
+    content: ' ';
+}
+
+.ticket-detail-container > .row {
+    margin-bottom: 0;
+    margin-top: 30px;
+}
+
+.ticket-detail-container .row::after,
+.ticket-detail-container::after {
+    clear: both;
+}
+
+.ticket-detail-container .event-info .event-name .calendar-image {
+    width: 85px;
+    z-index: 7;
+    position: relative;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+}
+.ticket-detail-container .event-info .event-name .calendar-image .stack-border::before {
+    content: ' ';
+    border: 1px solid #dedede;
+    width: 82%;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    z-index: 2;
+    bottom: -7px;
+    height: 4px;
+    -webkit-transform: translateX(-50%);
+    border-radius: 0 0 3px 3px;
+}
+.ticket-detail-container .event-info .event-name .calendar-image .month {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #fff;
+    font-size: 12px;
+    background-color: #eb1212;
+}
+
+.ticket-detail-container .event-info .event-name .calendar-image .date {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 42px;
+    font-weight: 400;
+    color: #666;
+}
+
+.ticket-detail-container .event-info .event-name .calendar-image .day {
+    margin: 0;
+    color: #666;
+    font-size: 12px;
+    font-weight: 400;
+}
+.ticket-detail-container .event-info .event-name .calendar-image .stack-border::after {
+    content: ' ';
+    border: 1px solid #dedede;
+    width: 92%;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    z-index: 2;
+    bottom: -4px;
+    height: 4px;
+    -webkit-transform: translateX(-50%);
+    border-radius: 0 0 3px 3px;
+}
+
+.ticket-detail-container .event-info .event-name .event-name-content {
+    margin-left: 100px;
+}
+
+.ticket-detail-container .event-info .event-name .event-name-content .title {
+    line-height: 1.3em;
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.ticket-detail-container .event-info .event-name .event-name-content .button-gr {
+}
+
+.ticket-detail-container .event-info .event-name .event-name-content .button-gr .col-xs-6 {
+}
+
+.ticket-detail-container .event-info .event-name .event-name-content .button-gr .col-xs-6 .btn-first {
+}
+
+.ticket-detail-container
+    .event-info
+    .event-name
+    .event-name-content
+    .button-gr
+    .col-xs-6
+    .btn-first
+    .ello-facebook-squared {
+}
+
+.ticket-detail-container .event-info .event-name .event-name-content .button-gr .dropdown {
+}
+
+.ticket-detail-container .event-info .event-name .event-name-content .button-gr .dropdown .follow-event {
+}
+
+.ticket-detail-container
+    .event-info
+    .event-name
+    .event-name-content
+    .button-gr
+    .dropdown
+    .follow-event
+    .ello-heart-empty {
+}
+
+.ticket-detail-container .event-info .event-name .event-name-content .button-gr .dropdown .followed-event {
+}
+
+.ticket-detail-container .event-info .event-name .event-name-content .button-gr .dropdown .followed-event .ello-heart {
+}
+
+.ticket-detail-container .event-info .event-name .event-name-content .button-gr .clearfix {
+}
+
+.ticket-detail-container .event-info .event-name .event-name-content .cnt-left {
+}
+
+.ticket-detail-container .event-info .event-name .event-name-content .cnt-left .event-time {
+}
+
+.ticket-detail-container .event-info .event-name .event-name-content .cnt-left .event-time .inline-bl {
+}
+
+.ticket-detail-container .event-info .event-name .event-name-content .cnt-left .event-time .inline-bl .grey-dark-color {
+}
+
+.ticket-detail-container
+    .event-info
+    .event-name
+    .event-name-content
+    .cnt-left
+    .event-time
+    .inline-bl
+    .grey-dark-color
+    .ello-clock-2 {
+}
+
+.ticket-detail-container
+    .event-info
+    .event-name
+    .event-name-content
+    .cnt-left
+    .event-time
+    .inline-bl
+    .grey-dark-color
+    .grey-dark-color {
+}
+
+.ticket-detail-container .event-info .event-name .event-name-content .cnt-left .event-time .clear {
+}
+
+.ticket-detail-container .row .event-info .event-name .event-name-content .cnt-left .event-venue {
+}
+
+.ticket-detail-container .row .event-info .event-name .event-name-content .cnt-left .event-venue .grey-dark-color {
+}
+
+.ticket-detail-container
+    .row
+    .event-info
+    .event-name
+    .event-name-content
+    .cnt-left
+    .event-venue
+    .grey-dark-color
+    .ello-location-3 {
+}
+
+.ticket-detail-container .row .event-info .event-name .event-name-content .cnt-left .event-venue .grey-white-color {
+}
+
+.ticket-detail-container .row .event-info .event-name .event-name-content .cnt-left .event-price {
+}
+
+.ticket-detail-container .row .event-info .event-name .event-name-content .cnt-left .event-price .text-indent {
+}
+
+.ticket-detail-container
+    .row
+    .event-info
+    .event-name
+    .event-name-content
+    .cnt-left
+    .event-price
+    .text-indent
+    .ello-ticket {
+}
+
+.ticket-detail-container .row .event-info .event-name .event-name-content .cnt-left .event-price .text-indent strong {
+}
+
+.ticket-detail-container .row .event-info .event-name .event-name-content .cnt-left .event-price .ello-right-open {
+}
+
+.ticket-detail-container .row .event-info .event-name .event-name-content .cnt-left .event-price .clear {
+}
+
+.ticket-detail-container .row .event-info .event-name .button-gr {
+}
+
+.ticket-detail-container .row .event-info .event-name .button-gr .page-scroll {
+}
+
+.ticket-detail-container .row .event-info .event-name .button-gr {
+}
+
+.ticket-detail-container .row .event-info .event-name .button-gr .col-sm-6 {
+}
+
+.ticket-detail-container .row .event-info .event-name .button-gr .col-sm-6 .btn-first {
+}
+
+.ticket-detail-container
+    .row
+    .event-info
+    .event-name
+    .button-gr
+    .col-sm-12
+    .col-sm-6
+    .btn-first
+    .ello-facebook-squared {
+}
+
+.ticket-detail-container .row .event-info .event-name .button-gr .dropdown {
+}
+
+.ticket-detail-container .row .event-info .event-name .button-gr .dropdown .follow-event {
+}
+
+.ticket-detail-container .row .event-info .event-name .button-gr .dropdown .follow-event .ello-heart-empty {
+}
+
+.ticket-detail-container .row .event-info .event-name .button-gr .dropdown .followed-event {
+}
+
+.ticket-detail-container .row .event-info .event-name .button-gr .dropdown .followed-event .ello-heart {
+}
+
+.ticket-detail-container .col-xs-12 {
+}
+
+.ticket-detail-container .col-xs-12 .col-xs-4 {
+}
+
+.ticket-detail-container .col-xs-12 .col-xs-4 .page-scroll {
+}
+
+.ticket-detail-container .col-xs-12 .col-xs-4 .page-scroll .text-bold {
+}
+
+.ticket-detail-container .col-xs-12 .col-xs-8 {
+}
+
+.ticket-detail-container .col-xs-12 .col-xs-8 .ladda-button {
+}
+
+.ticket-detail-container .col-xs-12 .col-xs-8 .ladda-button .ladda-label {
+}
+
+.ticket-detail-container .col-xs-12 .col-xs-8 .ladda-button .ladda-spinner {
+}
+
+.ticket-detail-container .clearfix {
 }

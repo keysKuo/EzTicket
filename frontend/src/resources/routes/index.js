@@ -9,7 +9,7 @@ router.get('/admin', function (req, res, next) {
 
 /* GET home page. */
 router.get('/', clientController.index);
-router.get('/booking/ticketinfo', clientController.CheckTicketInfoPage);
+router.get('/booking/ticketDetail', clientController.ticketDetailPage);
 router.get('/booking', clientController.BookingPage);
 
 module.exports = router;

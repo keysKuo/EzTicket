@@ -1,0 +1,282 @@
+<section class='banner bg-white margin-bottom-20 border-bottom-grey-dark'>
+
+    <style>
+        .skeleton { position: relative; overflow: hidden; width: 100%; height: calc(100vw * 0.38); background: #ccc; }
+        .skeleton::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background:
+        linear-gradient(90deg, #ccc, white, #ccc); animation: progress 1s ease-in-out infinite; } @keyframes progress {
+        0% { transform: translate3d(-100%, 0, 0); } 100% { transform: translate3d(100%, 0, 0); } }
+    </style>
+    <script>
+        window.addEventListener('load', function () { var elems = document.querySelectorAll(".skeleton");
+        [].forEach.call(elems, function (el) { el.classList.remove("skeleton"); }); });
+    </script>
+
+    <div
+        class='cover-photo'
+        style='height: 584.231px; background-image: url(&quot;https://images.tkbcdn.com/1/1560/600/Upload/eventcover/2023/03/31/492ED0.jpg&quot;);'
+    >
+
+    </div>
+
+    <div class='container ticket-detail-container'>
+        <div class='row'>
+            <!-- event's info summary -->
+            <div class='event-info'>
+                <div class='event-name text-center'>
+                    <div class='col-sm-7 col-md-8'>
+                        <div
+                            class='calendar-image stack-border mobile-invisible padding-left-0 padding-right-0 text-bold'
+                        >
+                            <p class='month'>Tháng 4</p>
+                            <p class='date'>15</p>
+                            <p class='day'>Thứ 7</p>
+                        </div>
+
+                        <div class='event-name-content padding-left-0 padding-right-0'>
+                            <div class='col-sm-12'>
+                                <h1 class='title grey-dark-color'>[HÀ NỘI] OPERA - CAVALLERIA RUSTICANA</h1>
+                                <!-- START Mobile Display Only
+                            <p class="grey-color desktop-invisible">Thứ 7, 15 Th&#225;ng 4 2023</p>
+                            END Mobile Display Only -->
+                            </div>
+                            <!-- START Mobile Display Only-->
+                            <div class='button-gr btn-count col-xs-12 col-sm-12 visible-xs'>
+                                <div id='shareBtn3' sharesocial='fbShare' class='col-xs-6 btn-wr'>
+                                    <a class='btn-first fshare-button border-grey' target='blank'><i
+                                            class='ello-facebook-squared'
+                                        ></i>Chia sẻ</a>
+                                </div>
+
+                                <div class='dropdown col-xs-6 btn-wr'>
+                                    <a
+                                        class='follow-event btn-last add-calendar-button border-grey'
+                                        style='color: #2DC275'
+                                    >
+                                        <i class='ello-heart-empty' style='font-weight: bold'></i>
+                                        Quan tâm
+                                    </a>
+                                    <a
+                                        class='followed-event btn-last add-calendar-button border-grey'
+                                        style='color: #2DC275; display: none'
+                                    >
+                                        <i class='ello-heart' style='font-weight: bold'></i>
+                                        Đã quan tâm
+                                    </a>
+                                </div>
+
+                                <div class='clearfix'></div>
+                            </div>
+                            <div
+                                class='button-gr btn-count col-xs-12 col-sm-12 visible-xs'
+                                style='margin-top: 0px; color: #606778'
+                            >
+                                <span class='followers-id'>13</span>
+                                người quan tâm
+                            </div>
+                            <!-- END Mobile Display Only -->
+                            <div class='cnt-left col-xs-12 col-sm-12 padding-left-0 padding-right-0'>
+                                <div class='event-time col-sm-12 pd-hor-15'>
+                                    <div class='inline-bl'>
+                                        <p class='grey-dark-color text-bold text-indent txt-16'>
+                                            <i class='ello-clock-2 icon text-bold grey-bright-color'></i>Thứ 7, 15 Tháng
+                                            4 2023 (08:00 PM - 11:00 PM)
+                                            <!-- <a data-toggle="modal" data-target="#showTime" class="red-color float--right more-show">Xem th&#234;m</a> -->
+                                            <a
+                                                href='.schedule'
+                                                class='grey-dark-color text-bold page-scroll other-showing'
+                                            >
+                                                + 1 ngày khác
+                                            </a>
+                                        </p>
+
+                                    </div>
+
+                                    <div class='clear'></div>
+                                </div>
+                                <div class='event-venue border-top-grey col-sm-12 pd-hor-15'>
+
+                                    <p class='grey-dark-color text-bold text-indent txt-16'><i
+                                            class='ello-location-3 icon grey-bright-color'
+                                        ></i>NHÀ HÁT LỚN HÀ NỘI</p>
+                                    <p class='grey-white-color note'>1 Tràng Tiền, Phan Chu Trinh, Hoàn Kiếm, Hà Nội</p>
+                                </div>
+
+                                <a
+                                    href='#booking'
+                                    class='event-price border-top-grey col-sm-12 pd-hor-15 desktop-invisible page-scroll'
+                                    style='display:block;'
+                                >
+                                    <p class='text-indent'><i class='ello-ticket icon grey-bright-color'></i>Từ
+                                        <strong>500.000 VND</strong></p>
+                                    <i class='ello-right-open grey-bright-color'></i>
+                                    <div class='clear'></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='button-gr col-sm-5 col-md-4 pd-left-6 hidden-xs' banner-btn='banner-btn'>
+
+                        <a
+                            href='#schedule'
+                            class='page-scroll text-center text-bold table-cell button-lg ver-middle btn-booking'
+                        >
+                            Chọn lịch diễn
+                        </a>
+
+                        <!-- </div> -->
+                        <div class='col-sm-12 padding-left-0 padding-right-0 btn-count'>
+                            <div id='shareBtn' sharesocial='fbShare' class='col-sm-6 btn-wr'>
+                                <a class='btn-first fshare-button border-grey' target='blank'><i
+                                        class='ello-facebook-squared'
+                                    ></i>Chia sẻ</a>
+                            </div>
+                            <div class='dropdown col-sm-6 btn-wr'>
+                                <a class='follow-event btn-last add-calendar-button border-grey' style='color: #2DC275'>
+                                    <i class='ello-heart-empty' style='font-weight: bold'></i>
+                                    Quan tâm
+                                </a>
+                                <a
+                                    class='followed-event btn-last add-calendar-button border-grey'
+                                    style='color: #2DC275; display: none'
+                                >
+                                    <i class='ello-heart' style='font-weight: bold'></i>
+                                    Đã quan tâm
+                                </a>
+                            </div>
+                        </div>
+                        <div class='col-sm-12 padding-left-0 padding-right-0 btn-count' style='color: #606778'>
+                            <span class='followers-id'>13</span>
+                            người quan tâm
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- #Mobile Display Only-->
+        <div
+            class='col-xs-12 fixed desktop-invisible bg-white border-top-grey booking-bl padding-left-0 padding-right-0'
+        >
+            <div class='col-xs-4 table-cell price-box ver-middle'>
+                <a href='#booking' class='page-scroll' target='blank'>Từ <span class='text-bold'>500.000 VND</span></a>
+            </div>
+            <div class='col-xs-8 table-cell book-box text-center ver-middle'>
+                <a
+                    buttontype='buy-ticket-ev-info'
+                    data-style='zoom-out'
+                    class='ladda-button white-color button-lg btn-booking btn-booking'
+                    target='blank'
+                ><span class='ladda-label'>Mua vé ngay</span><span class='ladda-spinner'></span></a>
+            </div>
+        </div>
+
+        <!-- #Mobile Display Only-->
+        <div class='clearfix'></div>
+    </div>
+
+    <!-- More Showing Time-->
+    <div id='demo' class='bootstrap content'>
+        <section id='examples'>
+            <!-- Modal -->
+            <div
+                class='modal fade show-time'
+                id='showTime'
+                tabindex='-1'
+                role='dialog'
+                aria-labelledby='myModalLabel'
+                aria-hidden='true'
+                data-backdrop='static'
+            >
+                <div class='modal-dialog modal-sm'>
+                    <div class='modal-content'>
+                        <div class='modal-header text-center'>
+                            <h4 class='modal-title'>Chọn thời gian diễn</h4>
+                            <span class='ello-cancel-2 close-show-time hidden-xs' data-dismiss='modal'></span>
+                        </div>
+                        <div class='modal-body mCustomScrollbar pd-0 _mCS_1 mCS_no_scrollbar' data-mcs-theme='dark'><div
+                                id='mCSB_1'
+                                class='mCustomScrollBox mCS-dark mCSB_vertical mCSB_inside'
+                                style='max-height: none;'
+                                tabindex='0'
+                            ><div
+                                    id='mCSB_1_container'
+                                    class='mCSB_container mCS_y_hidden mCS_no_scrollbar_y'
+                                    style='position:relative; top:0; left:0;'
+                                    dir='ltr'
+                                >
+                                    <a href='/event/valentine-concert-from-italy-with-love-86794/72532'>
+                                        <div class='item border-top-grey col-xs-12 pd-hor-15'>
+
+                                            <div
+                                                class='table-cell col-sm-11 col-xs-11 padding-right-0 padding-left-0 word-wr'
+                                            >
+                                                <p class='date'>Chủ nhật, 16 Tháng 4 2023</p>
+                                                <p class='time text-bold'>08:00 PM - 11:00 PM</p>
+                                            </div>
+                                            <i
+                                                class='ello-right-open col-sm-1 col-xs-1 cnt-right table-cell padding-right-0 padding-left-0 arrow-right word-wr'
+                                            ></i>
+
+                                        </div>
+                                    </a>
+
+                                    <div class='clearfix'></div>
+                                </div><div
+                                    id='mCSB_1_scrollbar_vertical'
+                                    class='mCSB_scrollTools mCSB_1_scrollbar mCS-dark mCSB_scrollTools_vertical'
+                                    style='display: none;'
+                                ><div class='mCSB_draggerContainer'><div
+                                            id='mCSB_1_dragger_vertical'
+                                            class='mCSB_dragger'
+                                            style='position: absolute; min-height: 0px; top: 0px;'
+                                            oncontextmenu='return false;'
+                                        ><div class='mCSB_dragger_bar' style='line-height: 0px;'></div></div><div
+                                            class='mCSB_draggerRail'
+                                        ></div></div></div></div></div>
+                        <a class='close-show-time visible-xs' data-dismiss='modal'>Đóng</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- Modal addCalendar -->
+    <div id='addCalendar' class='modal fade add-calendar' role='dialog'>
+        <div class='modal-dialog'>
+
+            <!-- Modal content-->
+            <div class='modal-content'>
+                <div class='modal-body pd-0'>
+                    <a href='/event/ical/86794' class='item border-top-grey col-xs-12 pd-hor-15'>
+                        <div class='table-cell text-center col-sm-7 col-xs-7 padding-right-0 padding-left-0'>
+                            <p class='margin-bottom-0'><i class='ello-ical mg-5'></i>iCalendar</p>
+                        </div>
+                    </a>
+                    <div class='clearfix'></div>
+                    <a
+                        href='http://www.google.com/calendar/event?action=TEMPLATE&amp;text=%5bH%c3%80+N%e1%bb%98I%5d+OPERA+-+CAVALLERIA+RUSTICANA&amp;dates=20230415T130000Z/20230415T160000Z&amp;details=&amp;location=NH%c3%80+H%c3%81T+L%e1%bb%9aN+H%c3%80+N%e1%bb%98I%2c+1+Tr%c3%a0ng+Ti%e1%bb%81n%2c+Phan+Chu+Trinh%2c+Ho%c3%a0n+Ki%e1%ba%bfm%2c+H%c3%a0+N%e1%bb%99i&amp;trp=false&amp;sprop=TicketBox&amp;sprop=name:ticketbox.vn'
+                        class='item border-top-grey col-xs-12 pd-hor-15'
+                    >
+                        <div class='table-cell text-center col-sm-7 col-xs-7 padding-right-0 padding-left-0'>
+                            <p class='margin-bottom-0'><i class='ello-google-calendar mg-5'></i>GOOGLE Calendar</p>
+                        </div>
+                    </a>
+                    <div class='clearfix'></div>
+                    <a href='/event/ical/86794' class='item border-top-grey col-xs-12 pd-hor-15'>
+                        <div class='table-cell text-center col-sm-7 col-xs-7 padding-right-0 padding-left-0'>
+                            <p class='margin-bottom-0'><i class='ello-outlook mg-5'></i>Outlook Calendar</p>
+                        </div>
+                    </a>
+                    <div class='clearfix'></div>
+                </div>
+                <a class='modal-footer bg-grey border-top-grey' style='display:block;'>
+                    <div data-dismiss='modal'>Đóng</div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</section>
