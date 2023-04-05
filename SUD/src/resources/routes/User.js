@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { createCode, sendMail } = require('../utils');
+const { createCode, sendMail, mailForm } = require('../utils');
 require('dotenv').config();
 const { API_USER,API_OTP } = require('../apis');
 const { VALIDATE_USER } = require('../validators');
@@ -78,7 +78,7 @@ router.post('/confirm-OTP', async (req, res, next) => {
         
 })
 
-// [POST] Recover account password -> /api/user/recover-password
+// [POST] Recover account password -> /api/users/recover-password
 router.post('/recover-password', async (req, res, next) => {
     const { email } = req.body;
     let user = await API_USER.readOne({email});
@@ -94,45 +94,52 @@ router.post('/recover-password', async (req, res, next) => {
                 from: host,
                 to: user.email,
                 subject: '[EZTICKET] Tìm lại mật khẩu tài khoản',
-                html: `
-                
-                <div 
-                    style="width: 40%; margin: 0 auto;
-                    text-align: center; font-family: 'Google Sans', Roboto, sans-serif;
-                    min-height: 300px; padding: 40px 20px;
-                    border-width: thin; border-style: solid; border-color: #dadce0; border-radius: 8px">
+                html: mailForm({
+                    caption: 'Tìm lại mật khẩu',
+                    content: ` 
+                    <p><strong>Họ và tên: </strong>${user.username}</p>
+                    <p><strong>Email: </strong>${user.email}</p>
+                    <p><strong>Mật khẩu mới: </strong>${new_password}</p>
+                    `
+                })
+                //`
+                // <div 
+                //     style="width: 40%; margin: 0 auto;
+                //     text-align: center; font-family: 'Google Sans', Roboto, sans-serif;
+                //     min-height: 300px; padding: 40px 20px;
+                //     border-width: thin; border-style: solid; border-color: #dadce0; border-radius: 8px">
 
-                    <img style="width: 296px;
-                    aspect-ratio: auto 74 / 24;
-                    height: 96px;" src="${process.env.LOGO_LINK}" />
+                //     <img style="width: 296px;
+                //     aspect-ratio: auto 74 / 24;
+                //     height: 96px;" src="${process.env.LOGO_LINK}" />
 
-                    <div style="
-                        color: rgba(0,0,0,0.87);
-                        line-height: 32px;
-                        padding-bottom: 24px;
-                        text-align: center;
-                        word-break: break-word;
-                        font-size: 24px">
+                //     <div style="
+                //         color: rgba(0,0,0,0.87);
+                //         line-height: 32px;
+                //         padding-bottom: 24px;
+                //         text-align: center;
+                //         word-break: break-word;
+                //         font-size: 24px">
 
-                        Tìm lại mật khẩu tài khoản ${user.email}
-                    </div>
+                //         Tìm lại mật khẩu tài khoản ${user.email}
+                //     </div>
 
-                    <div style="border: thin solid #dadce0;
-                        color: rgba(0,0,0,0.87);
-                        line-height: 26px;
-                        text-align: center;
-                        word-break: break-word;
-                        font-size: 18px">
+                //     <div style="border: thin solid #dadce0;
+                //         color: rgba(0,0,0,0.87);
+                //         line-height: 26px;
+                //         text-align: center;
+                //         word-break: break-word;
+                //         font-size: 18px">
 
-                        <p><strong>Họ và tên: </strong> ${user.username}</p>
-                        <p><strong>Email: </strong> ${user.email}</p>
-                        <p><strong>Mật khẩu mới: </strong> ${new_password}</p>
-                    </div>
+                //         <p><strong>Họ và tên: </strong> ${user.username}</p>
+                //         <p><strong>Email: </strong> ${user.email}</p>
+                //         <p><strong>Mật khẩu mới: </strong> ${new_password}</p>
+                //     </div>
 
-                    <p>Mọi thắc mắc vui lòng liên hệ contact.ezticket@gmail.com</p>
-                    <p>Hotline: 0767916592 - SUD Technology</p>
-                </div>
-                `
+                //     <p>Mọi thắc mắc vui lòng liên hệ contact.ezticket@gmail.com</p>
+                //     <p>Hotline: 0767916592 - SUD Technology</p>
+                // </div>
+                // `
             };
 
             sendMail(options, (err, info) => {

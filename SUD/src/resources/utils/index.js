@@ -36,8 +36,12 @@ module.exports.catchAsync = (fn) => (req, res, next) => {
     );
 };
 
-module.exports.mailForm = (caption, content, logo_link) => {
-    `<div 
+module.exports.mailForm = (options) => {
+    let logo_link = options.logo_link || process.env.LOGO_LINK;
+    let caption = options.caption || '';
+    let content = options.content || '';
+    
+    return `<div 
         style="width: 35%; margin: 0 auto;
         text-align: center; font-family: 'Google Sans', Roboto, sans-serif;
         min-height: 300px; padding: 40px 20px;
