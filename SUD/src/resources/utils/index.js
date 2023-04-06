@@ -7,8 +7,8 @@ module.exports.sendMail = (options, callback) => {
     let nodeMailer = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: process.env.EMAIL_HOST,
-            pass: process.env.PASSWORD_HOST,
+            user: process.env.EMAIL_HOST2,
+            pass: process.env.PASSWORD_HOST2,
         },
     });
 

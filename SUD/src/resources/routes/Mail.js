@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { createCode, sendMail } = require('../utils');
 require('dotenv').config();
-const host = process.env.EMAIL_HOST;
+const host = process.env.EMAIL_HOST2;
 const path = require('path')
+
 router.get('/', (req, res, next) => {
     return res.json({result: 'MAIL API'});
 })
