@@ -1,0 +1,402 @@
+<div id='navbarheader'>
+    <div class='overlay-menu smooth-trans hidden'></div>
+    <nav class='navbar tkb-navbar navbar-default showsearch'>
+
+        <div data-opm='header' class='w-100 top-nav'>
+            <a class='tkb-brand navbar-brand' href='/' data-opm='logo'>
+                <img
+                    class='tkb-logo'
+                    src='https://static.tkbcdn.com/site/global/content-v2/img/ticketbox-logo-100.png?v1'
+                />
+            </a>
+
+            <ul class='hidden-xs nav-location' role='menu'>
+                <a class='nav-bar-item active' href='/' data-opm='event'>
+                    Sự kiện
+                </a>
+                <a class='nav-bar-item' href='/movies/' data-opm='movie'>
+                    Phim ảnh
+                </a>
+            </ul>
+            <div class='location-selector mobile-nav hidden-sm hidden-md hidden-lg'>
+                <div class='btn-group'>
+                    <button class='dropdown-toggle' type='button' data-toggle='dropdown' aria-expanded='false'>
+                        <span class='hidden-sm hidden-md hidden-lg'>Sự kiện</span>
+                        <span class='down-icon caret hidden-sm hidden-md hidden-lg'></span>
+                    </button>
+                    <ul class='dropdown-menu' role='menu'>
+                        <li class='nav-bar-li'>
+                            <a class='nav-bar-item-mobile' href='/' data-opm='event'>
+                                Sự kiện
+                            </a>
+                        </li>
+                        <li class='nav-bar-li'>
+                            <a class='nav-bar-item-mobile' href='/movies/' data-opm='movie'>
+                                Phim ảnh
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class='searcher'>
+                <span class='search-btn-m smooth-trans hidden color-white'><span
+                        class='ello-search smooth-trans'
+                    ></span></span>
+                <div class='left-border'>
+                    <div class='input-group rounded search-form smooth-trans hid'>
+                        <span
+                            class='search-btn input-group-addon bg-white smooth-trans'
+                            data-search-url='/events'
+                            data-search-click='true'
+                        ><span class='ello-search smooth-trans rotate-90'></span></span>
+                        <input
+                            data-autocomplete='search'
+                            type='text'
+                            class='form-control'
+                            placeholder='T&#236;m sự kiện'
+                            aria-describedby='sizing-addon1'
+                            tabindex='1'
+                        />
+                        <span
+                            class='btn-submit-m input-group-addon bg-white smooth-trans'
+                            data-search-url='/events'
+                            data-search-click='true'
+                        ><span class='ello-right smooth-trans'></span></span>
+                    </div>
+                </div>
+                <div class='search-res smooth-trans relative hid' data-search-result='true' tabindex='2'></div>
+            </div>
+            <div class='location-selector'>
+                <div data-opm='location' class='btn-group location-input'>
+                    <button class='dropdown-toggle' type='button' data-toggle='dropdown' aria-expanded='false'>
+                        <span class='location-icon ello-location-1'></span>
+                        <span class='location-name hidden-xs'>Chọn địa điểm</span>
+                        <span class='down-icon ello-angle-down hidden-xs'></span>
+                        <span class='down-icon caret hidden-sm hidden-md hidden-lg'></span>
+                    </button>
+                    <ul class='dropdown-menu' role='menu'>
+                        <li data-city='ho-chi-minh'>
+                            <a
+                                data-opm='hochiminh'
+                                class='location-select'
+                                style='height: unset !important; line-height: unset !important; padding: 10px 15px !important'
+                                href='/events?CityName=ho-chi-minh'
+                            >
+                                Hồ Ch&#237; Minh
+                            </a>
+                        </li>
+                        <li data-city='ha-noi'>
+                            <a
+                                data-opm='hanoi'
+                                class='location-select'
+                                style='height: unset !important; line-height: unset !important; padding: 10px 15px !important'
+                                href='/events?CityName=ha-noi'
+                            >
+                                H&#224; Nội
+                            </a>
+                        </li>
+                        <li data-city='other-locations'>
+                            <a
+                                data-opm='others'
+                                class='location-select'
+                                style='height: unset !important; line-height: unset !important; padding: 10px 15px !important'
+                                href='/events?CityName=other-locations'
+                            >
+                                C&#225;c địa điểm kh&#225;c
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id='top-nav-right' class='top-nav-right'>
+
+            </div>
+        </div>
+        <div data-opm='navbar' class='w-100 top-nav second-top-nav' style='background-color: white;'>
+            <ul
+                style='margin-left: 58px; margin-bottom: 0px; margin-top: 0px; line-height: 30px'
+                class='hidden-xs nav-location'
+                role='menu'
+            >
+                <li class='active-under'>
+                    <span class='nav-bar-item-under'>
+                        Sự kiện Hot
+                    </span>
+                </li>
+                <li>
+                    <span class='nav-bar-item-under'>
+                        |
+                    </span>
+                </li>
+                <li>
+                    <a data-opm='livemusic' class='nav-bar-item-under' href='/events?categories=8'>
+                        Nhạc sống
+                    </a>
+                </li>
+                <li>
+                    <a data-opm='artcult' class='nav-bar-item-under' href='/events?categories=9'>
+                        Văn h&#243;a - Nghệ thuật
+                    </a>
+                </li>
+                <li>
+                    <a data-opm='theater' class='nav-bar-item-under' href='/events?categories=10'>
+                        S&#226;n khấu
+                    </a>
+                </li>
+                <li>
+                    <a data-opm='nightlife' class='nav-bar-item-under' href='/events?categories=11'>
+                        Nightlife
+                    </a>
+                </li>
+                <li>
+                    <a data-opm='outdoor' class='nav-bar-item-under' href='/events?categories=12'>
+                        Ngo&#224;i trời
+                    </a>
+                </li>
+                <li>
+                    <a data-opm='conference' class='nav-bar-item-under' href='/events?categories=2'>
+                        Hội Thảo
+                    </a>
+                </li>
+                <li>
+                    <a data-opm='courses' class='nav-bar-item-under' href='/events?categories=4'>
+                        Kh&#243;a học
+                    </a>
+                </li>
+                <li>
+                    <a data-opm='exhibitions' class='nav-bar-item-under' href='/events?categories=3'>
+                        Triển l&#227;m
+                    </a>
+                </li>
+                <li>
+                    <a data-opm='meetups' class='nav-bar-item-under' href='/events?categories=5'>
+                        Hội họp
+                    </a>
+                </li>
+                <li>
+                    <a data-opm='sports' class='nav-bar-item-under' href='/events?categories=6'>
+                        Thể thao
+                    </a>
+                </li>
+                <li>
+                    <a data-opm='comm' class='nav-bar-item-under' href='/events?categories=7'>
+                        Cộng đồng
+                    </a>
+                </li>
+                <li>
+                    <a data-opm='attractions' class='nav-bar-item-under' href='/events?categories=13'>
+                        Vui chơi giải tr&#237;
+                    </a>
+                </li>
+            </ul>
+            <ul class='nav-location mobile-nav hidden-sm hidden-md hidden-lg nav-location-under-header' role='menu'>
+                <li style='width: 200px' class='active-under-m'>
+                    <span class='nav-bar-item-under-m'>
+                        Sự kiện Hot
+                    </span>
+                </li>
+                <li style='width: 200px'>
+                    <a class='nav-bar-item-under-m' href='/events?categories=8'>
+                        Nhạc sống
+                    </a>
+                </li>
+                <li style='width: 200px'>
+                    <span
+                        class='nav-bar-item-under-m'
+                        style='cursor: pointer; padding-right: 0px'
+                        onclick='showNavUnderHeader()'
+                    >
+                        Sự kiện kh&#225;c
+                    </span>
+                    <span class='down-icon caret'></span>
+                </li>
+            </ul>
+
+            <div
+                id='nav-under-header'
+                class='nav-location mobile-nav hidden-sm hidden-md hidden-lg nav-location-under-header-m'
+            >
+                <table width='100%' style='background: white'>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th width='10%'>
+                                <span style='cursor: pointer' onclick='hideNavUnderHeader()'>
+                                    <img src='https://static.tkbcdn.com/site/global/content-v2/img/x-icon.svg' />
+                                </span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>
+                            <span class='content-text nav-bar-item-under-m-detail'>Sự kiện Hot</span>
+                        </td>
+                        <td width='10%'>
+                        </td>
+                    </tr>
+                </table>
+                <table style='margin-top: 8px; background: white' width='100%'>
+                    <thead>
+                        <tr>
+                            <th>
+                                <span class='content-text' style='font-weight: bold; font-size: 14px'>C&#193;C LOẠI SỰ
+                                    KIỆN</span>
+                            </th>
+                            <th width='10%'>
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tr class=''>
+                        <td>
+                            <a
+                                data-opm='livemusic'
+                                class='content-text nav-bar-item-under-m-detail active'
+                                href='/events?categories=8'
+                            >Nhạc sống</a>
+                        </td>
+                        <td width='10%'>
+                            <span>
+                                <img src='https://static.tkbcdn.com/site/global/content-v2/img/check-icon.svg' />
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class='line-break'>
+                        <td>
+                            <a
+                                data-opm='artcult'
+                                class='content-text nav-bar-item-under-m-detail'
+                                href='/events?categories=9'
+                            >Văn h&#243;a - Nghệ thuật</a>
+                        </td>
+                        <td width='10%'>
+                        </td>
+                    </tr>
+                    <tr class='line-break'>
+                        <td>
+                            <a
+                                data-opm='theater'
+                                class='content-text nav-bar-item-under-m-detail'
+                                href='/events?categories=10'
+                            >S&#226;n khấu</a>
+                        </td>
+                        <td width='10%'>
+                        </td>
+                    </tr>
+                    <tr class='line-break'>
+                        <td>
+                            <a
+                                data-opm='nightlife'
+                                class='content-text nav-bar-item-under-m-detail'
+                                href='/events?categories=11'
+                            >Nightlife</a>
+                        </td>
+                        <td width='10%'>
+                        </td>
+                    </tr>
+                    <tr class='line-break'>
+                        <td>
+                            <a
+                                data-opm='outdoor'
+                                class='content-text nav-bar-item-under-m-detail'
+                                href='/events?categories=12'
+                            >Ngo&#224;i trời</a>
+                        </td>
+                        <td width='10%'>
+                        </td>
+                    </tr>
+                    <tr class='line-break'>
+                        <td>
+                            <a
+                                data-opm='conference'
+                                class='content-text nav-bar-item-under-m-detail'
+                                href='/events?categories=2'
+                            >Hội Thảo</a>
+                        </td>
+                        <td width='10%'>
+                        </td>
+                    </tr>
+                    <tr class='line-break'>
+                        <td>
+                            <a
+                                data-opm='courses'
+                                class='content-text nav-bar-item-under-m-detail'
+                                href='/events?categories=4'
+                            >Kh&#243;a học</a>
+                        </td>
+                        <td width='10%'>
+                        </td>
+                    </tr>
+                    <tr class='line-break'>
+                        <td>
+                            <a
+                                data-opm='exhibitions'
+                                class='content-text nav-bar-item-under-m-detail'
+                                href='/events?categories=3'
+                            >Triển l&#227;m</a>
+                        </td>
+                        <td width='10%'>
+                        </td>
+                    </tr>
+                    <tr class='line-break'>
+                        <td>
+                            <a
+                                data-opm='meetups'
+                                class='content-text nav-bar-item-under-m-detail'
+                                href='/events?categories=5'
+                            >Hội họp</a>
+                        </td>
+                        <td width='10%'>
+                        </td>
+                    </tr>
+                    <tr class='line-break'>
+                        <td>
+                            <a
+                                data-opm='sports'
+                                class='content-text nav-bar-item-under-m-detail'
+                                href='/events?categories=6'
+                            >Thể thao</a>
+                        </td>
+                        <td width='10%'>
+                        </td>
+                    </tr>
+                    <tr class='line-break'>
+                        <td>
+                            <a
+                                data-opm='comm'
+                                class='content-text nav-bar-item-under-m-detail'
+                                href='/events?categories=7'
+                            >Cộng đồng</a>
+                        </td>
+                        <td width='10%'>
+                        </td>
+                    </tr>
+                    <tr class='line-break'>
+                        <td>
+                            <a
+                                data-opm='attractions'
+                                class='content-text nav-bar-item-under-m-detail'
+                                href='/events?categories=13'
+                            >Vui chơi giải tr&#237;</a>
+                        </td>
+                        <td width='10%'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class='content-text nav-bar-item-under-m-detail'></span>
+                        </td>
+                        <td width='10%'>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </nav>
+    <script>
+        window.addEventListener('load', function () { $.ajax({ url: '/layout/PartialNavbarHeaderRight', type: 'get',
+        success: function (data) { $('#top-nav-right').html(data); bindingSignOut(); bindCreateEvent(); triggerMenu();
+        }, fail: function (jqXHR, textStatus, errorThrown) { showDialogAlert(_alerter, errorThrown, null); } }); })
+    </script>
+</div>

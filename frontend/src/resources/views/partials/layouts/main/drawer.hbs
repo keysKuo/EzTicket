@@ -1,0 +1,58 @@
+<div id='snap-drawers' class='snap-drawers visible-xs'>
+
+    <div class='snap-drawer snap-drawer-right'>
+        <div class='menu-containter relative w-100 h-100 table margin-bottom-0'>
+            <div class='menu-header table-row'>
+                <!-- if not logedin -->
+                <div class='sign-block padding-5 text-center'>
+                    <div class='signin-fb'>
+                        <a class='input-group fb-bg-color rounded' href='#'>
+                            <span class='input-group-addon'><span class='ello-facebook'></span></span>
+                            <span
+                                onclick="window.location = '/sign-in?ref=' + encodeURI(window.location.href)"
+                                class='form-control'
+                            >Đăng nhập bằng Facebook</span>
+                        </a>
+                    </div>
+                    <div class='sign-tkb'>
+                        <div class='table valign-middle uppercase font-085'>
+                            <div class='signin-tkb table-cell w-50'>
+                                <a onclick="window.location = '/sign-in?ref=' + encodeURI(window.location.href)">Đăng
+                                    nhập</a>
+                            </div>
+                            <div class='signup-tkb table-cell'>
+                                <a onclick="window.location = '/sign-up?ref=' + encodeURI(window.location.href)">Đăng
+                                    k&#253;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='table-row'>
+                <div class='menu-body h-100'>
+                    <ul class='padding-left-0'>
+                        <li>
+                            <a href='/events'>
+                                <span class='ello-th menu-icon'></span>
+                                <span class='menu-name'>Kh&#225;m ph&#225;</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/help-center' title=''>
+                                <span class='ello-help-1 menu-icon'></span>
+                                <span class='menu-name'>Trung t&#226;m hỗ trợ</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/contact'>
+                                <span class='ello-phone menu-icon'></span>
+                                <span class='menu-name'>Li&#234;n hệ hợp t&#225;c</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
