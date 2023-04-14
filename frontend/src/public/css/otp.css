@@ -1,0 +1,90 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .page {
+    font-family: ProximaNova, sans-serif;;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(245, 247, 252);
+  }
+  
+  .form {
+    width: 35%;
+    padding: 16px 32px;
+    min-height: 400px;
+    position: relative;
+    background-color: white;
+    max-width: 360px;
+    margin: 24px auto auto;
+    border: 1px solid rgb(230, 235, 245);        
+    box-sizing: border-box;
+    border-radius: 8px;
+  }
+  
+  .form .sp-phone { 
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: bold;
+      color: rgb(42, 45, 52);
+  }
+  
+  .otp-box {
+    margin-top: 48px;
+      display: flex;
+      flex-direction: row;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+  }
+  
+  .otp-box input {
+    text-align: center;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 24px;
+      width: 48px;
+      height: 48px;
+      margin-right: 4px;
+      border-radius: 4px;
+      outline: none;
+      border: 1px solid transparent;
+      background-color: rgb(245, 247, 252);
+      caret-color: rgb(45, 194, 117);
+  }
+  
+  .otp-alert {
+    padding: 4px 14px;
+    margin-top: 5px;
+      display: block;
+      height: 52px;
+      font-size: 12px;
+      line-height: 16px;
+      color: rgb(238, 79, 20);
+      text-align: center;
+  }
+  
+  .otp-expiry {
+    margin-top: 8px;
+    margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 24px;
+      color: rgb(175, 184, 201);
+  }
+  
+  .form-option button {
+    background-color: rgb(230, 235, 245);
+    border-color: transparent;
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    min-width: 88px;
+    padding: 0px 24px;
+    color: white;
+  }

@@ -101,7 +101,7 @@ router.post('/recover-password', async (req, res, next) => {
     const { email } = req.body;
     let user = await API_USER.readOne({email});
 
-    if (!user) {
+    if (!user) {    
         return res.status(300).json({success: false, msg: 'Tài khoản này không tồn tại'});
     }
 

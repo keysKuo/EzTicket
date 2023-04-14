@@ -4,8 +4,12 @@ const PORT = process.env.CLIENT_PORT || 8080;
 const fetch = require('node-fetch');
 const app = require('./config/server').init();
 const API_URL = process.env.API_URL;
+const router = require('./resources/routes');
 // router(app);
 
+app.get('/', (req, res, next) => {
+    return res.send(200);
+})
 // app.get('/', async (req, res, next) => {
 //     const { id } = req.query;
 //     await fetch(API_URL + 'users/getUser/' + id, {
