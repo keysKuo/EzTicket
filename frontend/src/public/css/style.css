@@ -689,46 +689,54 @@
     font-size: 24px;
     font-weight: 700;
 }
-
+@media only screen and (min-width: 768px) {
+    .event-name .calendar-image {
+        float: left;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .event-name .event-name-content {
+        margin-left: 100px;
+    }
+}
+.event-name-content h1.title {
+    line-height: 1.3em;
+}
+.banner .event-name h1 {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: 700;
+}
+@media only screen and (min-width: 768px) {
+    .event-name .title {
+        text-align: left;
+    }
+}
 .ticket-detail-container .event-info .event-name .event-name-content .button-gr {
+    margin: 20px auto 15px;
 }
-
-.ticket-detail-container .event-info .event-name .event-name-content .button-gr .col-xs-6 {
+@media only screen and (min-width: 768px) {
+    .banner .button-gr {
+        margin-top: 0;
+    }
 }
-
-.ticket-detail-container .event-info .event-name .event-name-content .button-gr .col-xs-6 .btn-first {
+@media only screen and (min-width: 768px) {
+    .banner .button-gr a {
+        min-width: auto;
+    }
 }
-
-.ticket-detail-container
-    .event-info
-    .event-name
-    .event-name-content
-    .button-gr
-    .col-xs-6
-    .btn-first
-    .ello-facebook-squared {
+.border-grey.btn-first {
+    border-right: none;
+    border-radius: 2px 0 0 2px;
 }
-
-.ticket-detail-container .event-info .event-name .event-name-content .button-gr .dropdown {
-}
-
-.ticket-detail-container .event-info .event-name .event-name-content .button-gr .dropdown .follow-event {
-}
-
-.ticket-detail-container
-    .event-info
-    .event-name
-    .event-name-content
-    .button-gr
-    .dropdown
-    .follow-event
-    .ello-heart-empty {
-}
-
-.ticket-detail-container .event-info .event-name .event-name-content .button-gr .dropdown .followed-event {
-}
-
-.ticket-detail-container .event-info .event-name .event-name-content .button-gr .dropdown .followed-event .ello-heart {
+@media only screen and (min-width: 768px) {
+    .event-name .event-price,
+    .event-name .event-time,
+    .event-name .event-venue {
+        border: none;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
 }
 
 .ticket-detail-container .event-info .event-name .event-name-content .button-gr .clearfix {
@@ -795,6 +803,9 @@
 }
 
 .ticket-detail-container .row .event-info .event-name .event-name-content .cnt-left .event-price .text-indent {
+    padding-left: 2em;
+    text-indent: -1.5em;
+    margin-bottom: 0;
 }
 
 .ticket-detail-container
@@ -826,21 +837,13 @@
 .ticket-detail-container .row .event-info .event-name .button-gr {
 }
 
-.ticket-detail-container .row .event-info .event-name .button-gr .col-sm-6 {
+.ticket-detail-container .row .event-info .event-name .button-gr {
 }
 
-.ticket-detail-container .row .event-info .event-name .button-gr .col-sm-6 .btn-first {
+.ticket-detail-container .row .event-info .event-name .button-gr .btn-first {
 }
 
-.ticket-detail-container
-    .row
-    .event-info
-    .event-name
-    .button-gr
-    .col-sm-12
-    .col-sm-6
-    .btn-first
-    .ello-facebook-squared {
+.ticket-detail-container .row .event-info .event-name .button-gr .col-sm-12 .btn-first .ello-facebook-squared {
 }
 
 .ticket-detail-container .row .event-info .event-name .button-gr .dropdown {

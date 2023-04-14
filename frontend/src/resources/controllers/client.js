@@ -8,8 +8,8 @@ const clientController = {
             layout: 'secondary.hbs',
         });
     }),
-    ticketDetailPage: catchAsync(async (req, res) => {
-        res.render('client/ticketDetail', {
+    eventDetailPage: catchAsync(async (req, res) => {
+        res.render('client/eventDetail', {
             title: 'Chi tiết vé xem phim',
         });
     }),

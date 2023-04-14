@@ -1,0 +1,337 @@
+
+<footer class="footer fwrapper">
+    <style>
+        footer .modal-dialog {
+            z-index: 3000000001 !important;
+        }
+
+        .d-none {
+            display: none !important;
+        }
+
+        .ladda-spinner {
+            display: none !important;
+        }
+
+        .loader-submit-email {
+            width: 20px;
+            height: 20px;
+            border: 5px dotted #FFF;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            animation: rotation 2s linear infinite;
+        }
+
+        .dl-er-message {
+            display: none !important;
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (min-width: 768px) {
+            #popup-result-submit-email .modal-dialog {
+                max-width: 300px;
+            }
+        }
+    </style>
+    <style>
+        .fbody-head {
+            color: #C9C9C9;
+        }
+        .hotline {
+            color: #2DC275;
+        }
+    </style>
+    <section class="ft-body clearfix" style="background: #393F4E">
+        <div class="col-lg-12">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 fbody-block">
+                        <!-- <br> -->
+                        <div class="fbody-head">Hotline</div>
+                        <div class="fbody-content">
+                            <ul class="our-links">
+                                <li class="ft-link-desc">
+                                    <span class="ello-phone"></span>
+                                    <a class="ft-hotline" href="tel:+8419006408">Thứ 2 - Thứ 6 (8:30 - 18:30)</a>
+                                    <br />
+                                    <strong style="font-size: 16px;" class="tkb-color hotline">1900.6408</strong>
+                                    <br />
+                                </li>
+                            </ul>
+                        </div>
+                        <br />
+                        <div class="fbody-head">Email</div>
+                        <div class="ft-link-desc"><span class="ello-mail-alt"></span> support@ticketbox.vn</div>
+                        <br />
+                        <div class="fbody-head">Văn ph&#242;ng</div>
+                        <div class="fbody-content">
+                            <div class="ft-link-desc"><span class="ello-location"></span>52 &#218;t Tịch, Phường 4, Quận T&#226;n B&#236;nh, TP. Hồ Ch&#237; Minh</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 fbody-block">
+                        <div class="fbody-head">D&#224;nh cho Ban Tổ chức</div>
+                        <div class="ft-link-desc">
+                            <a class="light" href="/organizer-about">Hợp t&#225;c với ch&#250;ng t&#244;i</a>
+                        </div>
+                        <br />
+                        <div class="fbody-head">Về c&#244;ng ty ch&#250;ng t&#244;i</div>
+                        <div class="fbody-content">
+                            <ul class="our-links our-links-custom">
+                                <li>
+                                    <a class="light ft-link-desc" href="/about-us" target="_blank" title="Th&#244;ng tin về TicketBox">Th&#244;ng tin về TicketBox</a>
+                                </li>
+                                <li>
+                                    <a class="light ft-link-desc" href="/term-and-policy" target="_blank" title="Terms & Conditions">Điều khoản sử dụng</a>
+                                </li>
+                                <li>
+                                    <a class="light ft-link-desc" href="/operational-regulations" target="_blank" title="Quy chế hoạt động s&#224;n TMĐT">Quy chế hoạt động s&#224;n TMĐT</a>
+                                </li>
+                                <li>
+                                    <a class="light ft-link-desc" href="/dispute-settlement-policy" target="_blank" title="Cơ chế giải quyết tranh chấp/ khiếu nại">Cơ chế giải quyết tranh chấp/ khiếu nại</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="visible-sm-block" style="clear:both"></div>
+                    <div class="col-sm-6 col-md-4 fbody-block">
+                        <div class="loader"></div>
+                        <div class="fbody-head">D&#224;nh cho Kh&#225;ch h&#224;ng</div>
+                        <div class="ft-link-desc">
+                            <a href="/booking-instruction">Hướng dẫn mua v&#233;</a>
+                        </div>
+                        <br>
+                        <div class="fbody-head">Trung t&#226;m hỗ trợ</div>
+                        <div class="ft-link-desc">
+                            <a href="/help-center">C&#226;u hỏi thường gặp</a>
+                        </div>
+                        <br>
+                        <div class="fbody-head">Đăng k&#253; nhận email về c&#225;c sự kiện hot nhất</div>
+                        <form name="frmSubscribe" class="fbody-content" onsubmit="return false;">
+                            <div data-err="alerter" class="dl-er-message hide">
+                                <div class="alert alert-info" role="alert">
+                                    <span data-err="message">Start time must be less than end time</span>
+                                </div>
+                            </div>
+                            <div class="btn-subscribe rounded input-group overflow-hidden">
+                                <div class="i-email input-group-addon"><span class="ello-mail-alt" style="color: #2DC275"></span></div>
+                                <div class="relative form-control subscribe-input">
+                                    <input class="color-9" type="text" name="email" placeholder="Email của bạn" tabindex="200">
+                                </div>
+                                <div class="i-go submit-email input-group-addon btn-submit-subscriber" tabindex="201">
+                                    <button class="ello-paper-plane"></button>
+                                    <span class="loader-submit-email d-none"></span>
+                                </div>
+                            </div>
+                            <div class="error-email" style="margin-top: 3px; font-size: 11px; color: #eb1213;"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 100%;height: 1px;background-color: rgba(255,255,255,0.05);margin-bottom: 30px;"></div>
+            <div class="container">
+                <div class="row" style="margin-bottom: -30px;">
+                    <div class="col-sm-6 col-md-4 fbody-block">
+                        <div class="fbody-head">Ứng dụng Ticketbox</div>
+                        <div class="clearfix" style="margin: 0px -5px;"></div>
+                        <div style="margin-top: 12px;">
+                            <a href="https://play.google.com/store/apps/details?id=ticketbox.event.user&referrer=utm_source%3Dtkbvn-website%26utm_medium%3Dreferral%26utm_campaign%3Dapp-landing-page" target="_blank">
+                                <img src="https://static.tkbcdn.com/site/global/content-v2/img/tkbCHPlay.svg" />
+                            </a>
+                        </div>
+                        <div style="margin-top: 12px;">
+                            <a href="https://click.google-analytics.com/redirect?tid=UA-44294974-11&url=https%3A%2F%2Fitunes.apple.com%2Fapp%2Fapple-store%2Fid1041900498%3Fpt%3D117770847%26ct%3Dtkbvn-web-app-landing-page%26mt%3D8&aid=1041900498&idfa=%{idfa}&cs=tkbvn-website&cm=referral&cn=app-landing-page" target="_blank">
+                                <img src="https://static.tkbcdn.com/site/global/content-v2/img/tkbAppStore.svg" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 fbody-block">
+                        <div class="fbody-head">Ứng dụng check-in cho Ban Tổ chức</div>
+                        <div class="clearfix" style="margin: 0px -5px;"></div>
+                        <div style="margin-top: 12px;">
+                            <a href="/app/mobile-event-manager" target="_blank">
+                                <img src="https://static.tkbcdn.com/site/global/content-v2/img/checkinApp.svg" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 fbody-block">
+                        <div class="fbody-head">Theo d&#245;i ch&#250;ng t&#244;i</div>
+                        <div class="fbody-content">
+                            <div class="social-links w-100" style="margin-top: 12px">
+                                <a href="//www.facebook.com/ticketbox.vn" target="_blank" title="ticketbox.vn facebook" style="padding-right: 16px">
+                                    <img src="https://static.tkbcdn.com/site/global/content-v2/img/facebook.svg" />
+                                </a>
+                                <a href="https://www.instagram.com/ticketbox_vn" target="_blank" title="ticketbox.vn instagram">
+                                    <img src="https://static.tkbcdn.com/site/global/content-v2/img/instagram.svg" />
+                                </a>
+                                <!--<a class="social-link stwi" href="//twitter.com/TicketboxVn" target="_blank" title="ticketbox.vn twitter">
+                                </a>
+                                <a class="social-link syou" href="//www.youtube.com/channel/UCke7Kezs4s8pw-17jPiQOOQ" target="_blank" title="ticketbox.vn youtube">
+                                </a>
+                                <a class="social-link szalo visible-xs" href="//zaloapp.com/qr/p/jbq9qdsc65h6" target="_blank" title="ticketbox.vn zalo">
+                                </a>
+                                <a class="social-link sblo" href="http://blog.ticketbox.vn/" target="_blank" title="ticketbox.vn blog">
+                                </a> !-->
+                            </div>
+                            <!-- languages -->
+                            <div class="ft-langs middle" style="margin-top: 15px">
+                                <div class="fbody-head">Ng&#244;n ngữ</div>
+                                    <a data-select-language href="/lang/vi" class="lang vi rounded"></a>
+                                    <a data-select-language href="/lang/en" class="lang en rounded"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 fbody-block">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ft-footer clearfix" style="background: #1D1D1D">
+        <div class="container" style="padding: 0">
+            <div class="col-sm-5 ftft-block ftft-tkb">
+                <div class="table valign-top margin-bottom-0">
+                    <div class="ft-img">
+                        <img src="https://static.tkbcdn.com/site/global/content-v2/img/ticketbox-logo-100.png?v2" />
+                    </div>
+                    <div class="ftft-left">
+                        Hệ thống quản l&#253; v&#224; ph&#226;n phối v&#233; sự kiện h&#224;ng đầu ch&#226;u &#193;. <br /> TicketBox Co. Ltd. &#169; 2016
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-7 ftft-block ftft-license">
+                <div class="table valign-top margin-bottom-0">
+                    
+                    <div class="ftft-right hidden-xs float-none" style="text-align: left">
+                        C&#244;ng ty TNHH Ticketbox
+                        <br />
+                        Đại diện theo ph&#225;p luật: Trần Ngọc Th&#225;i Sơn
+                        <br />
+                        Địa chỉ: Tầng 3, Th&#225;p A, T&#242;a nh&#224; Viettel, 285 C&#225;ch Mạng Th&#225;ng T&#225;m, Phường 12, Quận 10, TP. Hồ Ch&#237; Minh
+                        <br />
+                        Hotline: 1900.6408 - Email: support@ticketbox.vn
+                        <br />
+                        Giấy chứng nhận đăng k&#253; doanh nghiệp số: 0313605444, cấp lần đầu ng&#224;y 07/01/2016 bởi Sở Kế Hoạch v&#224; Đầu Tư TP. Hồ Ch&#237; Minh
+                    </div>
+                    <div class="ftft-left ftft-certification float-none">
+                        <a href="http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=23188" target="_blank">
+                            <img style="height: 40px;" alt="ticketbox" title="ticketbox" src="https://static.tkbcdn.com/site/global/content-v2/img/license1.jpg" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="popup-result-submit-email" class="modal fade in modal-loading" role="dialog" style="color: #000000">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title text-center modal-email-subscription-title"></h2>
+                </div>
+                <div class="modal-body text-center modal-email-subscription-description" style="font-size: 14px">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn tkb-bg-color btn-rounded center-block ladda-button btn-close" data-style="zoom-out">
+                        <span class="ladda-label ng-binding">OK</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        if (window.location.pathname !== '/events') {
+            // var head = document.getElementsByTagName('head')[0];
+            // var script = document.createElement('script');
+            // script.type = 'text/javascript';
+            // script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js';
+            // head.appendChild(script);
+
+            setTimeout(() => {
+                const errorEmail = {
+                    empty: {
+                        vi: 'Vui lòng nhập email',
+                        en: 'Please enter your email',
+                    },
+                    incorrectFormat: {
+                        vi: 'Vui lòng nhập đúng định dạng email',
+                        en: 'Please enter the correct Email format',
+                    },
+                };
+
+                const contentModalResultEmail = {
+                    titleSuccess: {
+                        vi: 'Đăng ký nhận Email',
+                        en: 'Email Subscription',
+                    },
+                    descriptionSuccess: {
+                        vi: 'Chúc mừng ! Bạn đã đăng ký nhận email từ Ticketbox thành công',
+                        en: 'Congratulation! you have successfully subscribed to Ticketbox',
+                    },
+                    titleFailed: {
+                        vi: 'Có lỗi xảy ra',
+                        en: 'An error occured',
+                    },
+                    descriptionFailed: {
+                        vi: 'Vui lòng thử lại',
+                        en: 'Please try Again',
+                    },
+                };
+
+                function validateEmail(email) {
+                    var filter = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+                    return String(email).toLowerCase().match(filter);
+                };
+                $('.submit-email').on('click', function () {
+                    const valEmail = $('.subscribe-input input').val();
+                    const lang = $('.dropdown-toggle .lang').hasClass('vi') ? 'vi' : 'en';
+                    if (valEmail && !validateEmail(valEmail)) {
+                        $('.error-email').html(errorEmail.incorrectFormat[lang]);
+                    } else if (!valEmail) {
+                        $('.error-email').html(errorEmail.empty[lang]);
+                    } else {
+                        $('.error-email').html('');
+                        $('button.ello-paper-plane').addClass('d-none');
+                        $('.loader-submit-email').removeClass('d-none');
+                        $.ajax(window.location.origin + '/api/v2/user/subcrible-mail', {
+                            type: 'POST',
+                            data: {
+                                email: valEmail,
+                            },
+                            success: function () {
+                                $('.modal-email-subscription-title').html(contentModalResultEmail.titleSuccess[lang]);
+                                $('.modal-email-subscription-description').html(contentModalResultEmail.descriptionSuccess[lang]);
+                                $('#popup-result-submit-email').modal('show');
+                            },
+                            error: function () {
+                                $('.modal-email-subscription-title').html(contentModalResultEmail.titleFailed[lang]);
+                                $('.modal-email-subscription-description').html(contentModalResultEmail.descriptionFailed[lang]);
+                                $('#popup-result-submit-email').modal('show');
+                            },
+                            complete: function () {
+                                $('button.ello-paper-plane').removeClass('d-none');
+                                $('.loader-submit-email').addClass('d-none');
+                                $('.subscribe-input input').val('');
+                            },
+                        });
+                    }
+                });
+
+                $('body').on('click', '#popup-result-submit-email .btn-close', function () {
+                    $('#popup-result-submit-email').modal('hide');
+                });
+            }, 2000);
+        }
+    </script>
+</footer>   

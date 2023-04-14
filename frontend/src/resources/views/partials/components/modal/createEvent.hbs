@@ -1,0 +1,123 @@
+<!-- create event -->
+<style type='text/css'>
+    /* category selector */ .create-select-kind { padding: 5px 0 0 0; } .create-select-kind .select2-selection__rendered
+    { padding: 0 !important; } .create-select-kind .select2-search__field { width: auto !important; } .select2-container
+    .select2-search--inline { float: none; } .create-e-modal .select2-container .select2-selection__choice__remove {
+    display: inline; } @media (min-width: 768px) { /* create event */ .create-e-modal .modal-content { max-width: 520px;
+    margin: 0 auto; } .create-e { padding: 50px 0; background-color: #fff; } .create-e-intro { font-size: 27px;
+    line-height: 1.2em; margin-bottom: 30px; } }
+</style>
+<form
+    modal='create-e-modal'
+    id='createEventPopup'
+    class='mover-actor create-e-modal modal fade dl-one hidden-xs'
+    role='dialog'
+>
+    <div class='modal-dialog'>
+        <!-- Modal content-->
+        <div class='modal-content rounded color-6'>
+            <button type='button' class='close dl-close hidden-xs' data-dismiss='modal'><span
+                    class='ello-cancel-2'
+                ></span></button>
+            <div class='modal-header dl-one-header'>
+                <div class='modal-hl'>
+                    <h4 class='modal-title font-bold'>Tạo sự kiện</h4>
+                </div>
+            </div>
+            <div class='modal-body'>
+                <div data-err='alerter' class='dl-er-message hide'>
+                    <div class='alert alert-warning' role='alert'>
+                        <span data-err='message'>Opps!</span>
+                    </div>
+                    <div class='padding-5 clearfix'></div>
+                </div>
+                <div class='cs1-inp-group dl-input-groups mover-up-actions'>
+                    <div class='dl-input-row input-group mover-up-el'>
+                        <span class='input-group-addon'><span class='ello-pencil color-c'></span></span>
+                        <input
+                            required='true'
+                            name='eventname'
+                            type='text'
+                            class='form-control padding-left-0'
+                            placeholder='T&#234;n sự kiện'
+                            tabindex='111'
+                        />
+                    </div>
+                    <div class='dl-input-row input-group mover-up-el'>
+                        <span class='input-group-addon'><span class='ello-target color-c'></span></span>
+                        <input
+                            required='true'
+                            name='venuename'
+                            type='text'
+                            class='form-control padding-left-0'
+                            placeholder='T&#234;n địa điểm'
+                            tabindex='112'
+                        />
+                    </div>
+                    <div class='dl-input-row input-group mover-up-el'>
+                        <span class='input-group-addon'><span class='ello-map color-c'></span></span>
+                        <input
+                            required='true'
+                            name='address'
+                            type='text'
+                            class='form-control padding-left-0'
+                            placeholder='Địa chỉ'
+                            tabindex='113'
+                        />
+                    </div>
+
+                    <div class='dl-input-row input-group mover-up-el'>
+                        <span class='input-group-addon'><span class='ello-th color-c'></span></span>
+                        <div class='form-control create-select-kind'>
+                            <span class='after-icon ello-down-dir'></span>
+                            <select
+                                data-placeholder='Thể loại sự kiện'
+                                name='kind'
+                                data-multiple-select='create-e'
+                                multiple='multiple'
+                                required='true'
+                                class='required multiple-select form-control cs1-inp-dropdown w-100'
+                                tabindex='116'
+                            >
+
+                                <optgroup label='Giải tr&#237;'>
+                                    <option value='8'>Nhạc sống</option>
+                                    <option value='9'>Văn h&#243;a nghệ thuật</option>
+                                    <option value='10'>S&#226;n khấu</option>
+                                    <option value='11'>Nightlife</option>
+                                    <option value='12'>Ngo&#224;i trời</option>
+                                    <option value='17'>OnlineEvent</option>
+                                </optgroup>
+                                <optgroup label='Học hỏi'>
+                                    <option value='2'>Hội thảo</option>
+                                    <option value='4'>Kh&#243;a học</option>
+                                </optgroup>
+                                <optgroup label='C&#225;c lĩnh vực kh&#225;c'>
+                                    <option value='3'>Triển l&#227;m</option>
+                                    <option value='5'>Hội họp</option>
+                                    <option value='6'>Thể thao</option>
+                                    <option value='7'>Cộng đồng</option>
+                                    <option value='13'>Vui chơi giải tr&#237;</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='modal-footer padding-top-0'>
+                <button
+                    data-loading='ladda'
+                    data-style='zoom-out'
+                    type='submit'
+                    class='ladda-button btn tkb-bg-color rounded w-100 font-bold'
+                    tabindex='117'
+                >
+                    <span class='ladda-label'>Tạo sự kiện <span class='ello-right-2'></span></span>
+                </button>
+            </div>
+        </div>
+        <div class='modal-under-footer text-center'>
+            <a class='underline padding-20 visible-xs color-white' data-dismiss='modal'>Đ&#243;ng</a>
+        </div>
+    </div>
+</form>
