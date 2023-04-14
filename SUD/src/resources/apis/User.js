@@ -6,7 +6,7 @@ const api = {
     },
 
     update: async (id, data) => {
-        return await User.findByIdAndUpdate(id, { $set: data });
+        return await User.findByIdAndUpdate(id, { $set: data }).lean();
     },
 
     delete: async (id) => {

@@ -45,6 +45,24 @@ router.post('/login', async (req, res, next) => {
     return res.status(200).json({success: true, data: user, msg: 'Đăng nhập thành công'});
 })
 
+router.put('/update/:id', async (req, res, next) => {
+    const { id } = req.params;
+    
+    const { username, phone, address } = req.body;
+
+    await API_USER.update(id, {...req.body})
+        .then(user => {
+            if(user) {
+                return res.status(200).json({success: true, data: user, msg: 'Chỉnh sửa tài khoản thành công'});
+            }
+
+            return res.status(300).json({success: false, msg: 'Chỉnh sửa tài khoản thất bại'});
+        })
+        .catch(err => {
+            return res.status(500).json({success: false, msg: err});
+        })
+} )
+
 router.post('/generate-OTP', async (req, res, next) => {
     const { code, UserEmail } = req.body;
     
