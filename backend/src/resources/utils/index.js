@@ -8,7 +8,7 @@ module.exports.sendMail = (options, callback) => {
         service: 'Gmail',
         auth: {
             user: process.env.EMAIL_HOST,
-            pass: process.env.PASSWORD_HOST,     
+            pass: process.env.PASSWORD_HOST,
         }
     })
 
@@ -16,7 +16,7 @@ module.exports.sendMail = (options, callback) => {
 }
 
 module.exports.createSlug = (str) => {
-    return slugify(str+'', {
+    return slugify(str + '', {
         replacement: '-',
         remove: false,
         lower: true,
@@ -27,7 +27,7 @@ module.exports.createSlug = (str) => {
 }
 
 module.exports.createCode = (length) => {
-    return uuid().substring(0,length);
+    return uuid().substring(0, length);
 }
 
 module.exports.catchAsync = (fn) => (req, res, next) => {
