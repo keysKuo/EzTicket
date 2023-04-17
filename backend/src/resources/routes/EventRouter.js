@@ -59,7 +59,6 @@ router.get('/find/:id', async (req, res, next) => {
         return res.status(500).json({ success: false, message: error })
     }
 })
-
 // [PUT]
 router.put('/update/:id', async (req, res, next) => {
     const { id } = req.params

@@ -22,3 +22,10 @@ module.exports.eventStatusChangeCheck = (eventStatus, status) => {
     }
     return { success: false, message: `Status "${eventStatus}" can not be change to "${status}"` }
 }
+module.exports.ticketStatusChangeCheck = (status) => {
+    let validStatusList = ["available", "pending", "soldout", "unavailable"]
+    if (!validStatusList.includes(status)) {
+        return { success: false, message: `Status ${status} is not valid!` }
+    }
+    return { success: true }
+}

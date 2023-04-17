@@ -1,7 +1,7 @@
 const { Ticket } = require('../models');
 
 const api = {
-    create: async(payloads) => {
+    create: async (payloads) => {
         return await new Ticket(payloads).save();
     },
 
@@ -12,7 +12,7 @@ const api = {
     delete: async (id) => {
         return await Ticket.findByIdAndDelete(id);
     },
-    
+
     readOne: async (payloads, options) => {
         let select = (options) ? options.select : {};
         return await Ticket.findOne(payloads)
@@ -29,7 +29,7 @@ const api = {
             .skip(skip)
             .limit(limit)
             .sort({ createdAt: -1 })
-            .populate({ path: 'event'})
+            .populate({ path: 'event' })
             .lean();
     }
 }
