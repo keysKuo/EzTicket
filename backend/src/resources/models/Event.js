@@ -11,7 +11,7 @@ const Event = new Schema(
         address: { type: String, required: true },
         introduce: { type: String },
         banner: { type: String, required: true },
-        status: { type: String }, // created -> pending (-> cancel) -> posted -> ended
+        status: { type: String, default: "ready" }, // ready -> pending -> running -> ended
         slug: { type: String, required: true },
     },
     {
