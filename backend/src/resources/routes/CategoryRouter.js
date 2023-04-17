@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 // 
 const utils_API = require('../utils/index');
-const category_API = require('../utils/category-functions');
 const general_API = require('../utils/general-functions');
+const { API_Category, API_Event, API_Ticket } = require('../apis');
 // 
 const CategoryModel = require('../models/Category');
 
@@ -12,24 +12,16 @@ const CategoryModel = require('../models/Category');
 router.post('/create', async (req, res, next) => {
     const { name } = req.body
     try {
-        let category_slug = utils_API.createSlug(name)
-        let searchValue = { slug: category_slug }
-        let categoryExist = await category_API.findCategory(searchValue)
-        if (categoryExist.success == true) {
-            return res.status(500).json({ success: false, message: `Category "${name}" existed!` })
+        let categorySlug = utils_API.createSlug(name)
+        let searchValue = { slug: categorySlug }
+        let categoryExist = await CategoryModel.findOne(searchValue)
+        if (categoryExist) {
+            return res.status(300).json({ success: false, message: `Category ${name} existed!` })
         }
-        if (categoryExist.code == 0) {
-            return res.status(500).json(categoryExist)
-        }
-        if (categoryExist.code == 1) {
-            let newCategory = new CategoryModel({
-                name: general_API.toUppercaseFirstLetter(name),
-                slug: category_slug
-            })
-            let result = await newCategory.save()
-            if (result) {
-                return res.status(200).json({ success: true, message: "Created!", data: result })
-            }
+        let payloads = { name: general_API.toUppercaseFirstLetter(name), slug: categorySlug }
+        let result = await API_Category.create(payloads)
+        if (result) {
+            return res.status(200).json({ success: true, message: "Created!", data: result })
         }
     } catch (error) {
         return res.status(500).json({ success: false, message: error })
@@ -37,99 +29,96 @@ router.post('/create', async (req, res, next) => {
 })
 // [GET] Get all categories -> /api/categories/all
 router.get('/all', async (req, res, next) => {
-    let searchValue = {}
-    let categories = await category_API.findCategory(searchValue)
-    if (categories.success == true) {
-        return res.status(200).json(categories)
-    }
-    if (categories.code == 1) {
-        return res.status(300).json(categories)
-    }
-    if (categories.code == 0) {
-        return res.status(500).json(categories)
+    try {
+        let searchValue = {}
+        let categories = await API_Category.readMany(searchValue)
+        if (categories.length == 0) {
+            return res.status(300).json({ success: false, message: "No Category Data!" })
+        }
+        return res.status(200).json({ success: true, message: "Data Found!", data: categories })
+    } catch (error) {
+        return res.status(500).json({ success: false, message: error })
     }
 })
 // [GET] Get category by _id
 router.get('/find/:id', async (req, res, next) => {
     const { id } = req.params
-    let searchValue = { _id: id }
-    let categoryExist = await category_API.findCategory(searchValue)
-    if (categoryExist.success == true) {
-        return res.status(200).json(categoryExist)
-    }
-    if (categoryExist.code == 1) {
-        return res.status(300).json(categoryExist)
-    }
-    if (categoryExist.code == 0) {
-        return res.status(500).json(categoryExist)
+    try {
+        let searchValue = { _id: id }
+        let categoryExist = await API_Category.readOne(searchValue)
+        if (!categoryExist) {
+            return res.status(300).json({ success: false, message: "Category does not exist!" })
+        }
+        return res.status(200).json({ success: true, message: "Data Found!", data: categoryExist })
+    } catch (error) {
+        return res.status(500).json({ success: false, message: error })
     }
 })
 // [GET] Get category by name (slug)
 router.get('/find-by-name/:name', async (req, res, next) => {
     const { name } = req.params
-    let slug = utils_API.createSlug(name)
-    let searchValue = {
-        slug: {
-            $regex: slug,
-            $options: 'i'
+    try {
+        let categorySlug = utils_API.createSlug(name)
+        let searchValue = {
+            slug: {
+                $regex: categorySlug,
+                $options: 'i'
+            }
         }
-    }
-    let categoryExist = await category_API.findCategory(searchValue)
-    if (categoryExist.success == true) {
-        return res.status(200).json(categoryExist)
-    }
-    if (categoryExist.code == 1) {
-        return res.status(300).json(categoryExist)
-    }
-    if (categoryExist.code == 0) {
-        return res.status(500).json(categoryExist)
+        let categories = await API_Category.readMany(searchValue)
+        if (categories.length == 0) {
+            return res.status(300).json({ success: false, message: "No Category Data!" })
+        }
+        return res.status(200).json({ success: true, message: "Data Found!", data: categories })
+    } catch (error) {
+        return res.status(500).json({ success: false, message: error })
     }
 })
 // [PUT] Update category by _id
 router.put('/update/:id', async (req, res, next) => {
     const { id } = req.params
     const { name } = req.body
-    let searchValue = { _id: id }
-    let categoryExist = await category_API.findCategory(searchValue)
-    if (categoryExist.success == true) {
-        try {
-            let category = categoryExist.data[0]
-            let newCategorySlug = utils_API.createSlug(name)
-            category.name = general_API.toUppercaseFirstLetter(name)
-            category.slug = newCategorySlug
-            let result = await category.save()
-            if (result) {
-                return res.status(200).json({ success: true, message: "Updated!", data: result })
+    try {
+        let searchValue = { _id: id }
+        let options = {
+            select: {
+                _id: 1
             }
-        } catch (error) {
-            return res.status(500).json({ success: false, message: error })
         }
-    }
-    if (categoryExist.code == 1) {
-        return res.status(300).json(categoryExist)
-    }
-    if (categoryExist.code == 0) {
-        return res.status(500).json(categoryExist)
+        let categoryExist = await API_Category.readOne(searchValue, options)
+        if (!categoryExist) {
+            return res.status(300).json({ success: false, message: "No Data!" })
+        }
+        let categorySlug = utils_API.createSlug(name)
+        let payloads = { name: name, slug: categorySlug }
+        let result = await API_Category.update(id, payloads)
+        if (result) {
+            return res.status(200).json({ success: true, message: "Updated!", data: result })
+        }
+    } catch (error) {
+        return res.status(500).json({ success: false, message: error })
     }
 })
 // [DELETE] Delete category by _id
 router.delete('/delete/:id', async (req, res, next) => {
     const { id } = req.params
-    let searchValue = { _id: id }
-    let categoryExist = await category_API.findCategory(searchValue)
-    if (categoryExist.success == true) {
-        try {
-            let result = await CategoryModel.deleteOne(searchValue)
-            return res.status(200).json({ success: true, message: "Deleted!", data: result })
-        } catch (error) {
-            return res.status(500).json({ success: false, message: error })
+    try {
+        let searchValue = { _id: id }
+        let options = {
+            select: {
+                _id: 1
+            }
         }
-    }
-    if (categoryExist.code == 1) {
-        return res.status(300).json(categoryExist)
-    }
-    if (categoryExist.code == 0) {
-        return res.status(500).json(categoryExist)
+        let categoryExist = await API_Category.readOne(searchValue, options)
+        if (!categoryExist) {
+            return res.status(300).json({ success: false, message: "No Data!" })
+        }
+        let result = await API_Category.delete(id)
+        if (result) {
+            return res.status(200).json({ success: true, message: "Deleted!", data: result })
+        }
+    } catch (error) {
+        return res.status(500).json({ success: false, message: error })
     }
 })
 

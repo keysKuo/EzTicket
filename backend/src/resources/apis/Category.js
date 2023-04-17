@@ -1,7 +1,7 @@
 const { Category } = require('../models');
 
 const api = {
-    create: async(payloads) => {
+    create: async (payloads) => {
         return await new Category(payloads).save();
     },
 
@@ -12,7 +12,7 @@ const api = {
     delete: async (id) => {
         return await Category.findByIdAndDelete(id);
     },
-    
+
     readOne: async (payloads, options) => {
         let select = (options) ? options.select : {};
         return await Category.findOne(payloads)
@@ -29,7 +29,7 @@ const api = {
             .skip(skip)
             .limit(limit)
             .sort({ createdAt: -1 })
-            .populate({ path: 'child'})
+            .populate({ path: 'child' })
             .lean();
     }
 }
