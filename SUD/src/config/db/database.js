@@ -4,7 +4,7 @@ require('dotenv').config();
 async function connect() {
     try {
         await mongoose.connect(
-            `mongodb://localhost:27017/SUDTECH`,
+            `mongodb://localhost:27017/EzTicket`,
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
