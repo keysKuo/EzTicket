@@ -17,7 +17,9 @@ const api = {
         let select = (options) ? options.select : {};
         return await Event.findOne(payloads)
             .select(select)
-            .populate({ path: 'categories author' }).lean();
+            .populate({ path: 'author' })
+            .populate({ path: 'categories' })
+            .lean();
     },
 
     readMany: async (payloads, options) => {
