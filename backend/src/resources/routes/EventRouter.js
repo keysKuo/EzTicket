@@ -46,6 +46,20 @@ router.get('/all', async (req, res, next) => {
         return res.status(500).json({ success: false, message: error })
     }
 })
+router.get('/find/:id', async (req, res, next) => {
+    const { id } = req.params
+    try {
+        let searchValue = { _id: id }
+        let eventExist = await API_Event.readOne(searchValue)
+        if (!eventExist) {
+            return res.status(300).json({ success: false, message: "No Data!" })
+        }
+        return res.status(200).json({ success: true, message: "Data Found!", data: eventExist })
+    } catch (error) {
+        return res.status(500).json({ success: false, message: error })
+    }
+})
+
 // [PUT]
 router.put('/update/:id', async (req, res, next) => {
     const { id } = req.params
