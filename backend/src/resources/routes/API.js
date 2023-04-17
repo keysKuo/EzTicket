@@ -6,5 +6,8 @@ const router = require('express').Router();
 // /api/categories
 const CategoryRouter = require('./CategoryRouter');
 router.use('/categories', CategoryRouter);
+// /api/events
+const EventRouter = require('./EventRouter');
+router.use('/events', EventRouter);
 
 module.exports = router;

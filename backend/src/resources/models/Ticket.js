@@ -7,7 +7,7 @@ const Ticket = new Schema(
         code: { type: String, required: true, unique: true },
         expiry: { type: Date, required: true },
         price: { type: Number, required: true },
-        status: { type: String },
+        status: { type: String }, // available or unavailableor soldout
     },
     {
         timestamp: true,
