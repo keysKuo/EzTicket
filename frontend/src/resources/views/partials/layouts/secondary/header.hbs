@@ -2,8 +2,8 @@
     <div class='container-fluid'>
         <a href='/?opm=tbox.home.header.logo' title='Ticketbox' class='logo navbar-brand sc-985t1l-1 AFRaI'>
             <img
-                src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAq1BMVEUAAAAtwnQsv3QswnUswXQrv3UtwnYtwnUswnUswnUtwnUswnQsv3AswnUtwnX///8qLTRHyobl+O7L8N3y+/ctr22w6MsqPzx82akqNjiW4bph0Zc6xn0snWUtuXFi0Zcrd1QrblDY9OUrgVkqSUBUzY9v1aArZEwsily97NTL8Nyj5cOj5MIreFUrUkSJ3LEspmksk2GJ3bEtuHF72aiJ3LIrW0gqUkQqW0mrmUUnAAAADnRSTlMA7yCQQDDf38+/n4AQr6qOyxcAAAR+SURBVGje7NFBFsIwCEVRCESSJv37X64DM7C1OrIw4W7gnQ90NFX2B+PPuPWh9IMK4za8FbpWO252mZ4CB4POSoMLO42uBidWD12GG34rF4OHz2sbXLW5ugPOZB0a7l5v3uCur8H+NGTw+jIjAE9ShFAaCCHUEWKnhhBGjBBMCJLhbzKc4Qxn+Mlu2a04DsNQ+A18kCxMSA0BgwP5gUBp3//VdmPL9WbToelOWIZhzk2Em+iTq2MlXxgchaOGNKI1z9RiMq9FgW9vgAdg0LAH5GlGAPE1uAX4DbAFrIYdwB+BL6/B7p/BJjb+/4NV3x18ZRYAHNpsj9AbVTdZtq7ZgWmwlCN/dyHYSX+4hZLpCNjjIdq4uhuRxc0WfBVgKFFWLoRRFI+ABSpZXdUAyElR1f4BplSPW58c8JD0GzAdABuanADs3MUouFwhoxs4J1KwbnJcM0/pFudsusaUidPK5V1zVTCtvNnXmZDAul1Zyp1yS6U7AOw/52oFOwDFIrSQgvN2BzLaUSGTNQNYTgEzEHbHSbSbSV1mVaPYM8ARwG0HTmrrVEakohmAPwHcAYjPwaLrDn+LTgD3AGgPntviovPB9a/ud+Amu8gWP201nNFjNct+VvtQ2tyvQVcVzSmuHlDd5S8VbEg08AIwffLt5ADZgiMAXPO5YVgFl50Kqa2V3FxM9br44+AFwHBvegWXJfB0n8bNyFRgWJMHALDtfZK1/fV08+9MdAzsGUk2gzV/Vdi8nay2mRgPzbVrSfYY2ERWQAWbhWvWDdizJvYOqtLsWs1BsCHHeeR7rjO6sQIJLenxGWuZ0pfHAiDjom2tS+0X/6D/QD/gX+yW0YrDIBBF/2CYlyA+RBQF89IQCST9/y9bRuO1WZbdB2Vhl14oHVvrca7ONG/w74Af7OhnjQdPzLxRh3rAM32vN/g/gGcXVDiWiV60+xjU6uqufHBEiO0Q8LLyJUuQ11yk8nbMy7cPZjb94JtCXTBy0yJgnQNRkt0MA5/xqeR9pSwnsY7xZJHYPcsHm/xCtpBoDPjYJV4E7XMklBxNUUIjBhfbJwXT+8GuDvQFUehnBWir+4EC5veDVWvcxdf5llS4Zhhhykvtg8AtAaPzyDMzSquNJoVrPryBBOZI5CRHaMaUTTPOYAQ4EbRmcPwCjJT1NARs8kWGmtWtUJea5X5ZbTrByDHcGOnz5Vpr/gcXHf3gVi2wMuej4WhJP9aZakMZ94KNxkozFvXt8vp6rEsJJvTOTjAlFkq0duVW0zlerXVaAo9Oid7ZBYbZEGrUBIaKCcUN2DECTElVhNtxAo4v6ZTHL43Gdf8tQstTsQ5uvlW4C8z69Hv15ay7MgfbP/xA/wZ/tG/vOADCMAxATYpCf/j+xwWpYgGJCeKl7wKWnDWewTN4Bs/gULpHMqdExk6JgkSJpnsI7ZoXWEDTdQU0XRtOheHq2CownAFQXLlh6JmhHBdzBnLTT1LOZGcQH7nhbWfDXWOA1PFklT8rV83P6D/HdOl9yNdKXj7P3Pa03ko+AIPTLGuA6xK/AAAAAElFTkSuQmCC'
-                alt='Ticketbox'
+                src='/img/EzTicket-logo.png'
+                alt='EzTicket'
                 class='logo-image efqSVW'
             />
         </a>
@@ -74,11 +74,7 @@
                 </div>
                 <div class='my-account-container'>
                     <div class='my-account-wrapper'>
-                        <img
-                            src='https://static.ticketbox.vn/avatar.png'
-                            alt='Avatar'
-                            class='sc-1qxrhiy-0 my-account-img'
-                        />Nguyen Thanh Vinh
+                         {{#if username}}{{username}}{{else}} <a style="color: black" href="/login">Đăng nhập / Đăng ký</a> {{/if}}
                         <div class='sc-1qxrhiy-2 bQNRbr'>
                             <div class='crSzWn tbox-p-16'>
                                 <div class='tbox-p-0'>

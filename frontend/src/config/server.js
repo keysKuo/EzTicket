@@ -5,10 +5,10 @@ const path = require('path');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const cookie = require('cookie-parser');
-const flash = require('flash');
+const flash = require('express-flash');
 const cors = require('cors');
 require('dotenv').config();
-var indexRouter = require('../resources/routes/index');
+var router = require('../resources/routes');
 
 const init = () => {
     app.use(cors());
@@ -33,12 +33,12 @@ const init = () => {
     app.use(flash());
     app.use(bodyParser.urlencoded({ extended: false }));
 
-    app.use('/', indexRouter);
+    router(app);
 
     // catch 404 and forward to error handler
-    app.use(function (req, res, next) {
-        next(createError(404));
-    });
+    // app.use(function (req, res, next) {
+    //     next(createError(404));
+    // });
 
     // error handler
     app.use(function (err, req, res, next) {

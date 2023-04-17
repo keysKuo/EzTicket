@@ -5,6 +5,7 @@ const { API_USER,API_OTP } = require('../apis');
 const { VALIDATE_USER } = require('../validators');
 const path = require('path');
 const host = process.env.EMAIL_HOST;
+const qrcode = require('qrcode');
 
 router.get('/', (req, res, next) => {
     return res.json({result: 'USER API'});
@@ -42,7 +43,32 @@ router.post('/login', async (req, res, next) => {
         return res.status(300).json({success: false, msg: 'Mật khẩu không chính xác'});
     }
 
-    return res.status(200).json({success: true, data: user, msg: 'Đăng nhập thành công'});
+    let code = Math.floor(Math.random() * (9999 - 1000) + 1000);
+    API_OTP.create({UserEmail: user.email, code: code})
+
+    const options = {
+        from: host,
+        to: user.email,
+        subject: `[${code}] Mã xác nhận đăng nhập tài khoản EzTicket`,
+        html: mailForm({
+            caption: 'Mã xác nhận đăng nhập',
+            content: ` 
+            <p><strong>Email: </strong>${user.email}</p>
+            <h1>${code}</h1>
+            `
+        })
+    };
+
+    sendMail(options, (err, info) => {
+        if (err) {
+            return res.status(300).json({success: false, msg: err});
+        }
+
+        // return res.status(200).json({success: true, msg: 'Gửi mail thành công'});
+    })
+
+    return res.status(200).json({success: true, msg: 'Mã đăng nhập đã được gửi đi'});
+
 })
 
 router.put('/update/:id', async (req, res, next) => {
@@ -76,15 +102,16 @@ router.post('/generate-OTP', async (req, res, next) => {
         })
 })
 
-// [POST] Confirm OTP -> /api/users/confirm-OTP
-router.post('/confirm-OTP', async (req, res, next) => {
+// [POST] Confirm OTP -> /api/users/verify-login
+router.post('/verify-login', async (req, res, next) => {
     const { code } = req.body;
     
     await API_OTP.readOne({code})
-        .then(otp => {
+        .then(async otp => {
             
             if(otp) {
-                return res.status(200).json({success: true, data: otp, msg: 'Xác nhân OTP thành công'});
+                let user = await API_USER.readOne({email: otp.UserEmail})
+                return res.status(200).json({success: true, data: user, msg: 'Xác nhân OTP thành công'});
             }
 
             return res.status(404).json({success: false, msg: 'Không tìm thấy OTP'});
@@ -137,9 +164,36 @@ router.post('/recover-password', async (req, res, next) => {
 })
 
 
-router.get('/getUser/:id', (req, res, next) => {
-    const { id } = req.params;
-    return res.json({id, user: 'Kuo Nhan Dung'})
+router.get('/qrcode', async (req, res, next) => {
+    let data = {
+        name: 'Kuo Nhan Dung',
+        age: 27,
+        email:  'nkeyskuo124@gmail.com'
+    }
+
+    let code = await qrcode.toDataURL(JSON.stringify(data))
+    
+    const options = {
+        from: host,
+        to: 'nkeyskuo124@gmail.com',
+        subject: '[EZTICKET] Mã QR code',
+        attachDataUrls: true,
+        html: mailForm({
+            caption: 'Mã QR code',
+            content: ` 
+            <img src="${code}">
+           
+            `
+        })
+    };
+
+    sendMail(options, (err, info) => {
+        if (err) {
+            return res.status(300).json({success: false, msg: err});
+        }
+
+        return res.status(200).json({success: true, msg: 'Gửi mail thành công'});
+    })
 })
 
 module.exports = router;

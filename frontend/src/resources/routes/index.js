@@ -1,11 +1,12 @@
-var express = require('express');
-const { clientController } = require('../controllers/index');
-var router = express.Router();
+// const { clientController } = require('../controllers/index');
+const clientRouter = require('./Client');
 
+function router(app) {
+    app.use('/', clientRouter);
+      
+}
 /* GET admin page. */
-// router.get('/admin', function (req, res, next) {
-//     res.render('admin/index', { title: 'Admin' });
-// });
+
 
 // /* GET home page. */
 // router.get('/', clientController.index);

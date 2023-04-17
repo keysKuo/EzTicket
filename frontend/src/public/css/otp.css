@@ -1,3 +1,7 @@
+:root {
+  --main-color: #D864A9;
+}
+
 .center {
     display: flex;
     justify-content: center;
@@ -23,13 +27,14 @@
     border: 1px solid rgb(230, 235, 245);        
     box-sizing: border-box;
     border-radius: 8px;
+    margin-top: 100px;
   }
   
   .form .sp-phone { 
       font-size: 14px;
       line-height: 20px;
       font-weight: bold;
-      color: rgb(42, 45, 52);
+      color: var(--main-color)
   }
   
   .otp-box {
@@ -53,6 +58,10 @@
       border: 1px solid transparent;
       background-color: rgb(245, 247, 252);
       caret-color: rgb(45, 194, 117);
+  }
+
+  .otp-box input:focus {
+    border: 1px solid var(--main-color)
   }
   
   .otp-alert {
@@ -87,4 +96,8 @@
     min-width: 88px;
     padding: 0px 24px;
     color: white;
+  }
+
+  .form-option button:hover {
+    background-color: var(--main-color);
   }

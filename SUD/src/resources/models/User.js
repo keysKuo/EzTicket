@@ -14,7 +14,7 @@ const User = new Schema(
         level: { type: Number, default: 1 }, // default là 1
     },
     {
-        timestamp: true,
+        timestamps: true,
     },
 );
 

@@ -1,0 +1,128 @@
+:root {
+    --main-color: #D864A9;
+  }
+
+.card-cover {
+    border-radius: 2px 2px 0 0;
+    width: 100%;
+    padding-top: 38%;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAKCAMAAACdQr5nAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJBQTFRF+vr69/f3+/v78PDw9fX16enp3t7e+fn55ubm4eHh19fX7u7u3d3d9PT05OTk8fHx6+vr29vb8/Pz7e3t4uLi5eXl6Ojo2tra6urq2NjY1NTU7+/v7+/v39/f5+fn4ODg/v7++Pj41tbW/Pz89vb21dXV7Ozs3Nzc2dnZ8vLy4+Pj09PT/f390tLS0dHR////o2EVkwAAAGdJREFUeNp0zEUSgCAAQFHs7nYMTDC5/+1U1B387Zv54KQd22RipBqrrsyWtMiCJu7glx4HdrsmqR9VizN2YIAflX2RoTp2m3yuvPCRnQDeDlJi7shLrB0l9u4hzo4Se3cTb0fIJcAALMgefJ3EtWsAAAAASUVORK5CYII=) no-repeat left center;
+    background-size: 100% auto;
+    border-bottom: 1px solid #eee;
+}
+
+.card .card-body .thumbnail-description {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.card-body .table {
+    table-layout: fixed;
+}
+
+.card-right-block {
+    width: 50px;
+    text-align: right;
+}
+.card-right-block {
+    vertical-align: bottom!important;
+}
+
+.table-cell {
+    display: table-cell;
+}
+
+.event-title a {
+    color: black;
+}
+
+.event-title a:hover {
+    color: var(--main-color);
+}
+
+.event-price {
+    padding: 5px 0;
+    margin-bottom: 5px;
+    font-size: 14px;
+    display: inline;
+}
+
+.event-calendar-time {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #64646D;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.event-calendar-time div {
+    display: inline;
+}
+
+.event-calendar-time img {
+    margin-bottom: 4px;
+}
+
+.event-date {
+    display: none !important;
+}
+
+.date-with-calendar-icon {
+    display: flex;
+    align-items: center;
+}
+
+.date-with-calendar-icon span {
+    padding-left: 5px;
+}
+
+.event-price .price-green {
+    color: var(--main-color);
+}
+
+.tag-kinds {
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.tag-kinds a {
+    font-size: 12px;
+    color: #666;
+}
+
+.card {
+    background: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.3);
+    border-radius: 1px;
+    margin: 20px 0;
+    border-width: 0;
+}
+
+
+.tag-venue {
+    margin-right: 0;
+}
+.tag-venue {
+    margin-right: 6px;
+    font-size: 12px;
+    padding: 1px 4px;
+    color: #666;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: transparent;
+    border-radius: 2px;
+}
+.smooth-trans {
+    -webkit-transition: all .15s ease-in-out;
+    -moz-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+}
+.uppercase {
+    text-transform: uppercase;
+}

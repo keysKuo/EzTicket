@@ -1,3 +1,10 @@
+:root {
+    --main-color: #D864A9;
+    --green: #98D8AA;
+  }
+
+
+
 .container-fluid {
     padding: 0;
 }
@@ -36,7 +43,7 @@
 }
 
 .logo .logo-image {
-    height: 44px;
+    height: 50px;
 }
 
 .search-container {
@@ -66,24 +73,34 @@
     outline: none;
     border: 1px solid transparent;
     border-radius: 4px;
-    caret-color: rgb(45, 194, 117);
+    caret-color: var(--main-color);
     box-shadow: none;
 }
 
 .taosukien.secondary {
     background: transparent;
-    color: rgb(45, 194, 117);
-    border: 1px solid rgb(45, 194, 117);
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+    transition: 0.2s;
+}
+
+.taosukien:hover {
+    color: var(--green);
+    border-color: var(--green);
 }
 
 .taosukien.large {
     border-radius: 20px;
     height: 40px;
     font-weight: bold;
-    font-size: 16px;
-    line-height: 40px;
+    font-size: 15px;
+    line-height: 38px;
     min-width: 88px;
     padding: 0px 24px;
+}
+
+.my-ticket-container {
+    margin: auto 10px;
 }
 
 .my-ticket-container a {
@@ -91,6 +108,10 @@
     display: flex;
     -webkit-box-align: center;
     align-items: center;
+}
+
+.my-ticket-container a:hover {
+    opacity: 0.6;
 }
 
 .navbar-right-container {
@@ -201,7 +222,7 @@
 }
 
 .sidebar-menu {
-    width: 270px;
+    width: 300px;
     position: fixed;
     top: 76px;
     height: calc(100vh - 76px);
@@ -228,14 +249,14 @@
 .sidebar-menu .sidebar-menu-wrapper .menu-item a {
     width: 100%;
     height: 100%;
-    padding: 4px 8px;
+    padding: 6px 8px;
     color: rgb(42, 45, 52);
     display: flex;
     -webkit-box-align: center;
     align-items: center;
 }
-.sidebar-menu .sidebar-menu-wrapper a:hover {
-    color: rgb(42, 45, 52);
+.sidebar-menu .sidebar-menu-wrapper .menu-item a:hover {
+    color: var(--green);
 }
 .sidebar-menu .sidebar-menu-wrapper .menu-item a .menu-item-icon {
     width: 24px;
@@ -344,7 +365,7 @@
     font-weight: bold;
     font-size: 32px;
     line-height: 40px;
-    color: rgb(45, 194, 117);
+    color: var(--main-color);
     margin-bottom: 8px;
     align-self: flex-end;
     margin-right: -18px;
@@ -355,10 +376,11 @@
     font-weight: bold;
     font-size: 32px;
     line-height: 40px;
-    color: rgb(45, 194, 117);
+    color: var(--main-color);
     margin-bottom: 8px;
     align-self: flex-end;
     margin-right: -18px;
+    width: 10px;
 }
 
 .card-ticket-wrapper {
@@ -375,6 +397,10 @@
     text-decoration: none;
     color: rgb(42, 45, 52);
 }
+
+.card-ticket-wrapper:link:hover h4 {
+    color: var(--main-color)
+}
 .card-ticket-wrapper .card-ticket-img {
     object-fit: cover;
     width: 1266px;
@@ -386,7 +412,7 @@
 
 .card-ticket-wrapper .card-ticket-heading {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
 }
 
@@ -413,7 +439,7 @@
 }
 
 .xemthem-container .xemthem-btn.primary {
-    background: rgb(45, 194, 117);
+    background: var(--main-color);
     color: rgb(255, 255, 255);
 }
 .xemthem-container .xemthem-btn.large {
@@ -576,13 +602,13 @@
     align-self: center;
     width: 64px;
     height: 24px;
-    background: rgb(45, 194, 117);
+    background: var(--main-color);
     margin-left: auto;
     border-radius: 20px;
 }
 
 .card-thumbnail-wrapper .vyKIM .card-thumbnail-caption.primary {
-    background: rgb(45, 194, 117);
+    background: var(--main-color);
     color: rgb(255, 255, 255);
 }
 .card-thumbnail-wrapper .vyKIM .card-thumbnail-caption.small {
