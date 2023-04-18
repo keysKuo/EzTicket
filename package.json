@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "api": "nodemon backend/src/index.js",
+    "ezt": "nodemon backend/src/index.js",
     "sud": "nodemon SUD/src/index.js",
+    "pay": "nodemon Payments/src/index.js",
     "client": "nodemon frontend/src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,6 +27,7 @@
     "node-fetch": "^2.6.8",
     "nodemailer": "^6.9.1",
     "path": "^0.12.7",
+    "paypal-rest-sdk": "^1.8.1",
     "qrcode": "^1.5.1",
     "slugify": "^1.6.6",
     "uuidv4": "^6.2.13"
