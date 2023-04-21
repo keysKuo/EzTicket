@@ -14,6 +14,40 @@ router.get('/', (req, res, next) => {
     })
 })
 
+router.get('/register', async (req, res, next) => {
+
+    return res.render('client/register', {
+        layout: 'main',
+        success: req.flash('success') || '',
+        error: req.flash('error') || '',
+    })
+})
+
+router.post('/register', async (req, res, next) => {
+    let data = JSON.stringify({...req.body});
+
+    await fetch(SUD_URL + 'users/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: data
+    })
+    .then(async result => {
+        result = await result.json();
+
+        if(result.success) {
+            req.flash('success', 'Tạo tài khoản thành công');
+            return res.redirect('/login');
+        }
+
+        req.flash('error', result.msg);
+        return res.redirect('/register')
+    })
+    .catch(err => {
+        req.flash('error', err);
+        return res.redirect('/register');
+    })
+})
+
 router.get('/login', (req, res, next) => {
     
     return res.render('client/login', {

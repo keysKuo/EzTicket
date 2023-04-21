@@ -7,8 +7,13 @@
     
 <!--     <h3>Đăng nhập</h3> -->
     
+    <input type="text" name="username" placeholder="Họ và tên" >
     <input type="email" name="email" placeholder="Email" >
-    <input type="password" name="password" placeholder="Password" >
+    <input type="text" name="phone" placeholder="Số điện thoại" >
+    <input type="text" name="address" placeholder="Địa chỉ" >
+    
+    <input type="password" name="password" placeholder="Mật khẩu" >
+    <input type="password" name="password2" placeholder="Nhập lại mật khẩu" >
     
     <div class="term-box">
       <div class="check-box">
@@ -26,31 +31,11 @@
         {{error}}
       </div>
       {{/if}}
-      {{#if success}}
-        <div style="padding: 8px;" class="alert alert-success">
-        {{success}}
-      </div>
-      {{/if}}
       <button type="submit">
         Tiếp tục
       </button>
       
-      <div class="divide-line">
-        <span>Hoặc</span>
-      </div>
       
-      <div class="center">
-        {{!-- <div class="pointer">
-          <img width="50" src="https://icon-library.com/images/google-login-icon/google-login-icon-6.jpg" alt="">
-        </div>
-        <div class="pointer">
-          <img width="50" src="https://freepngimg.com/save/62487-bluetie-icons-computer-facebook-login-icon-email/1024x1024" alt="">
-        </div> --}}
-
-        <div class="pointer">
-          <a style="color:cadetblue" href="/register">Bạn chưa có tài khoản ?</a>
-        </div>
-      </div>
     </div>
   </form>
 </div>

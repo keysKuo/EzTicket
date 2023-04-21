@@ -13,7 +13,7 @@ const OTP = new Schema({
     },
     createdAt: {
         type: Date,
-        expires: '60s',
+        expires: '90s',
         default: Date.now()
     }
 })

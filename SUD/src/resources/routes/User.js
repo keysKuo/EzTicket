@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
 router.post('/register', VALIDATE_USER.register,  async (req, res, next) => {
     const body = req.body;
 
-    await API_USER.create({...body, level: 1, tickets: []})
+    await API_USER.create({...body, level: 1})
         .then(user => {
             if(user) {
                 return res.status(200).json({success: true, data: user, msg: 'Tạo tài khoản thành công'});
