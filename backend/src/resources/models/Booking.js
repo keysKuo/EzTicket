@@ -7,6 +7,7 @@ const Booking = new Schema(
         payment_type: { type: String },
         total: { type: Number },
         note: { type: String},
+        status: { type: String },
         customer: { type: Schema.Types.ObjectId, ref: 'User'},
         
     },

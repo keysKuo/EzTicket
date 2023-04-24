@@ -55,6 +55,8 @@ Ravolution Music Festival - Lễ hội Âm nhạc Điện tử hàng đầu Vi�
         />
         <meta name='apple-itunes-app' content='app-id=1041900498, app-argument=https://ticketbox.vn' />
         {{> layouts/main/style}}
+        {{!-- {{> layouts/secondary/style}} --}}
+        <link rel="stylesheet" href="/fonts/themify-icons/themify-icons.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
@@ -79,4 +81,8 @@ Ravolution Music Festival - Lễ hội Âm nhạc Điện tử hàng đầu Vi�
         {{> components/modal/createEvent}}
         {{> layouts/main/script}}
     </body>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script>
+        var scroll = new SmoothScroll('a[href*="#"]');
+    </script>
 </html>

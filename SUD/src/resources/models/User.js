@@ -12,6 +12,7 @@ const User = new Schema(
         // logs: [{ type: Schema.Types.ObjectId, ref: 'Log' }], // lưu tất cả mọi thứ như mua vé, hủy vé, ....
         // tickets: [ { type: Schema.Types.ObjectId, ref: 'Ticket'} ],
         level: { type: Number, default: 1 }, // default là 1
+        business: { type: Schema.Types.ObjectId, ref: 'Business'}
     },
     {
         timestamps: true,

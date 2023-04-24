@@ -3,7 +3,8 @@ const PORT = process.env.PAYMENT_PORT || 4000;
 // const router = require('./resources/routes');
 const app = require('./config/server').init();
 const paypal = require('paypal-rest-sdk');
-
+const fetch = require('node-fetch');
+const { exchange } = require('./resources/utils');
 paypal.configure({
   'mode': 'sandbox', //sandbox or live
   'client_id': process.env.PAYPAL_CLIENTID,
@@ -14,7 +15,34 @@ app.get('/', async (req, res, next) => {
     res.sendFile('index.html', {root: __dirname })
 });
 
-app.post('/pay', (req, res) => {
+app.get('/convert', async (req, res, next) => {
+    await fetch('https://open.er-api.com/v6/latest/VND', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json'}
+    })
+    .then(async result => {
+        result = await result.json();
+        if(result.result == 'success') {
+            let rate = result.rates['USD']
+            console.log('VND -> USD : ' + 230000 + 'VND -> ' + 230000 * rate + "$");
+        }
+        return res.json(result);
+    })
+})
+
+app.post('/pay', async (req, res) => {
+    let data = req.body;
+
+    let amount = await exchange('VND', 'USD', 300000)
+        .then(result => {
+            if(result.success) {
+                return result.data.toFixed(2).toString();
+            }
+        })
+        .catch(err => {
+            return res.status(500).json({success: false});
+        })
+
     const create_payment_json = {
       "intent": "sale",
       "payer": {
@@ -28,15 +56,15 @@ app.post('/pay', (req, res) => {
           "item_list": {
               "items": [{
                   "name": "Redhock Bar Soap",
-                  "sku": "001",
-                  "price": "25.00",
+                  
+                  "price": amount,
                   "currency": "USD",
                   "quantity": 1
               }]
           },
           "amount": {
               "currency": "USD",
-              "total": "25.00"
+              "total": amount
           },
           "description": "Washing Bar soap"
       }]
@@ -63,12 +91,6 @@ app.get('/success', (req, res) => {
   
     const execute_payment_json = {
       "payer_id": payerId,
-      "transactions": [{
-          "amount": {
-              "currency": "USD",
-              "total": "25.00"
-          }
-      }]
     };
   
   // Obtains the transaction details from paypal

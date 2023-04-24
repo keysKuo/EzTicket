@@ -4,6 +4,13 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+:root {
+    --main-color: #D864A9;
+    --green: #98D8AA;
+  }
+
+
 html {
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
@@ -6299,7 +6306,7 @@ button.close {
 .carousel-control.left {
     background-image: -webkit-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
     background-image: -o-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
-    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.0001)));
+    /* background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.0001))); */
     background-image: linear-gradient(to right,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
     background-repeat: repeat-x
 }
@@ -6309,7 +6316,7 @@ button.close {
     left: auto;
     background-image: -webkit-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
     background-image: -o-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
-    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.0001)),to(rgba(0,0,0,.5)));
+    /* background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.0001)),to(rgba(0,0,0,.5))); */
     background-image: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
     background-repeat: repeat-x
 }
@@ -12137,7 +12144,7 @@ h5 {
     width: 24px;
     text-align: center;
     background: -moz-linear-gradient(left,rgba(255,255,255,0) 0,rgba(255,255,255,.8) 45%,#fff 100%);
-    background: -webkit-gradient(linear,left top,right top,color-stop(0,rgba(255,255,255,0)),color-stop(100%,#fff));
+    /* background: -webkit-gradient(linear,left top,right top,color-stop(0,rgba(255,255,255,0)),color-stop(100%,#fff)); */
     background: -webkit-linear-gradient(left,rgba(255,255,255,0) 0,rgba(255,255,255,.8) 45%,#fff 100%);
     background: -ms-linear-gradient(left,rgba(255,255,255,0) 0,rgba(255,255,255,.8) 45%,#fff 100%);
     background: linear-gradient(to right,rgba(255,255,255,0) 0,rgba(255,255,255,.8) 45%,#fff 100%)
@@ -13111,7 +13118,7 @@ table.icon-after td:last-child {
 .tkb-bg-color-gradient {
     background-color: #90ba3e;
     border-color: #7ca629;
-    background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#90ba3e),color-stop(100%,#8ab33a));
+    /* background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#90ba3e),color-stop(100%,#8ab33a)); */
     background: -webkit-linear-gradient(top,#90ba3e 0,#8ab33a 100%);
     background: -o-linear-gradient(top,#90ba3e 0,#8ab33a 100%);
     background: -ms-linear-gradient(top,#90ba3e 0,#8ab33a 100%);
@@ -13152,7 +13159,7 @@ table.icon-after td:last-child {
     color: #fff;
     background-color: #3b5998;
     border-color: #385693;
-    background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#435f9b),color-stop(100%,#3b5998));
+    /* background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#435f9b),color-stop(100%,#3b5998)); */
     background: -webkit-linear-gradient(top,#435f9b 0,#3b5998 100%);
     background: -o-linear-gradient(top,#435f9b 0,#3b5998 100%);
     background: -ms-linear-gradient(top,#435f9b 0,#3b5998 100%);
@@ -13194,7 +13201,7 @@ table.icon-after td:last-child {
 
 .bg-white-gradient {
     background-color: #fff;
-    background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#fff),color-stop(100%,#f7f8f8));
+    /* background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#fff),color-stop(100%,#f7f8f8)); */
     background: -webkit-linear-gradient(top,#fff 0,#f7f8f8 100%);
     background: -o-linear-gradient(top,#fff 0,#f7f8f8 100%);
     background: -ms-linear-gradient(top,#fff 0,#f7f8f8 100%);
@@ -13213,7 +13220,7 @@ table.icon-after td:last-child {
 
 .input-bg-white-gradient {
     background-color: #fff;
-    background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#f7f8f8),color-stop(100%,#fff));
+    /* background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#f7f8f8),color-stop(100%,#fff)); */
     background: -webkit-linear-gradient(top,#f7f8f8 0,#fff 100%);
     background: -o-linear-gradient(top,#f7f8f8 0,#fff 100%);
     background: -ms-linear-gradient(top,#f7f8f8 0,#fff 100%);
@@ -15788,7 +15795,7 @@ a.green-color,a.green-color:focus,a.green-color:hover {
     font-weight: 700;
     color: #fff;
     font-size: 12px;
-    background-color: #eb1212
+    background-color: var(--green)
 }
 
 .banner .event-name .calendar-image .date {
@@ -16256,7 +16263,7 @@ a.green-color,a.green-color:focus,a.green-color:hover {
     }
 
     .booking-bl {
-        background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#fff),color-stop(100%,#f2f2f2));
+        /* background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#fff),color-stop(100%,#f2f2f2)); */
         background: -webkit-linear-gradient(top,#fff 0,#f2f2f2 100%);
         background: -o-linear-gradient(top,#fff 0,#f2f2f2 100%);
         background: -ms-linear-gradient(top,#fff 0,#f2f2f2 100%);
@@ -17647,14 +17654,14 @@ a:focus,a:visited {
 }
 
 .btn-booking,.btn-booking:focus,.btn-booking:visited {
-    background-color: #eb1212;
-    border: solid 1px #d0021b;
+    background-color: var(--green);
+    border: solid 1px --green;
     color: #fff
 }
 
 .btn-booking:focus:hover,.btn-booking:hover,.btn-booking:visited:hover {
-    background-color: #eb1212;
-    border: solid 1px transparent;
+    background-color: var(--green);
+    /* border: solid 1px; */
     color: #fff;
     opacity: .8
 }
@@ -17799,7 +17806,7 @@ a:focus,a:visited {
 
 .closed.red {
     color: #e3292c;
-    border: solid 1px #d0021b
+    border: solid 1px --green
 }
 
 .closed.yellow {
@@ -17868,7 +17875,7 @@ a:focus,a:visited {
     }
 
     .btn-booking a {
-        background-color: #eb1212;
+        background-color: var(--green);
         color: #fff
     }
 

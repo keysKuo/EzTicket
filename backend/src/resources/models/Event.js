@@ -7,6 +7,7 @@ const Event = new Schema(
         categories: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
         author: { type: Schema.Types.ObjectId, ref: 'User' },
         occur_date: { type: Date, required: true },
+        time: { type: String },
         location: { type: String, required: true },
         address: { type: String, required: true },
         introduce: { type: String },

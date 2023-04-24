@@ -1,8 +1,10 @@
 // const { clientController } = require('../controllers/index');
 const clientRouter = require('./Client');
+const eventRouter = require('./Event');
 
 function router(app) {
     app.use('/', clientRouter);
+    app.use('/events', eventRouter);
       
 }
 /* GET admin page. */

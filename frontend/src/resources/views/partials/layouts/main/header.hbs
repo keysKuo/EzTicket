@@ -11,14 +11,14 @@
                 />
             </a>
 
-            <ul class='hidden-xs nav-location' role='menu'>
+            {{!-- <ul class='hidden-xs nav-location' role='menu'>
                 <a class='nav-bar-item active' href='/' data-opm='event'>
                     Sự kiện
                 </a>
                 <a class='nav-bar-item' href='/movies/' data-opm='movie'>
                     Phim ảnh
                 </a>
-            </ul>
+            </ul> --}}
             <div class='location-selector mobile-nav hidden-sm hidden-md hidden-lg'>
                 <div class='btn-group'>
                     <button class='dropdown-toggle' type='button' data-toggle='dropdown' aria-expanded='false'>
@@ -41,7 +41,7 @@
             </div>
             <div class='searcher'>
                 <span class='search-btn-m smooth-trans hidden color-white'><span
-                        class='ello-search smooth-trans'
+                        class='ti-search smooth-trans'
                     ></span></span>
                 <div class='left-border'>
                     <div class='input-group rounded search-form smooth-trans hid'>
@@ -49,7 +49,7 @@
                             class='search-btn input-group-addon bg-white smooth-trans'
                             data-search-url='/events'
                             data-search-click='true'
-                        ><span class='ello-search smooth-trans rotate-90'></span></span>
+                        ><span class='ti-search smooth-trans rotate-90'></span></span>
                         <input
                             data-autocomplete='search'
                             type='text'
@@ -62,12 +62,18 @@
                             class='btn-submit-m input-group-addon bg-white smooth-trans'
                             data-search-url='/events'
                             data-search-click='true'
-                        ><span class='ello-right smooth-trans'></span></span>
+                        ><span class='ti-link smooth-trans'></span></span>
+
+                        
                     </div>
                 </div>
                 <div class='search-res smooth-trans relative hid' data-search-result='true' tabindex='2'></div>
             </div>
-            <div class='location-selector'>
+            <a href="/login" class="user-info d-inline-block text-white">Đăng nhập / Đăng ký</a>
+            {{#if isLogin}}
+            <a href="/events/create" class="btn btn-success btnAddEvent"><i class="ti-plus" style="font-size: 12px"></i> Tạo sự kiện</a>
+            {{/if}}
+            {{!-- <div class='location-selector'>
                 <div data-opm='location' class='btn-group location-input'>
                     <button class='dropdown-toggle' type='button' data-toggle='dropdown' aria-expanded='false'>
                         <span class='location-icon ello-location-1'></span>
@@ -96,19 +102,9 @@
                                 H&#224; Nội
                             </a>
                         </li>
-                        <li data-city='other-locations'>
-                            <a
-                                data-opm='others'
-                                class='location-select'
-                                style='height: unset !important; line-height: unset !important; padding: 10px 15px !important'
-                                href='/events?CityName=other-locations'
-                            >
-                                C&#225;c địa điểm kh&#225;c
-                            </a>
-                        </li>
-                    </ul>
+                        
                 </div>
-            </div>
+            </div> --}}
 
             <div id='top-nav-right' class='top-nav-right'>
 

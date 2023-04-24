@@ -903,6 +903,7 @@
 }
 
 .ticket-detail-container .col-xs-12 .col-xs-8 .ladda-button {
+    background-color: var(--main-color);
 }
 
 .ticket-detail-container .col-xs-12 .col-xs-8 .ladda-button .ladda-label {

@@ -11,7 +11,7 @@ const EventModel = require('../models/Event');
 
 // [POST]
 router.post('/create', async (req, res, next) => {
-    const { name, categories, author, occur_date, location, address, introduce, banner } = req.body
+    const { name, categories, author, occur_date, time, location, address, introduce, banner } = req.body
     try {
         let eventSlug = utils_API.createSlug(name)
         let payloads = {
@@ -19,10 +19,12 @@ router.post('/create', async (req, res, next) => {
             categories: categories,
             author: author,
             occur_date: occur_date,
+            time: time,
             location: location,
             address: address,
             introduce: introduce,
             banner: banner,
+            status: 'created',
             slug: eventSlug
         }
         let result = await API_Event.create(payloads)
@@ -34,7 +36,7 @@ router.post('/create', async (req, res, next) => {
     }
 })
 // [GET]
-router.get('/all', async (req, res, next) => {
+router.get('/findMany', async (req, res, next) => {
     try {
         let searchValue = {}
         let events = await API_Event.readMany(searchValue)
@@ -46,7 +48,7 @@ router.get('/all', async (req, res, next) => {
         return res.status(500).json({ success: false, message: error })
     }
 })
-router.get('/find/:id', async (req, res, next) => {
+router.get('/findById/:id', async (req, res, next) => {
     const { id } = req.params
     try {
         let searchValue = { _id: id }
@@ -59,10 +61,24 @@ router.get('/find/:id', async (req, res, next) => {
         return res.status(500).json({ success: false, message: error })
     }
 })
+
+router.get('/find/:slug', async (req, res, next) => {
+    const { slug } = req.params
+    try {
+        let searchValue = { slug: slug }
+        let eventExist = await API_Event.readOne(searchValue)
+        if (!eventExist) {
+            return res.status(300).json({ success: false, message: "No Data!" })
+        }
+        return res.status(200).json({ success: true, message: "Data Found!", data: eventExist })
+    } catch (error) {
+        return res.status(500).json({ success: false, message: error })
+    }
+})
 // [PUT]
 router.put('/update/:id', async (req, res, next) => {
     const { id } = req.params
-    const { name, categories, author, occur_date, location, address, introduce, banner, status } = req.body
+    const { name, categories, author, occur_date, time, location, address, introduce, banner, status } = req.body
     try {
         let searchValue = { _id: id }
         let eventExist = await API_Event.readOne(searchValue)
@@ -84,6 +100,7 @@ router.put('/update/:id', async (req, res, next) => {
             categories: categories,
             author: author,
             occur_date: occur_date,
+            time: time,
             location: location,
             address: address,
             introduce: introduce,
