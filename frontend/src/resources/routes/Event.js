@@ -18,7 +18,7 @@ router.get('/', async (req, res, next) => {
 
         if(result.success) {
             let events = result.data;
-            // return res.json(events)
+            return res.json(events)
             
         }
 
@@ -29,11 +29,6 @@ router.get('/', async (req, res, next) => {
     })
 })
 
-router.get('/management', async (req, res, next) => {
-    return res.render('error', {
-        layout: 'admin'
-    })
-})
 
 
 // Event detail -> /ticket/:id

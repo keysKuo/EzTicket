@@ -1,5 +1,6 @@
 const { User } = require('../models');
 
+
 const api = {
     create: async (payloads) => {
         return await new User(payloads).save();
@@ -15,7 +16,8 @@ const api = {
 
     readOne: async (payloads, options) => {
         let select = options ? options.select : {};
-        return await User.findOne(payloads).select(select).lean();
+        return await User.findOne(payloads).select(select)
+        .lean();
     },
 
     readMany: async (payloads, options) => {

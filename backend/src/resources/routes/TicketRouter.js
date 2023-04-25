@@ -31,7 +31,9 @@ router.post('/create', async (req, res, next) => {
             })
         }
         let result = await TicketModel.insertMany(payloads)
+        
         if (result) {
+            
             return res.status(200).json({ success: true, message: `Created ${number} tickets`, data: result })
         }
     } catch (error) {

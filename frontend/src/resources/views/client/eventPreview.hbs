@@ -1,0 +1,78 @@
+<div style="max-width: 80%" class='container'>
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='card'>
+                {{!-- <div style="background-color: #11101d;"  class='card-header d-flex justify-content-between text-light'>
+                    <h4>{{pageName}}</h4>
+                </div> --}}
+                <div class='card-body p-0'>
+                    <div class='detail'>
+                        <div class='detail__container'>
+                            <div class='detail__content'>
+                                <div class='detail__container__left mb-3'>
+                                    <div class='detail__container__left__img'>
+                                        <a style="position: absolute; right: 0; text-decoration: none" type='button' href='/my-ezt/events' class='px-3 py-2 btn-primary'><i class="ti-arrow-left"></i></a>
+                                        <img width="100%" src='{{data.banner}}' alt='detail' />
+                                    </div>
+                                    
+                                </div>
+                                <div class='detail__container__right text-center'>
+                                    <div class='detail__container__right__title'>
+                                        <h3>{{data.name}}</h3>
+                                    </div>
+                                    <div class='detail__container__right__desc'>
+                                        <p class='text-decoration-line-through'><i class="ti-tag"></i> 
+                                                    <span>{{data.occur_date}}</span></p>
+                                        <p class='text-decoration-line-through'><i class="ti-location-arrow"></i>
+                                                    <span>{{data.location}}</span> </p>
+                                        <p class='text-decoration-line-through'><i class="ti-location-pin"></i>
+                                                     <span>{{data.address}}</span></p>
+                                        <p class='text-decoration-line-through'>Thời gian: 
+                                                     <span>{{data.time}}</span></p>
+
+                                        {{#if tickets_type}}
+                                        <table class="table w-50 mx-auto text-center mt-5">
+
+                                            <thead>
+                                                <tr>
+                                                <th scope="col">Loại vé</th>
+                                                <th scope="col">Giá vé</th>
+                                                <th scope="col">Số lượng</th>
+                                                
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {{#each tickets_type}}
+                                                <tr>
+                                                <td scope="row">{{name}}</td>
+                                                <td>{{price}}</td>
+                                                <td>{{quantity}}</td>
+                                                
+                                                </tr>
+                                                {{/each}}
+                                                
+                                            </tbody>
+                                            </table>
+                                        {{/if}}
+                                        <div  class='detail__description p-3'>
+                                            {{{data.introduce}}}
+                                            {{!-- <span style="font-weight: 600; display: inline-block" class="w-100 text-uppercase text-center">Ez Ticket Team</span> <br> --}}
+                                            <img width="100px" src="/img/EzTicket-logo.png" alt="">
+                                            
+                                        </div>
+                                                
+                                        
+                                        
+                                    </div>
+                                    
+                                   
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -24,7 +24,7 @@ router.post('/create', async (req, res, next) => {
             address: address,
             introduce: introduce,
             banner: banner,
-            status: 'created',
+            status: 'ready',
             slug: eventSlug
         }
         let result = await API_Event.create(payloads)
@@ -48,6 +48,21 @@ router.get('/findMany', async (req, res, next) => {
         return res.status(500).json({ success: false, message: error })
     }
 })
+
+router.get('/findByUser/:uid', async (req, res, next) => {
+    const { uid } = req.params;
+    try {
+        let searchValue = {author: uid}
+        let events = await API_Event.readMany(searchValue)
+        if (events.length == 0) {
+            return res.status(300).json({ success: false, message: "No Data!" })
+        }
+        return res.status(200).json({ success: true, message: "Data Found!", data: events })
+    } catch (error) {
+        return res.status(500).json({ success: false, message: error })
+    }
+})
+
 router.get('/findById/:id', async (req, res, next) => {
     const { id } = req.params
     try {
@@ -78,7 +93,7 @@ router.get('/find/:slug', async (req, res, next) => {
 // [PUT]
 router.put('/update/:id', async (req, res, next) => {
     const { id } = req.params
-    const { name, categories, author, occur_date, time, location, address, introduce, banner, status } = req.body
+    const { name, status } = req.body
     try {
         let searchValue = { _id: id }
         let eventExist = await API_Event.readOne(searchValue)
@@ -96,17 +111,7 @@ router.put('/update/:id', async (req, res, next) => {
             eventSlug = utils_API.createSlug(name)
         }
         let payloads = {
-            name: name,
-            categories: categories,
-            author: author,
-            occur_date: occur_date,
-            time: time,
-            location: location,
-            address: address,
-            introduce: introduce,
-            banner: banner,
-            status: status,
-            slug: eventSlug
+            ...req.body, slug: eventSlug
         }
         let result = await API_Event.update(id, payloads)
         if (result) {
@@ -133,6 +138,18 @@ router.delete('/delete/:id', async (req, res, next) => {
     } catch (error) {
         return res.status(500).json({ success: false, message: error })
     }
+})
+
+router.put('/switch-status/:id/:status', async (req, res, next) => {
+    const { id, status } = req.params;
+    
+    await API_Event.update(id, {status})
+        .then(() => {
+            return res.status(200).json({success: true, message: 'Update trạng thái thành công'});
+        })
+        .catch(err => {
+            return res.status(500).json({success: false, message: err});
+        })
 })
 
 

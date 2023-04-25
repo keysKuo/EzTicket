@@ -17,7 +17,7 @@ const api = {
         let select = (options) ? options.select : {};
         return await Ticket.findOne(payloads)
             .select(select)
-            .populate({ path: 'event' }).lean();
+            .lean();
     },
 
     readMany: async (payloads, options) => {
@@ -28,8 +28,7 @@ const api = {
             .select(select)
             .skip(skip)
             .limit(limit)
-            .sort({ createdAt: -1 })
-            .populate({ path: 'event' })
+            .sort({ name: 1 })
             .lean();
     }
 }

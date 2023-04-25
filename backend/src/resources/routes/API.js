@@ -13,5 +13,7 @@ router.use('/events', EventRouter);
 const TicketRouter = require('./TicketRouter');
 router.use('/tickets', TicketRouter);
 
+const BusinessRouter = require('./Business');
+router.use('/business', BusinessRouter);
 
 module.exports = router;

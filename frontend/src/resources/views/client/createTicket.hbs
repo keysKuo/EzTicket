@@ -1,0 +1,162 @@
+<link rel="stylesheet" href="css/admin.css">
+
+{{#if error}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{error}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{{/if}}
+{{#if success}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{success}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{{/if}}
+
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-12'>
+            <div  class='card'>
+                <div style="background-color: #11101d;"  class='card-header d-flex justify-content-between text-light'>
+                    <h4>{{pageName}}</h4>
+                    {{!-- <a type="button" href="/my-ezt" class="btn btn-secondary">Trở lại</a> --}}
+                </div>
+                <div class='card-body'>
+                    <form class="form"   method="POST">
+                        <fieldset id="sizeForm">
+                            
+                             <div class="form-row">
+                                
+                                
+                                <div class="form-group col">
+                                    
+                                    <div class='level1-box form-group'>
+                                        <label class='control-label text-uppercase ' for='select-cate'>Sự kiện</label>
+                                        <select id='event' name='event' class='form-control'>
+                                            <option value=''>Chọn sự kiện...</option>
+                                            {{#each events}}
+                                                    <option value='{{_id}}'>{{name}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                   
+
+                                    {{!-- <div class="btn btn-primary btnChooseCate float-right">Chọn</div> --}}
+                                </div>
+                                
+
+
+                            
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label class="control-label text-uppercase" for="name">TÊN vé<span style="color:red">*</span></label>
+                                    <input id="name" name="name" placeholder="Tên vé"
+                                    class="form-control" required type="text">
+                                </div>
+
+                                <div class="form-group col">
+                                    <label class="control-label text-uppercase" for="name">Hạn sử dụng<span style="color:red">*</span></label>
+                                    <input id="expire" name="expire" placeholder="Ngày diễn ra"
+                                    class="form-control" required type="date">
+                                </div>
+                                
+                                
+                            </div>
+                            
+                           
+
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label class="control-label text-uppercase" for="name">Giá vé<span style="color:red">*</span></label>
+                                    <input id="price" name="price" placeholder="Giá vé"
+                                    class="form-control" required type="number">
+                                </div>
+
+                                <div class="form-group col">
+                                    <label class="control-label text-uppercase" for="name">Số lượng<span style="color:red">*</span></label>
+                                    <input id="number" name="number" placeholder="Số lượng"
+                                    class="form-control" required type="number">
+                                </div>
+                                 <div class="form-group col">
+                                 <div class='level1-box form-group'>
+                                        <label class='control-label text-uppercase ' for='status'>Trạng thái</label>
+                                        <select id='status' name='status' class='form-control'>
+                                            <option value=''>Chọn trạng thái...</option>
+                                            
+                                                    <option value='available'>Có sẵn</option>
+                                                    <option value='unavailable'>Chưa bán</option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            
+
+                            
+                        </fieldset>
+                        
+                        
+                        <div class="form-footer">
+                                <button type="submit" class="btn btn-success">Thêm vé</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#select-cate').change(function() {
+        let value = $('#categories').val();
+        let label = $('#categories_name').val();
+        let x = $('#select-cate option:selected').val()
+        let y = $('#select-cate option:selected').text()
+        
+        if (x != '' && !value.includes(x)) {
+            if(value == '') {
+            value += x;
+            label += y;
+            }
+            else {
+                value += ',' +  x;
+                label += ',' +  y;
+            }
+        }
+
+        $('#categories').val(value);
+        $('#categories_name').val(label);
+    })
+
+    let fileInput = document.getElementById("pimg")
+    let imageContainer = document.getElementById('images-upload')
+    let numOfFiles = document.getElementById('num-of-file')
+    function preview() {
+        imageContainer.innerHTML = ""
+        numOfFiles.textContent = `${fileInput.files.length} ảnh đã được chọn`;
+        for (i of fileInput.files) {
+            let reader = new FileReader()
+            let figure = document.createElement("figure")
+            let figCap = document.createElement("figcaption")
+            figCap.innerText = i.name
+            figure.appendChild(figCap)
+            reader.onload = () => {
+                let img = document.createElement("img");
+                img.setAttribute("src", reader.result);
+                img.setAttribute("width", '50%');
+                figure.insertBefore(img, figCap);
+            }
+            imageContainer.appendChild(figure);
+            reader.readAsDataURL(i)
+        }
+    }
+    CKEDITOR.replace('ckeditor')
+    
+</script>

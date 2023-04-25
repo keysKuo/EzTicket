@@ -13,6 +13,7 @@ const Event = new Schema(
         introduce: { type: String },
         banner: { type: String, required: true },
         status: { type: String, default: "ready" }, // ready -> pending -> running -> ended
+        
         slug: { type: String, required: true },
     },
     {

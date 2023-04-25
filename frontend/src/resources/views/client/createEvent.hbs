@@ -1,0 +1,188 @@
+<link rel="stylesheet" href="css/admin.css">
+
+{{#if error}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{error}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{{/if}}
+{{#if success}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{success}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{{/if}}
+
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-12'>
+            <div  class='card'>
+                <div style="background-color: #11101d;"  class='card-header d-flex justify-content-between text-light'>
+                    <h4>{{pageName}}</h4>
+                    {{!-- <a type="button" href="/my-ezt" class="btn btn-secondary">Trở lại</a> --}}
+                </div>
+                <div class='card-body'>
+                    <form class="form" enctype="multipart/form-data"  method="POST">
+                        <fieldset id="sizeForm">
+
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label class="control-label text-uppercase" for="name">TÊN sự kiện<span style="color:red">*</span></label>
+                                    <input value="{{event.name}}" id="name" name="name" placeholder="Tên sự kiện"
+                                    class="form-control" required type="text">
+                                </div>
+
+                                <div class="form-group col">
+                                    <label class="control-label text-uppercase" for="name">Ngày diễn ra<span style="color:red">*</span></label>
+                                    <input value="{{event.occur_date}}" id="occur_date" name="occur_date" placeholder="Ngày diễn ra"
+                                    class="form-control" required type="date">
+                                </div>
+                                
+                                
+                            </div>
+                            {{#if createNew}}
+                            <div class="form-row">
+                                
+                                
+                                <div class="form-group col">
+                                    {{!-- <label class="control-label text-uppercase" for="category">DANH MỤC SẢN PHẨM</label><br>
+                                    {{#each categories}}
+                                        
+                                            <div class="form-check form-check-inline ml-1 mt-1">
+                                                <input class="form-check-input" name="categories" type="checkbox" id="{{slug}}" value="{{_id}}">
+                                                <label class="form-check-label" for="{{slug}}">{{name}}</label>
+                                            </div>
+                                       
+                                    {{/each}} --}}
+                                    <div class='level1-box form-group'>
+                                        <label class='control-label text-uppercase ' for='select-cate'>Thể loại</label>
+                                        <select id='select-cate' name='select-cate' class='form-control'>
+                                            <option value=''>Chọn thể loại...</option>
+                                            {{#each categories}}
+                                                    <option value='{{_id}}'>{{name}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                   
+
+                                    {{!-- <div class="btn btn-primary btnChooseCate float-right">Chọn</div> --}}
+                                </div>
+                                
+                                <div id="chosen-cate" class="form-group col chosen-cate">
+                                    <label class='control-label text-uppercase' for=''>Thể loại ĐÃ CHỌN <span class="text-lowercase text-danger">( * Không trùng lặp * )</span></label>
+                                    <input id="categories_name" name="categories_name" placeholder="Thể loại"
+                                    class="form-control" required type="text">
+                                    <input id="categories" name="categories" placeholder="Category"
+                                    class="form-control" required type="hidden">
+                                </div>  
+
+
+                            
+                            </div>
+                            {{/if}}
+
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label class="control-label text-uppercase" for="name">Nơi tổ chức<span style="color:red">*</span></label>
+                                    <input value="{{event.location}}" id="location" name="location" placeholder="Nơi tổ chức"
+                                    class="form-control" required type="text">
+                                </div>
+
+                                <div class="form-group col">
+                                    <label class="control-label text-uppercase" for="name">Địa chỉ<span style="color:red">*</span></label>
+                                    <input value="{{event.address}}" id="address" name="address" placeholder="Địa chỉ"
+                                    class="form-control" required type="text">
+                                </div>
+                                <div class="form-group col">
+                                    <label class="control-label text-uppercase" for="name">Thời gian diễn ra<span style="color:red">*</span></label>
+                                    <input value="{{event.time}}" id="time" name="time" placeholder="Thời gian diễn ra"
+                                    class="form-control" required type="text">
+                                </div>
+                                
+                                
+                            </div>
+                            
+                            
+
+                            
+                        </fieldset>
+                        
+                        <div class="form-group mt-4">
+                                <label class="control-label text-uppercase" for="pimg">Banner<span style="color:red">*</span></label>
+                                <div class="form-group-container">
+                                    <input id="pimg" accept="image/*"  name="banner"
+                                        class="form-control-file" onchange="preview()" type="file" multiple>
+                                    <p id="num-of-file" class="mt-1">Chưa có ảnh nào được chọn</p>
+                                    <div id="images-upload">
+                                        {{#if event.banner}}
+                                            <img width="50%" src="{{event.banner}}" alt="">
+                                        {{/if}}
+                                    </div>
+                                </div>
+                            </div>
+
+                        <div class="form-group">
+                                <label class="control-label text-uppercase" for="description">Giới thiệu</label>
+                                <textarea  id="introduce" name="introduce" class="ckeditor">{{{event.introduce}}}</textarea>
+                            </div>
+                        <div class="form-footer">
+                                <button type="submit" class="btn btn-success">Thêm sự kiện</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#select-cate').change(function() {
+        let value = $('#categories').val();
+        let label = $('#categories_name').val();
+        let x = $('#select-cate option:selected').val()
+        let y = $('#select-cate option:selected').text()
+        
+        if (x != '' && !value.includes(x)) {
+            if(value == '') {
+            value += x;
+            label += y;
+            }
+            else {
+                value += ',' +  x;
+                label += ',' +  y;
+            }
+        }
+
+        $('#categories').val(value);
+        $('#categories_name').val(label);
+    })
+
+    let fileInput = document.getElementById("pimg")
+    let imageContainer = document.getElementById('images-upload')
+    let numOfFiles = document.getElementById('num-of-file')
+    function preview() {
+        imageContainer.innerHTML = ""
+        numOfFiles.textContent = `${fileInput.files.length} ảnh đã được chọn`;
+        for (i of fileInput.files) {
+            let reader = new FileReader()
+            let figure = document.createElement("figure")
+            let figCap = document.createElement("figcaption")
+            figCap.innerText = i.name
+            figure.appendChild(figCap)
+            reader.onload = () => {
+                let img = document.createElement("img");
+                img.setAttribute("src", reader.result);
+                img.setAttribute("width", '50%');
+                figure.insertBefore(img, figCap);
+            }
+            imageContainer.appendChild(figure);
+            reader.readAsDataURL(i)
+        }
+    }
+    CKEDITOR.replace('ckeditor')
+    
+</script>

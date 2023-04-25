@@ -6,3 +6,4 @@ module.exports.Ticket = require('./Ticket');
 
 module.exports.Log = require('./Log');
 module.exports.Booking = require('./Booking');
+module.exports.Business = require('./Business');
