@@ -104,7 +104,7 @@
                                         style='display:block;'
                                     >
                                         <p class='text-indent'><i class='ti-money icon grey-bright-color'></i>&nbsp;&nbsp;&nbsp; Từ
-                                            <strong>249.000 VND</strong></p>
+                                            <strong>{{tickets_type.[0].price}}</strong></p>
                                         {{!-- <i class='ti-money'></i> --}}
                                         <div class='clear'></div>
                                     </a>
@@ -161,7 +161,7 @@
             >
                 <div class='col-xs-4 table-cell price-box ver-middle'>
                     <a href='#booking' class='page-scroll' target='blank'>Từ
-                        <span class='text-bold'>249.000 VND</span></a>
+                        <span class='text-bold'>{{tickets_type.[0].price}}</span></a>
                 </div>
                 <div class='col-xs-8 table-cell book-box text-center ver-middle'>
                     <a
@@ -412,6 +412,7 @@
                         <div class='col-sm-12 pl-pr-0'>
                             <h3 class='title'>Th&#244;ng tin v&#233;</h3>
                             <div class='panel-group margin-bottom-0' id='accordion'>
+                                {{#each tickets_type}}
                                 <div class='panel panel-default'>
                                     <div class='panel-heading'>
                                         <div class='panel-title'>
@@ -423,8 +424,8 @@
                                             >
                                                 <div class='col-sm-7'>
                                                     <span class='arrow ti-ticket grey-bright-color'></span>
-                                                    <p class='tic__name' data-ot='Early Access'>
-                                                        Early Access
+                                                    <p class='tic__name' data-ot='{{name}}'>
+                                                        {{name}}
                                                     </p>
                                                 </div>
                                                 <div class='col-sm-5'>
@@ -433,7 +434,7 @@
                                                     ></span>
                                                     <p class='tic__price'>
 
-                                                        <strong>699.000 VND</strong><br />
+                                                        <strong>{{price}}</strong><br />
 
                                                     </p>
                                                 </div>
@@ -458,6 +459,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                {{/each}}
                                 
                             </div>
                         </div>
@@ -508,7 +510,7 @@
                             <a href='.booking' class='border-top-grey page-scroll pd-15 block'>
                                 <i class='ti-ticket icon grey-bright-color'></i>
                                 <div class='ev-txt'>
-                                    <span>Từ <strong>249.000 VND</strong></span>
+                                    <span>Từ <strong>{{tickets_type.[0].price}}</strong></span>
                                     {{!-- <i class='ello-right-open grey-bright-color'></i> --}}
                                 </div>
                             </a>

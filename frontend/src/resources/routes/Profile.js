@@ -66,15 +66,16 @@ router.post('/profile', async (req, res, next) => {
             .then(async rs => {
                 rs = await rs.json();
                 if(rs.success) {
-                    req.session.user.level = 2;
-                    req.flash('success', 'Lưu hồ sơ thành công');
-                    return res.redirect('/my-ezt/profile');
+                    req.session.user = null;
+                    req.flash('success', 'Lưu hồ sơ thành công. Vui lòng đăng nhập lại');
+                    return res.redirect('/login');
                 }
             })
         }
     })
     .catch(err => {
         req.flash('error', err);
+        
         return res.redirect('/my-ezt/profile');
     })
 })

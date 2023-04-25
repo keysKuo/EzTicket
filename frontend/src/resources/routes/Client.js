@@ -3,14 +3,41 @@ const router = express.Router();
 const fetch = require('node-fetch');
 const SUD_URL = process.env.SUD_URL || '';
 const API_URL = process.env.API_URL || '';
+const { exchangeDate } = require('../utils');
+router.get('/', async (req, res, next) => {
+    
+    let events = await fetch(API_URL + 'events/findMany', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json'},
+    })
+    .then(async result => {
+        result = await result.json();
 
-router.get('/', (req, res, next) => {
+        if(result.success) {
+            return result.data;
+        }
+        return []
+    })
+    .catch(err => {
+        return [];
+    })
+
     
     const user = req.session.user || {};
     return res.render('client/index', {
         title: 'Ez Ticket',
         layout: 'secondary.hbs',
-        username: user.username
+        username: user.username,
+        events: events.map(e => {
+            return {
+                _id: e._id,
+                name: e.name,
+                categories: e.categories,
+                banner: e.banner,
+                occur_date: new Date(e.occur_date).toLocaleDateString('vi-vn'),
+                slug: e.slug
+            }
+        })
     })
 })
 

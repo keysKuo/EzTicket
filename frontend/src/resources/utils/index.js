@@ -1,6 +1,6 @@
 module.exports.exchangeDate =(date) => {
     return {
-        formatDate: `ngày ${date.getDate()} tháng ${date.getMonth() + 1} năm ${date.getFullYear()}`,
+        formatDate: `Ngày ${date.getDate()} tháng ${date.getMonth() + 1} năm ${date.getFullYear()}`,
         day: date.getDate(),
         month: date.getMonth() + 1,
         year: date.getFullYear(),

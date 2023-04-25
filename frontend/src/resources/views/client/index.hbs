@@ -24,24 +24,26 @@
                 <section class='jEmGwi'>
                     <div class='container'>
                         <div class='row'>
+                            {{#each events}}
                             <div class='col-6 col-sm-4 col-md-4 col-lg-3 mt-3'>
                                 <a
-                                    href='/booking/ticketDetail'
-                                    target='_blank'
+                                    href='/events/{{slug}}'
+                                
                                     rel='noopener noreferrer'
                                     class='card-ticket-wrapper'
                                 >
                                     <img
-                                        src='https://images.tkbcdn.com/1/780/300/Upload/eventcover/2023/03/28/104D01.jpg'
-                                        alt='THE LEGEND CONCERT 01 &quot;TRỊNH CÔNG SƠN&quot;'
+                                        src='{{banner}}'
+                                        alt='{{name}}'
                                         lazy='lazy'
                                         class='card-ticket-img'
                                     />
-                                    <h4 class='card-ticket-heading'>THE LEGEND CONCERT 01 "TRỊNH CÔNG SƠN"</h4>
-                                    <div class='card-ticket-date'>09/04/2023</div>
-                                    <div class='card-ticket-type'>Live Music</div>
+                                    <h4 class='card-ticket-heading'>{{name}}</h4>
+                                    <div class='card-ticket-date'>{{occur_date}}</div>
+                                    <div class='card-ticket-type'>{{#each categories}}{{name}} {{/each}}</div>
                                 </a>
                             </div>
+                            {{/each}}
                             <div class='col-6 col-sm-4 col-md-4 col-lg-3 mt-3'>
                                 <a
                                     href='/booking/ticketDetail'

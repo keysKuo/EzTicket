@@ -1,0 +1,77 @@
+<style>
+    .booking-header {
+        height: 150px; 
+        background: url('https://static.tkbcdn.com/site/global/content-v2/img/booking/header-bg-01.jpg');
+        background-size: cover;
+        background-position: center center;  
+        color: white      
+    }
+
+    .booking-header p {
+        display: block  ;
+    }
+
+    .booking-info {
+        border: 1px solid black;
+        min-height: 200px;
+    }
+
+    .form {
+       
+        padding: 16px 32px;
+        min-height: 400px;
+        background-color: white;
+        max-width: 360px;
+        margin: 24px auto auto;
+        border: 1px solid rgb(230, 235, 245);   
+         box-sizing: border-box;
+        border-radius: 4px;
+        /* margin: auto; */
+        
+    }
+</style>
+
+<div  class="booking-header text-center">
+            <div style="height:10px" ></div>
+            <h2>{{event.name}}</h2>
+        <p>{{event.location}}</p>
+        <p>{{event.occur_date.formatDate}}</p>
+        
+    </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            {{#if tickets_type}}
+            <table  class="table table-stripe mt-5">
+
+                <thead>
+                    <tr class="text-uppercase">
+                    <th scope="col">Loại vé</th>
+                    <th class="text-right" scope="col">Giá vé</th>
+                    <th class="text-right" scope="col">Số lượng</th>
+                    
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each tickets_type}}
+                    <tr>
+                    <td scope="row">{{name}}</td>
+                    <td class="text-right">{{price}}</td>
+                    <td style="width: 8rem"><div class="form-outline" >
+                        <input style="width: 5rem; margin-left: 20px" value="0" type="number" id="typeNumber" class="" />
+                       
+                    </div></td>
+                    
+                    </tr>
+                    {{/each}}
+                    
+                </tbody>
+                </table>
+            {{/if}}
+        </div>
+        <div class="col-md-4">
+            <div class="w-100 booking-info form"></div>
+        </div>
+    </div>
+</div>
