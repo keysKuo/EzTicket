@@ -12,7 +12,7 @@ const TicketModel = require('../models/Ticket');
 
 // [POST]
 router.post('/create', async (req, res, next) => {
-    const { event, name, expire, price, number } = req.body
+    const { event, name, expire, price, status, number } = req.body
     try {
         let searchValue = { _id: event }
         let eventExist = await API_Event.readOne(searchValue)
@@ -21,13 +21,15 @@ router.post('/create', async (req, res, next) => {
         }
         let numberInt = parseInt(number)
         let payloads = []
+        let code = utils_API.createCode(6);
         for (let index = 0; index < numberInt; index++) {
             payloads.push({
                 event: event,
                 name: name,
-                code: utils_API.createCode(6),
+                code: code,
                 expire: expire,
-                price: price
+                price: price,
+                status: status
             })
         }
         let result = await TicketModel.insertMany(payloads)
@@ -89,7 +91,7 @@ router.get('/find-by-event/:id', async (req, res, next) => {
 // [PUT]
 router.put('/update/:id', async (req, res, next) => {
     const { id } = req.params
-    const { event, name, code, expire, price, status } = req.body
+    const { event, name, expire, price, status } = req.body
     try {
         let searchValue = { _id: event }
         let eventExist = await API_Event.readOne(searchValue)
@@ -109,7 +111,6 @@ router.put('/update/:id', async (req, res, next) => {
         }
         let payloads = {
             name: name,
-            code: code,
             expire: expire,
             price: price,
             status: status,

@@ -1,77 +1,251 @@
 <style>
-    .booking-header {
-        height: 150px; 
-        background: url('https://static.tkbcdn.com/site/global/content-v2/img/booking/header-bg-01.jpg');
-        background-size: cover;
-        background-position: center center;  
-        color: white      
-    }
-
-    .booking-header p {
-        display: block  ;
-    }
-
-    .booking-info {
-        border: 1px solid black;
-        min-height: 200px;
-    }
-
-    .form {
-       
-        padding: 16px 32px;
-        min-height: 400px;
-        background-color: white;
-        max-width: 360px;
-        margin: 24px auto auto;
-        border: 1px solid rgb(230, 235, 245);   
-         box-sizing: border-box;
-        border-radius: 4px;
-        /* margin: auto; */
+    .booking-header { height: 150px; background:
+    url('https://static.tkbcdn.com/site/global/content-v2/img/booking/header-bg-01.jpg'); background-size: cover;
+    background-position: center center; color: white } .booking-header p { display: block ; } .booking-info { border:
+    1px solid black; min-height: 200px; } .form { padding: 16px ;min-height: 400px; background-color: white;
+    max-width: 360px; border: 1px solid rgb(230, 235, 245); box-sizing: border-box;
+    border-radius:0px;  /* margin: auto; */ }
+     table {
+        font-size: 14px !important;
         
     }
+
+    .block-header {
+    border-bottom: 3px solid #ccc;
+    padding-left: 5px;
+    margin-bottom: 20px;
+    margin-top: 16px;
+    overflow: hidden;
+}
+
+.payment-single {
+    cursor: pointer;
+    border: 1.6px solid #ccc;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.payment-single img {
+    width: 46.8px;
+    height: 46.8px;
+    border-right: 1.6px solid #ccc;
+}
+
+.payment-single span {
+    display: inline-block;
+    margin-left: 30px;
+    line-height: 45px;
+    font-weight: 700;
+}
+
+.selected {
+    border-color: #98D8AA;
+}
+
+.selected img {
+    border-color: #98D8AA;
+}
+
 </style>
 
-<div  class="booking-header text-center">
-            <div style="height:10px" ></div>
-            <h2>{{event.name}}</h2>
-        <p>{{event.location}}</p>
-        <p>{{event.occur_date.formatDate}}</p>
-        
-    </div>
+<div class='booking-header text-center'>
+    <div style='height:10px'></div>
+    <h2>{{event.name}}</h2>
+    <p>{{event.location}}</p>
+    <p>{{event.occur_date.formatDate}}</p>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
+</div>
+
+<div class='container'>
+    {{!-- <form action="POST"> --}}
+    <div class='row'>
+        <div class='col-md-8'>
             {{#if tickets_type}}
-            <table  class="table table-stripe mt-5">
+                <table class='table table-stripe mt-5'>
 
-                <thead>
-                    <tr class="text-uppercase">
-                    <th scope="col">Loại vé</th>
-                    <th class="text-right" scope="col">Giá vé</th>
-                    <th class="text-right" scope="col">Số lượng</th>
-                    
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each tickets_type}}
-                    <tr>
-                    <td scope="row">{{name}}</td>
-                    <td class="text-right">{{price}}</td>
-                    <td style="width: 8rem"><div class="form-outline" >
-                        <input style="width: 5rem; margin-left: 20px" value="0" type="number" id="typeNumber" class="" />
-                       
-                    </div></td>
-                    
-                    </tr>
-                    {{/each}}
-                    
-                </tbody>
+                    <thead>
+                        <tr class='text-uppercase'>
+                            <th scope='col'>Loại vé</th>
+                            <th class='text-right' scope='col'>Giá vé</th>
+                            <th class='text-right' scope='col'>Số lượng</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each tickets_type}}
+                            <tr>
+                                <td scope='row'>{{name}}</td>
+                                <td class='text-right'>{{price}}</td>
+                                <td style='width: 8rem'><div class='form-outline'>
+                                        <input
+                                            style='width: 4rem; margin-left: 25px'
+                                            value='0'
+                                            type='number'
+                                            id='typeNumber'
+                                            class=''
+                                        />
+
+                                    </div></td>
+
+                            </tr>
+                        {{/each}}
+
+                    </tbody>
                 </table>
+
+                <div class="block-header" ng-class="{'has-error': submitStep2Clicked &amp;&amp; !order.paymentInfo.paymentType}">
+                    <h5 class="font-bold uppercase">
+                        <span translate="T.STEP2.PAYMENT_METHOD" class="ng-scope">Hình thức thanh toán</span>
+                    </h5><!-- ngIf: submitStep2Clicked && !order.paymentInfo.paymentType -->
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="payment-single selected">
+                            <img src="https://www.nopcommerce.com/images/thumbs/0020327_paypal-commerce-the-official-integration.png" alt="">
+                            <span class="px-3 py-3">Thanh toán trực tuyến Paypal</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="payment-single payment-internet">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpE1n3LSYgWeFqXQvJlKj_PwPxuSA2yM5OEQ&usqp=CAU" alt="">
+                            <span class="px-3 py-3">Internet Banking</span>
+                        </div>
+                    </div>
+                </div>
             {{/if}}
         </div>
-        <div class="col-md-4">
-            <div class="w-100 booking-info form"></div>
+        <div class='col-md-4'>
+            <div class='w-100 booking-info form'>
+                <div class='bill-content w-100'><!-- ngIf: order.buyerInfo.hasData() --><table
+                        class='table table-striped valign-middle margin-bottom-0 ng-scope'
+                        ng-if='order.buyerInfo.hasData()'
+                    ><thead class='color-3'><tr><th colspan='3' class='uppercase text-left'><span
+                                        class='font-bold ng-scope'
+                                        translate='T.LAYOUT.BUYER_INFO'
+                                    >Thông tin người nhận vé</span>
+                                    <!-- ngIf: reviewingOrder --></th></tr></thead><tbody><tr><td
+                                    class='color-a'
+                                    width='10%'
+                                ><i class='ti-user'></i></td><td
+                                    class='text-left font-bold color-6'
+                                    width='35%'
+                                ><span translate='T.LAYOUT.FULL_NAME' class='ng-scope'>Họ tên</span></td><td
+                                    class='text-right'
+                                    width='55%'
+                                ><span class='ng-binding'
+                                    >Kuo Nhan Dung</span></td></tr><tr><td class='color-a' width='10%'><i
+                                        class='ti-email'
+                                    ></i></td><td class='text-left font-bold color-6' width='35%'><span
+                                        translate='T.LAYOUT.EMAIL'
+                                        class='ng-scope'
+                                    >Email</span></td><td class='text-right' width='55%'><span
+                                        ng-bind='order.buyerInfo.email'
+                                        class='ng-binding'
+                                    >nkeyskuo124@gmail.com</span></td></tr><tr><td class='color-a' width='10%'><i
+                                        class='ti-mobile'
+                                    ></i></td><td class='text-left font-bold color-6' width='35%'><span
+                                        translate='T.LAYOUT.PHONE_NUMBER'
+                                        class='ng-scope'
+                                    >Điện thoại</span></td><td class='text-right' width='55%'><span
+                                        ng-bind='order.buyerInfo.phoneNumber'
+                                        class='ng-binding'
+                                    ></span></td></tr></tbody></table><!-- end ngIf: order.buyerInfo.hasData() --><!-- ngIf: order.paymentInfo.paymentType --><table
+                        class='table table-striped valign-middle margin-bottom-0 ng-scope'
+                        ng-if='order.paymentInfo.paymentType'
+                    ><thead class='color-3'><tr><th
+                                    colspan='2'
+                                    class='font-bold uppercase text-left padding-left-0 padding-right-0'
+                                ><span translate='T.LAYOUT.PAYMENT_METHOD' class='ng-scope'>Hình thức thanh toán</span></th></tr></thead><tbody
+                        ><tr><th
+                                    colspan='2'
+                                    class='text-left padding-left-0 padding-right-0'
+                                ><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Free && !event.isUsePickupFlowForFreeTickets && !event.isReceiveTicketsAtEvent -->
+                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Free && event.isUsePickupFlowForFreeTickets -->
+                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Free && event.isReceiveTicketsAtEvent -->
+                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.COD -->
+                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.ATM || order.paymentInfo.paymentType == PAYMENT_TYPE.InternetBanking -->
+                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.CreditCard -->
+                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Cybersource -->
+                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.OfficePickup -->
+                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Moca -->
+                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Momo --><span
+                                        ng-if='order.paymentInfo.paymentType == PAYMENT_TYPE.Momo'
+                                        translate='T.LAYOUT.MOMO'
+                                        class='ng-scope'
+                                    >Paypal</span><!-- end ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Momo -->
+                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Payoo -->
+                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.BankTransfer --></th></tr><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.COD || ((order.paymentInfo.paymentType == PAYMENT_TYPE.ATM || order.paymentInfo.paymentType == PAYMENT_TYPE.CreditCard|| order.paymentInfo.paymentType == PAYMENT_TYPE.Cybersource) && event.hasPhysicalItem) --><!-- ngIf: (order.paymentInfo.paymentType == PAYMENT_TYPE.COD || ((order.paymentInfo.paymentType == PAYMENT_TYPE.ATM || order.paymentInfo.paymentType == PAYMENT_TYPE.CreditCard || order.paymentInfo.paymentType == PAYMENT_TYPE.Cybersource) && event.hasPhysicalItem)) && order.paymentInfo.deliveryInfo.note --><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.OfficePickup && order.paymentInfo.officePickupInfo.note --><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.ATM --><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.CreditCard --><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Cybersource --></tbody></table><!-- end ngIf: order.paymentInfo.paymentType --><table
+                        class='table table-striped valign-middle margin-bottom-0'
+                    ><thead class='color-3'><tr><th colspan='2' class='text-left'><span
+                                        class='font-bold text-uppercase ng-scope'
+                                        translate='T.LAYOUT.TICKET_INFO'
+                                    >Thông tin đặt vé</span><!-- ngIf: bookingStep != BOOKING_STEP.selectTickets --><!-- end ngIf: bookingStep != BOOKING_STEP.selectTickets --></th></tr><!-- ngIf: !order.orderDetails || !order.orderDetails.length --></thead><tbody
+                        ><!-- ngIf: order.orderDetails.length --><tr
+                                ng-if='order.orderDetails.length'
+                                class='color-6 ng-scope'
+                            ><td class='font-600 ng-scope' translate='T.LAYOUT.TICKET_TYPE'>Loại vé</td><td
+                                    class='font-600 text-right ng-scope'
+                                    width='90'
+                                    translate='T.LAYOUT.QUANTITY'
+                                >Số lượng</td></tr><!-- end ngIf: order.orderDetails.length --><!-- ngRepeat: orderDetail in order.orderDetails | orderBy:'displayOrder' --><tr
+                                ng-repeat="orderDetail in order.orderDetails | orderBy:'displayOrder'"
+                                class='ng-scope'
+                            ><td><div
+                                        class='ticket-type ng-binding'
+                                        ng-bind='orderDetail.ticketType.title'
+                                    >Standard</div><div class='font-085 color-6'><span
+                                            ng-bind='orderDetail.ticketType.applyingPrice | number'
+                                            class='ng-binding'
+                                        >800,000</span>
+                                        <span ng-bind='event.currency.isoCode' class='ng-binding'>VND</span></div><div
+                                        class='clearfix'
+                                    ><small><!-- ngRepeat: section in orderDetail.sections --></small></div></td><td
+                                    class='text-right'
+                                ><div><span ng-bind='orderDetail.quantity' class='ng-binding'>1</span></div><div
+                                        class='font-085 color-6'
+                                    ><span
+                                            ng-bind='orderDetail.quantity * orderDetail.ticketType.applyingPrice | number'
+                                            class='ng-binding'
+                                        >800,000</span>
+                                        <span
+                                            ng-bind='event.currency.isoCode'
+                                            class='ng-binding'
+                                        >VND</span></div></td></tr><!-- end ngRepeat: orderDetail in order.orderDetails | orderBy:'displayOrder' --></tbody></table><!-- ngIf: order.discount && order.orderDiscountAmount --><!-- ngIf: order.buyerServiceFee > 0 || order.buyerPaymentFee > 0 || order.paymentInfo.paymentType == PAYMENT_TYPE.COD || ((order.paymentInfo.paymentType == PAYMENT_TYPE.ATM || order.paymentInfo.paymentType == PAYMENT_TYPE.CreditCard || order.paymentInfo.paymentType == PAYMENT_TYPE.Cybersource || order.paymentInfo.paymentType == PAYMENT_TYPE.Moca || order.paymentInfo.paymentType == PAYMENT_TYPE.Momo) && event.hasPhysicalItem) --><!-- ngIf: event.organizerAllowIssueInvoice===true && order.orderDetails && order.orderDetails.length --></div>
+                </div>
+
+
+                <div style="background-color: #444" class="sum rounded bottom color-white padding-20">
+                    <table style="color: white" class="w-100">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong translate="T.LAYOUT.TOTAL" class="ng-scope">Tổng cộng</strong>
+                                </td>
+                                <td class="text-right">
+                                    <strong><span ng-bind="order.finalAmount || 0 | number" class="ng-binding">0</span> <span ng-bind="event.currency.isoCode" class="ng-binding">VND</span></strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 30px; line-height: 30px" class="w-100 btn btn-success" id="btnPay">Tiếp tục</div>
+        </div>
+
+        
         </div>
     </div>
+    {{!-- </form> --}}
 </div>
+
+<script>
+    $('.payment-internet').click(function() {
+        alert('Phương thức thanh toán này đang được bảo trì');
+    })
+
+    $('#btnPay').click(function() {
+        
+    })
+</script>
