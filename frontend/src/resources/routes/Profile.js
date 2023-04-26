@@ -74,7 +74,7 @@ router.post('/profile', async (req, res, next) => {
 }, async (req, res, next) => {
     const id = req.session.user._id;
     const data = req.data;
-    console.log(data)
+    
     if(data) {
         return await fetch(SUD_URL + `users/update/${id}`, {
             method: 'PUT',
