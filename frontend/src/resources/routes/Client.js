@@ -158,8 +158,10 @@ router.post('/check-ticket', async (req, res, next) => {
     const { code, quantity } = req.body;
     
     await fetch(API_URL + `tickets/find-by-code/${code}`, {
-        method: 'GET'
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
     })
+    
 });
 
 module.exports = router;

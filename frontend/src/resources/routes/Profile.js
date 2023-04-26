@@ -49,7 +49,7 @@ router.get('/profile', async (req, res, next) => {
 
 router.post('/profile', async (req, res, next) => {
     const id = req.session.user._id;
-    await fetch(API_URL + 'business/save', {
+    let business = await fetch(API_URL + 'business/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({...req.body})
@@ -58,25 +58,35 @@ router.post('/profile', async (req, res, next) => {
         result = await result.json();
 
         if(result.success) {
-            await fetch(SUD_URL + `users/update/${id}`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json'},
-                body: JSON.stringify({level: 2, business: result.data._id})
-            })
-            .then(async rs => {
-                rs = await rs.json();
-                if(rs.success) {
-                    req.session.user = null;
-                    req.flash('success', 'Lưu hồ sơ thành công. Vui lòng đăng nhập lại');
-                    return res.redirect('/login');
-                }
-            })
+            return result.data;
+            
         }
     })
     .catch(err => {
+        console.log(err)
         req.flash('error', err);
         
         return res.redirect('/my-ezt/profile');
+    })
+
+    req.data = business;
+    next();
+}, async (req, res, next) => {
+    const id = req.session.user._id;
+    const data = req.data;
+    
+    await fetch(SUD_URL + `users/update/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({level: 2, business: data._id})
+    })
+    .then(async rs => {
+        rs = await rs.json();
+        if(rs.success) {
+            req.session.user = null;
+            req.flash('success', 'Lưu hồ sơ thành công. Vui lòng đăng nhập lại');
+            return res.redirect('/login');
+        }
     })
 })
 
