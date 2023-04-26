@@ -5,7 +5,7 @@ const Ticket = new Schema(
     {
         event: { type: Schema.Types.ObjectId, ref: 'Event' },
         name: { type: String, required: true },
-        code: { type: String, required: true, unique: true },
+        code: { type: String, required: true },
         expire: { type: Date, required: true },
         price: { type: Number, required: true },
         status: { type: String, default: "available" }, // available (unavailable) -> pending -> soldout

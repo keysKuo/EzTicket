@@ -377,7 +377,7 @@ router.get('/delete/:id', checkLevel, async (req, res, next) => {
 
 router.post('/add-ticket', async (req, res, next) => {
     const data = req.body;
-
+    
     await fetch(API_URL + 'tickets/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -390,9 +390,9 @@ router.post('/add-ticket', async (req, res, next) => {
             req.flash('success', 'Tạo vé thành công');
             return res.redirect('/my-ezt/add-ticket')
         }
-
+        console.log(result)
         req.flash('error', 'Tạo vé thất bại');
-            return res.redirect('/my-ezt/add-ticket')
+        return res.redirect('/my-ezt/add-ticket')
     })
     .catch(err => {
         req.flash('error', err);

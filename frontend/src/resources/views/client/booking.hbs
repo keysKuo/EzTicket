@@ -2,7 +2,7 @@
     .booking-header { height: 150px; background:
     url('https://static.tkbcdn.com/site/global/content-v2/img/booking/header-bg-01.jpg'); background-size: cover;
     background-position: center center; color: white } .booking-header p { display: block ; } .booking-info { border:
-    1px solid black; min-height: 200px; } .form { padding: 16px ;min-height: 400px; background-color: white;
+    1px solid black; min-height: 200px; } .form { padding: 16px ;background-color: white;
     max-width: 360px; border: 1px solid rgb(230, 235, 245); box-sizing: border-box;
     border-radius:0px;  /* margin: auto; */ }
      table {
@@ -48,6 +48,18 @@
     border-color: #98D8AA;
 }
 
+.step-progress {
+    height: 36px;
+    line-height: 36px;
+    font-weight: 700;
+    border-bottom: 2px solid #ccc;
+}
+
+.step {
+    {{!-- border-right: 2px solid #ccc; --}}
+}
+
+
 </style>
 
 <div class='booking-header text-center'>
@@ -59,6 +71,7 @@
 </div>
 
 <div class='container'>
+    
     {{!-- <form action="POST"> --}}
     <div class='row'>
         <div class='col-md-8'>
@@ -68,32 +81,26 @@
                     <thead>
                         <tr class='text-uppercase'>
                             <th scope='col'>Loại vé</th>
+                            
                             <th class='text-right' scope='col'>Giá vé</th>
-                            <th class='text-right' scope='col'>Số lượng</th>
+                            <th class='text-center' scope='col'>Số lượng</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         {{#each tickets_type}}
-                            <tr>
-                                <td scope='row'>{{name}}</td>
+                            <tr data-code="{{code}}" data-quantity="{{quantity}}" class="ticket-items">
+                                <td style="text-transform: capitalize;" scope='row'>{{name}}</td>
                                 <td class='text-right'>{{price}}</td>
-                                <td style='width: 8rem'><div class='form-outline'>
-                                        <input
-                                            style='width: 4rem; margin-left: 25px'
-                                            value='0'
-                                            type='number'
-                                            id='typeNumber'
-                                            class=''
-                                        />
-
-                                    </div></td>
-
+                                <td style='width: 8rem' class="text-center">
+                                    {{{quanHTML}}}
+                                </td>
                             </tr>
                         {{/each}}
 
                     </tbody>
                 </table>
+
 
                 <div class="block-header" ng-class="{'has-error': submitStep2Clicked &amp;&amp; !order.paymentInfo.paymentType}">
                     <h5 class="font-bold uppercase">
@@ -114,6 +121,8 @@
                         </div>
                     </div>
                 </div>
+            {{else}}
+            <div class="w-100 h4 text-center text-bold">Sự kiện chưa bán vé</div>
             {{/if}}
         </div>
         <div class='col-md-4'>
@@ -151,32 +160,22 @@
                                     >Điện thoại</span></td><td class='text-right' width='55%'><span
                                         ng-bind='order.buyerInfo.phoneNumber'
                                         class='ng-binding'
-                                    ></span></td></tr></tbody></table><!-- end ngIf: order.buyerInfo.hasData() --><!-- ngIf: order.paymentInfo.paymentType --><table
-                        class='table table-striped valign-middle margin-bottom-0 ng-scope'
-                        ng-if='order.paymentInfo.paymentType'
-                    ><thead class='color-3'><tr><th
+                                    >0767916592</span></td></tr>
+                                </tbody>
+                                    
+                                    </table>
+                                    <table class='table table-striped valign-middle margin-bottom-0 ng-scope'>
+                                        <thead class='color-3'><tr><th
                                     colspan='2'
                                     class='font-bold uppercase text-left padding-left-0 padding-right-0'
                                 ><span translate='T.LAYOUT.PAYMENT_METHOD' class='ng-scope'>Hình thức thanh toán</span></th></tr></thead><tbody
                         ><tr><th
                                     colspan='2'
                                     class='text-left padding-left-0 padding-right-0'
-                                ><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Free && !event.isUsePickupFlowForFreeTickets && !event.isReceiveTicketsAtEvent -->
-                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Free && event.isUsePickupFlowForFreeTickets -->
-                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Free && event.isReceiveTicketsAtEvent -->
-                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.COD -->
-                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.ATM || order.paymentInfo.paymentType == PAYMENT_TYPE.InternetBanking -->
-                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.CreditCard -->
-                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Cybersource -->
-                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.OfficePickup -->
-                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Moca -->
-                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Momo --><span
-                                        ng-if='order.paymentInfo.paymentType == PAYMENT_TYPE.Momo'
-                                        translate='T.LAYOUT.MOMO'
-                                        class='ng-scope'
+                                ><span class='ng-scope'
                                     >Paypal</span><!-- end ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Momo -->
                                     <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Payoo -->
-                                    <!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.BankTransfer --></th></tr><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.COD || ((order.paymentInfo.paymentType == PAYMENT_TYPE.ATM || order.paymentInfo.paymentType == PAYMENT_TYPE.CreditCard|| order.paymentInfo.paymentType == PAYMENT_TYPE.Cybersource) && event.hasPhysicalItem) --><!-- ngIf: (order.paymentInfo.paymentType == PAYMENT_TYPE.COD || ((order.paymentInfo.paymentType == PAYMENT_TYPE.ATM || order.paymentInfo.paymentType == PAYMENT_TYPE.CreditCard || order.paymentInfo.paymentType == PAYMENT_TYPE.Cybersource) && event.hasPhysicalItem)) && order.paymentInfo.deliveryInfo.note --><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.OfficePickup && order.paymentInfo.officePickupInfo.note --><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.ATM --><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.CreditCard --><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Cybersource --></tbody></table><!-- end ngIf: order.paymentInfo.paymentType --><table
+                                   </th></tr><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.COD || ((order.paymentInfo.paymentType == PAYMENT_TYPE.ATM || order.paymentInfo.paymentType == PAYMENT_TYPE.CreditCard|| order.paymentInfo.paymentType == PAYMENT_TYPE.Cybersource) && event.hasPhysicalItem) --><!-- ngIf: (order.paymentInfo.paymentType == PAYMENT_TYPE.COD || ((order.paymentInfo.paymentType == PAYMENT_TYPE.ATM || order.paymentInfo.paymentType == PAYMENT_TYPE.CreditCard || order.paymentInfo.paymentType == PAYMENT_TYPE.Cybersource) && event.hasPhysicalItem)) && order.paymentInfo.deliveryInfo.note --><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.OfficePickup && order.paymentInfo.officePickupInfo.note --><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.ATM --><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.CreditCard --><!-- ngIf: order.paymentInfo.paymentType == PAYMENT_TYPE.Cybersource --></tbody></table><!-- end ngIf: order.paymentInfo.paymentType --><table
                         class='table table-striped valign-middle margin-bottom-0'
                     ><thead class='color-3'><tr><th colspan='2' class='text-left'><span
                                         class='font-bold text-uppercase ng-scope'
@@ -212,7 +211,9 @@
                                         <span
                                             ng-bind='event.currency.isoCode'
                                             class='ng-binding'
-                                        >VND</span></div></td></tr><!-- end ngRepeat: orderDetail in order.orderDetails | orderBy:'displayOrder' --></tbody></table><!-- ngIf: order.discount && order.orderDiscountAmount --><!-- ngIf: order.buyerServiceFee > 0 || order.buyerPaymentFee > 0 || order.paymentInfo.paymentType == PAYMENT_TYPE.COD || ((order.paymentInfo.paymentType == PAYMENT_TYPE.ATM || order.paymentInfo.paymentType == PAYMENT_TYPE.CreditCard || order.paymentInfo.paymentType == PAYMENT_TYPE.Cybersource || order.paymentInfo.paymentType == PAYMENT_TYPE.Moca || order.paymentInfo.paymentType == PAYMENT_TYPE.Momo) && event.hasPhysicalItem) --><!-- ngIf: event.organizerAllowIssueInvoice===true && order.orderDetails && order.orderDetails.length --></div>
+                                        >VND</span></div></td></tr></tbody>
+                                </table>
+                            </div>
                 </div>
 
 
@@ -246,6 +247,19 @@
     })
 
     $('#btnPay').click(function() {
-        
+        let items = $('.ticket-items')
+        let data = [];
+        for(let i = 0; i < items.length; i++) {
+            let code = $(items[i]).data('code');
+            let quantity = $(items[i]).children().children().children().val();
+            
+            if(quantity > 0) {
+                data.push({code, quantity})
+            }
+        }
+
+        $.ajax({
+            url: 
+        })
     })
 </script>

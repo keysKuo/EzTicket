@@ -74,7 +74,7 @@ router.get('/:slug', async (req, res, next) => {
     })
 
     let tickets_type = [];
-    if(tickets.length != 0) {
+    if(tickets.length > 0) {
         tickets_type = countTickets(tickets);
     }
     const user = req.session.user || {};
@@ -125,9 +125,9 @@ router.get('/:slug/ticket-booking', async (req, res, next) => {
     .catch(err => {
         return {}
     })
-
+    
     let tickets_type = [];
-    if(tickets.length != 0) {
+    if(tickets.length > 0) {
         tickets_type = countTickets(tickets);
     }
     const user = req.session.user || {};

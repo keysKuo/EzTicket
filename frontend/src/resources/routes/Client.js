@@ -154,8 +154,12 @@ router.post('/verify-login', async (req, res, next) => {
     })
 })
 
-router.get('/event', function (req, res, next) {
-    res.render('client/eventList', { title: 'Admin', layout: 'secondary' });
+router.post('/check-ticket', async (req, res, next) => {
+    const { code, quantity } = req.body;
+    
+    await fetch(API_URL + `tickets/find-by-code/${code}`, {
+        method: 'GET'
+    })
 });
 
 module.exports = router;

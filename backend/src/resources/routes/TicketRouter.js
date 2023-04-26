@@ -55,6 +55,22 @@ router.get('/all', async (req, res, next) => {
         return res.status(500).json({ success: false, message: error })
     }
 })
+
+
+router.get('/find-by-code/:code', async (req, res, next) => {
+    const { code } = req.params
+    try {
+        let searchValue = { code }
+        let ticketExist = await API_Ticket.readOne(searchValue)
+        if (!ticketExist) {
+            return res.status(300).json({ success: false, message: "No Data!" })
+        }
+        return res.status(200).json({ success: true, message: "Data Found!", data: ticketExist })
+    } catch (error) {
+        return res.status(500).json({ success: false, message: error })
+    }
+})
+
 // 
 router.get('/find/:id', async (req, res, next) => {
     const { id } = req.params
