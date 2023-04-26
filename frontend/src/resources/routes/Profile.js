@@ -58,7 +58,7 @@ router.post('/profile', async (req, res, next) => {
         result = await result.json();
 
         if(result.success) {
-            return await fetch(SUD_URL + `users/update/${id}`, {
+            await fetch(SUD_URL + `users/update/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json'},
                 body: JSON.stringify({level: 2, business: result.data._id})
