@@ -12,11 +12,11 @@ router.post('/save', async (req, res, next) => {
         await Business.findByIdAndUpdate(business._id, data)
         return res.status(200).json({success: true, data: business});
     }else {
-        await new Business(data).save();
-        return res.status(200).json({success: true, data: business});
+        let result = await new Business(data).save();
+        return res.status(200).json({success: true, data: result});
     }
 
-    return res.status(500).json({success: false, msg: 'Error'});
+    // return res.status(500).json({success: false, msg: 'Error'});
 })
 
 router.get('/findById/:id', async (req, res, next) => {
