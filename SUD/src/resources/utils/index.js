@@ -77,3 +77,4 @@ module.exports.mailForm = (options) => {
     </div>
     `;
 };
+

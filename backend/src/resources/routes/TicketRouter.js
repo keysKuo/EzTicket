@@ -3,7 +3,7 @@ const router = express.Router();
 // 
 const utils_API = require('../utils/index');
 const general_API = require('../utils/general-functions');
-const { API_Category, API_Event, API_Ticket } = require('../apis');
+const { API_Category, API_Event, API_Ticket, API_Booking } = require('../apis');
 // 
 const CategoryModel = require('../models/Category');
 const EventModel = require('../models/Event');
@@ -56,16 +56,91 @@ router.get('/all', async (req, res, next) => {
     }
 })
 
+router.post('/find-many', async (req, res, next) => {
+    const { ids } = req.body;
 
-router.get('/find-by-code/:code', async (req, res, next) => {
-    const { code } = req.params
-    try {
-        let searchValue = { code }
-        let ticketExist = await API_Ticket.readOne(searchValue)
-        if (!ticketExist) {
-            return res.status(300).json({ success: false, message: "No Data!" })
+    await API_Ticket.readMany({_id: { $in: ids }}, {})
+        .then(tickets => {
+            if(tickets.length > 0) {
+                return res.status(200).json({success: true, data: tickets});
+            }
+            return res.status(404).json({success: false, msg: 'Không tìm thấy vé'});
+        })
+        .catch(err => {
+            return res.status(500).json({success: false, msg: err});
+        })
+})
+
+
+router.put('/place-ticket', async (req, res, next) => {
+    const { list, total, customer } = req.body;
+    
+    let error = false;
+    var result = [];
+    for(let i = 0; i < list.length; i++) {
+        let tickets = await API_Ticket.readMany({code: list[i].code, status: 'available'}, {
+            limit: list[i].quantity
+        })
+        
+        if(tickets.length < list[i].quantity) {
+            error = true;
+            break;
         }
-        return res.status(200).json({ success: true, message: "Data Found!", data: ticketExist })
+
+        tickets.forEach(tk => {
+            tk.status = 'pending';
+            tk.save();
+            result.push(tk);
+        })
+    }
+
+    let booking = await API_Booking.create({
+        tickets: result,
+        payment_type: 'Paypal',
+        total: total,
+        status: 'pending',
+        customer: customer
+    })
+
+    
+    
+    if(error == true) {
+        return res.status(400).json({ success: false, message: "Không đủ vé" })
+    }
+    if(booking)
+        return res.status(200).json({ success: true, message: "Data Found!", data: result, booking: booking })
+})
+
+router.put('/displace-ticket/', async (req, res, next) => {
+    const { ids, booking } = req.body;
+    try {
+        await API_Booking.readOne({_id: booking._id})
+            .then(async booking => {
+                if(booking) {
+                    if(booking.status == 'pending') {
+                        await API_Booking.delete(booking._id);
+
+                        let tickets = await API_Ticket.readMany({_id: { $in: ids }}, {});
+        
+                        if(tickets.length == 0) {
+                            return res.status(400).json({ success: false, message: "Không đủ vé" })
+                        }
+
+                        tickets.forEach(tk => {
+                            tk.status = 'available';
+                            tk.save();
+                        })
+                    return res.status(200).json({ success: true, message: "Data Found!", data: tickets })
+                }
+                
+                
+                    return res.status(400).json({ success: false, message: "Data Found!", data: tickets })
+                }
+
+
+            })
+            
+
     } catch (error) {
         return res.status(500).json({ success: false, message: error })
     }

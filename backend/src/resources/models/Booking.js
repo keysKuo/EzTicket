@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const Booking = new Schema(
     {
-        tickets: { type: Schema.Types.ObjectId, ref: 'Ticket'},
+        tickets: [{ type: Schema.Types.ObjectId, ref: 'Ticket'}],
         payment_type: { type: String },
         total: { type: Number },
         note: { type: String},

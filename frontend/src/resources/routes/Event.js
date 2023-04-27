@@ -81,11 +81,12 @@ router.get('/:slug', async (req, res, next) => {
     return res.render('client/eventDetail', {
         layout: 'main',
         event, tickets_type,
-        username: user.username
+        username: user.username,
+        user_id: user._id
     })
 })
 
-router.get('/:slug/ticket-booking', async (req, res, next) => {
+router.get('/:slug/ticket-booking', checkLogin, async (req, res, next) => {
     const { slug } = req.params;
 
     let event = await fetch(API_URL + `events/find/${slug}`, {
@@ -135,11 +136,21 @@ router.get('/:slug/ticket-booking', async (req, res, next) => {
     return res.render('client/booking.hbs', {
         layout: 'main',
         event, tickets_type,
-        username: user.username
+        username: user.username,
+        user_id: user._id
     })
 })
 
+function checkLogin(req, res, next) {
+    
+    if (req.session.user) {
+        next();
+    }
+    else {
+        return res.redirect('/login')
+    }
 
+}
 
 
 

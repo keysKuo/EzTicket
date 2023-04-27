@@ -17,6 +17,7 @@ const api = {
         let select = (options) ? options.select : {};
         return await Ticket.findOne(payloads)
             .select(select)
+            .populate({ path: 'event'})
             .lean();
     },
 
@@ -28,8 +29,13 @@ const api = {
             .select(select)
             .skip(skip)
             .limit(limit)
+            .populate({ path: 'event'})
             .sort({ name: 1 })
-            .lean();
+            
+    },
+
+    placeOne: async (code) => {
+        return await Ticket.findOneAndUpdate({code, status: 'available'}, { status: 'pending' })
     }
 }
 

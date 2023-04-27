@@ -2,9 +2,9 @@ require('dotenv').config();
 const PORT = process.env.PAYMENT_PORT || 4000;
 // const router = require('./resources/routes');
 const app = require('./config/server').init();
-const paypal = require('paypal-rest-sdk');
 const fetch = require('node-fetch');
 const { exchange } = require('./resources/utils');
+const paypal = require('paypal-rest-sdk');
 paypal.configure({
   'mode': 'sandbox', //sandbox or live
   'client_id': process.env.PAYPAL_CLIENTID,
@@ -49,7 +49,7 @@ app.post('/pay', async (req, res) => {
           "payment_method": "paypal"
       },
       "redirect_urls": {
-          "return_url": "http://localhost:4000/success",
+          "return_url": `http://localhost:4000/success`,
           "cancel_url": "http://localhost:4000/cancel"
       },
       "transactions": [{
@@ -77,7 +77,8 @@ app.post('/pay', async (req, res) => {
         // return res.json(payment);
         for(let i = 0;i < payment.links.length;i++){
           if(payment.links[i].rel === 'approval_url'){
-            res.redirect(payment.links[i].href);
+            return res.status(200).json({url: payment.links[i].href})
+            // res.redirect(payment.links[i].href);
           }
         }
     }

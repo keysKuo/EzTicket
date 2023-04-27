@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 module.exports.exchangeDate =(date) => {
     return {
         formatDate: `Ngày ${date.getDate()} tháng ${date.getMonth() + 1} năm ${date.getFullYear()}`,
@@ -44,6 +46,7 @@ module.exports.countTickets = (tickets) => {
                     style='width: 4rem; margin-left: 5px'
                     value='0'
                     type='number'
+                    min="0"
                     id='typeNumber'
                     class=''
                 />
@@ -81,3 +84,4 @@ module.exports.countTickets = (tickets) => {
     }
     return tickets_type;
 }
+

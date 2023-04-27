@@ -1,11 +1,15 @@
 const router = require('express').Router();
-const { createCode, sendMail, mailForm } = require('../utils');
+const { createCode, sendMail, mailForm, ticketForm } = require('../utils');
 require('dotenv').config();
 const { API_USER,API_OTP } = require('../apis');
 const { VALIDATE_USER } = require('../validators');
 const path = require('path');
 const host = process.env.EMAIL_HOST;
 const qrcode = require('qrcode');
+const fs = require('fs');
+
+
+const htmlFile = fs.readFileSync(path.join(__dirname,'ticket.html'), 'utf-8');
 
 router.get('/', (req, res, next) => {
     return res.json({result: 'USER API'});
@@ -195,5 +199,48 @@ router.get('/qrcode', async (req, res, next) => {
         return res.status(200).json({success: true, msg: 'Gửi mail thành công'});
     })
 })
+
+router.post('/send-ticket', async (req, res, next) => {
+    const { tickets , email } = req.body;
+
+    
+    var codes = '';
+    for(let i = 0; i < tickets.length; i++) {
+        let tk = tickets[i];
+        let data = {
+            name: tk.name,
+            price: tk.price,
+            _id: tk._id,
+            event: tk.event.name,
+            status: tk.status,
+            expire: tk.expire
+        }
+        let code = await qrcode.toDataURL(JSON.stringify(data));
+        codes +=`<img src="${code}" width="200px">`;
+    }
+
+    
+    const options = {
+        from: host,
+        to: email,
+        subject: '[EZTICKET] Vé của bạn',
+        attachDataUrls: true,
+        html: mailForm({
+            caption: 'Mã QR code',
+            content: codes
+            
+        })
+    };
+
+    sendMail(options, (err, info) => {
+        if (err) {
+            return res.status(300).json({success: false, msg: err});
+        }
+
+        return res.status(200).json({success: true, msg: 'Gửi mail thành công'});
+    })
+})
+
+
 
 module.exports = router;

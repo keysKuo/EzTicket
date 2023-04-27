@@ -16,4 +16,7 @@ router.use('/tickets', TicketRouter);
 const BusinessRouter = require('./Business');
 router.use('/business', BusinessRouter);
 
+const BookingRouter = require('./Booking');
+router.use('/booking', BookingRouter);
+
 module.exports = router;
