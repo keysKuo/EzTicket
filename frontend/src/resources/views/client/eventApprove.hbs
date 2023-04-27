@@ -1,0 +1,131 @@
+{{#if success}}
+    <div class='alert alert-success alert-dismissible fade show' role='alert'>
+        {{success}}
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+        </button>
+    </div>
+{{/if}}
+
+{{#if error}}
+    <div class='alert alert-danger alert-dismissible fade show' role='alert'>
+        {{error}}
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+        </button>
+    </div>
+{{/if}}
+
+<style>
+    i {
+        font-size: 22px
+    }
+</style>
+
+<div style="max-width: 90% !important" class='container'>
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='card'>
+                <div style="background-color: #11101d;" class='card-header text-light d-flex justify-content-between'>
+                    <h4>Sự kiện đang chờ duyệt</h4>
+                    
+                </div>
+                <div class='card-body'>
+                    <table class='table table-hover data-table'>
+                        <thead class='thead-light'>
+                            <tr>
+                                <th style="max-width: 200px;" scope='col'>Banner</th>
+                                <th scope='col'>Tên sự kiện</th>
+                                <th scope='col'>Ngày diễn ra</th>
+                                <th scope='col'>Trạng thái</th>
+                                {{!-- <th scope='col'></th> --}}
+                                {{!-- <th scope='col'>Nơi diễn ra</th> --}}
+                                
+                                <th scope='col'></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#if events}}
+                                {{#each events}}
+                                    <tr>
+                                        <td style="max-width: 200px;"><img src='{{banner}}' alt='' width='100%' /></td>
+                                        <td>{{name}}</td>
+                                        
+                                        <td>
+                                            {{occur_date}}
+                                        </td>
+                                        {{!-- <td>       
+                                            {{#each categories}}
+                                                <p>{{name}}</p><br>
+                                            {{/each}}
+                                        </td> --}}
+                                        <td>
+                                            {{{status}}}
+                                            
+                                        </td>
+                                        
+                                        
+                                        
+                                        
+                                        <td class='d-flex'>
+                                            <!-- Button trigger modal -->
+                                            <a class='text-info w-100' href='/my-ezt/events/{{_id}}'>
+                                                <i class='ti-info-alt'></i>
+                                            </a>
+                                            <!-- Button trigger modal -->
+                                            <a class='text-success w-100' href='/events/switch-status/{{_id}}/running'>
+                                                <i class='ti-check'></i>
+                                            </a>
+                                            <!-- Button trigger modal -->
+                                            <a
+                                                style="cursor: pointer"
+                                                class='text-danger w-100 delBtn'
+                                                href='/events/switch-status/{{_id}}/ready   '
+                                                
+                                            >   
+                                                <i class='ti-close'></i>
+                                                
+                                            </a>
+                                        </td>
+                                        
+                                    </tr>
+                                {{/each}}
+                            {{else}}
+                                <tr><td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            {{/if}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class='modal fade' id='deleteModal'>
+    <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='exampleModalLabel'>Cảnh báo</h5>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            <div class='modal-body'>
+                Bạn vẫn chắc chắn sẽ xóa sự kiện này ?
+            </div>
+            <div class='modal-footer'>
+                <button type='button' class='btn btn-secondary' data-dismiss='modal'>Hủy</button>
+                <a type='button' id='deleteBtn' class='btn btn-danger'>Xác nhận</a>
+            </div>
+        </div>
+    </div>
+</div>
+

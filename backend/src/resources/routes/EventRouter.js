@@ -37,8 +37,18 @@ router.post('/create', async (req, res, next) => {
 })
 // [GET]
 router.get('/findMany', async (req, res, next) => {
+    let { status } = req.query;
+    
+    if(!status)
+        status = 'running'
+    
+    let searchValue = {status: status}
+    if(status == 'all') {
+        searchValue = {};
+    }
+    
     try {
-        let searchValue = {status: 'running'}
+        
         let events = await API_Event.readMany(searchValue)
         if (events.length == 0) {
             return res.status(300).json({ success: false, message: "No Data!" })

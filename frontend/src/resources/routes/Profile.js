@@ -11,11 +11,13 @@ const fileapis = require('../middlewares/fileapis');
 const moment = require('moment');
 
 router.get('/', async (req, res, next) => {
-   
+    const user = req.session.user || {};
+
     return res.render('error', {
         layout: 'admin',
         success: req.flash('success') || '',
         error: req.flash('error') || '',
+        admin: user.level == 0 ? true : false
     })
 })
 
@@ -216,7 +218,8 @@ router.get('/events/:id', checkLevel, async (req, res, next) => {
         tickets_type = countTickets(tickets);
 
     }
- 
+    
+    const user = req.session.user || {};
     return res.render('client/eventPreview', {
         layout: 'admin',
         data: event,
@@ -224,6 +227,7 @@ router.get('/events/:id', checkLevel, async (req, res, next) => {
         pageName: 'Thông tin sự kiện',
         success: req.flash('success') || '',
         error: req.flash('error') || '',
+        admin: user.level == 0
     })
 })
 
@@ -440,8 +444,64 @@ router.get('/request/:id', checkLevel, async (req, res, next) => {
     })
 })
 
+router.get('/admin', async (req, res, next) => {
+    const user = req.session.user || {};
+    if(user.level != 0) {
+        req.flash('error', 'Bạn không đủ quyền truy cập trang này');
+        return res.redirect('/logout');
+    }
+
+    let events = await fetch(API_URL + 'events/findMany?status=all', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    })
+    .then(async result => {
+        result = await result.json();
+
+        if(result.success) {
+            return result.data;
+        }
+
+        return [];
+    })
+    .catch(err => {
+        return [];
+    })
+
+    return res.render('client/eventApprove', {
+        layout: 'admin',
+        success: req.flash('success') || '',
+        error: req.flash('error') || '',
+        events: events.map(e => {
+            return {
+                _id: e._id,
+                name: e.name,
+                banner: e.banner,
+                location: e.location,
+                address: e.address,
+                time: e.time,
+                occur_date: exchangeDate(new Date(e.occur_date)).formatDate,
+                categories: e.categories,
+                status: () => {
+                    switch(e.status) {
+                        case 'ready':
+                            return '<p style="color: #FFEEB3">Sẵn sàng</p>'
+                        case 'pending':
+                            return '<p style="color: #F6BA6F">Chờ duyệt</p>'
+                        case 'running':
+                            return '<p style="color: #98D8AA">Đang chạy</p>'
+                        case 'ended':
+                            return '<p style="color: crimson">Đã kết thúc</p>'
+                    }
+                }
+            }
+        })
+        , admin: true
+    })
+})
+
 async function checkLevel(req, res, next) {
-    if(req.session.user.level == 2) {
+    if(req.session.user.level == 2 || req.session.user.level == 0) {
         next();
     }else {
         req.flash('error', 'Vui lòng điền thông tin doanh nghiệp');

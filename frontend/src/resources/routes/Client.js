@@ -109,6 +109,10 @@ router.post('/login', async (req, res, next) => {
     .then(async result => {
         result = await result.json();
         // console.log(result);
+        if(result.auth) {
+            req.session.user = result.auth;
+            return res.redirect('/my-ezt');
+        }
 
         if(result.success) {
             req.session.email = email;
@@ -187,6 +191,11 @@ router.put('/place-ticket', async (req, res, next) => {
         return res.status(500).send({success: false, msg: err})
     })
 });
+
+router.get('/logout', (req, res) => {
+    req.session.destroy();
+    return res.redirect('/login');
+})
 
 router.put('/displace-ticket', async (req, res, next) => {
     const { ids, booking } = req.body;

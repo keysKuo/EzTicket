@@ -29,6 +29,27 @@ router.get('/', async (req, res, next) => {
     })
 })
 
+router.get('/switch-status/:id/:status', async (req, res, next) => {
+    const { id, status } = req.params;
+
+    await fetch(API_URL + `events/switch-status/${id}/${status}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+    })
+    .then(async result => {
+        result = await result.json();
+
+        if(result.success) {
+            
+            return res.redirect('/my-ezt/admin');
+        }
+        return res.redirect('/my-ezt/admin');
+    })
+    .catch(err => {
+        return res.redirect('/my-ezt/admin');
+    })
+})
+
 
 
 // Event detail -> /ticket/:id
@@ -137,6 +158,8 @@ router.get('/:slug/ticket-booking', checkLogin, async (req, res, next) => {
         layout: 'main',
         event, tickets_type,
         username: user.username,
+        email: user.email,
+        phone: user.phone,
         user_id: user._id
     })
 })

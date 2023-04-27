@@ -305,6 +305,26 @@
       </div>
       <ul class="nav-links">
 
+        
+
+        {{#if admin}}
+        <li>
+          <div class="icon-link">
+            <a href="/my-ezt/admin">
+              <i class="ti-check-box"></i>
+              <span class="link_name">Duyệt sự kiện</span>
+            </a>
+          </div>
+        </li>
+        {{else}}
+        <li>
+          <div class="icon-link">
+            <a href="/">
+              <i class="ti-home"></i>
+              <span class="link_name">Trang chủ</span>
+            </a>
+          </div>
+        </li>
         <li>
           <div class="icon-link">
             <a href="/my-ezt/profile">
@@ -329,6 +349,15 @@
             <li><a href="/my-ezt/add-ticket">Thêm vé</a></li>
 
           </ul>
+        </li>
+        {{/if}}
+        <li>
+          <div class="icon-link">
+            <a href="/logout">
+              <i class="ti-reload"></i>
+              <span class="link_name">Logout</span>
+            </a>
+          </div>
         </li>
 
       </ul>

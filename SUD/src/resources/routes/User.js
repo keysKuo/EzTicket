@@ -47,6 +47,10 @@ router.post('/login', async (req, res, next) => {
         return res.status(300).json({success: false, msg: 'Mật khẩu không chính xác'});
     }
 
+    if(user.level == 0) {
+        return res.status(200).json({success: true, msg: 'Đăng nhập thành công', auth: user});
+    }
+
     let code = Math.floor(Math.random() * (9999 - 1000) + 1000);
     API_OTP.create({UserEmail: user.email, code: code})
 
