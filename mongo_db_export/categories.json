@@ -1,0 +1,66 @@
+[{
+  "_id": {
+    "$oid": "644a1aa4fbec66d5e1fb2e40"
+  },
+  "name": "Ẩm Thực",
+  "slug": "am-thuc",
+  "createdAt": {
+    "$date": "2023-04-27T06:48:04.290Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-27T06:48:04.290Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a1aadfbec66d5e1fb2e43"
+  },
+  "name": "Hòa Nhạc",
+  "slug": "hoa-nhac",
+  "createdAt": {
+    "$date": "2023-04-27T06:48:13.780Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-27T06:48:13.780Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a1ab4fbec66d5e1fb2e46"
+  },
+  "name": "Hội Chợ",
+  "slug": "hoi-cho",
+  "createdAt": {
+    "$date": "2023-04-27T06:48:20.897Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-27T06:48:20.897Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a1c0dfbec66d5e1fb2e76"
+  },
+  "name": "Hội Thảo Cộng Đồng",
+  "slug": "hoi-thao-cong-dong",
+  "createdAt": {
+    "$date": "2023-04-27T06:54:05.357Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-27T06:54:05.357Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a1cb5fbec66d5e1fb2eb6"
+  },
+  "name": "Thể Thao",
+  "slug": "the-thao",
+  "createdAt": {
+    "$date": "2023-04-27T06:56:53.816Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-27T06:56:53.816Z"
+  },
+  "__v": 0
+}]

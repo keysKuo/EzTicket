@@ -1,0 +1,121 @@
+[{
+  "_id": {
+    "$oid": "644a1b52fbec66d5e1fb2e49"
+  },
+  "name": "Afternoon Tea at The Lounge",
+  "categories": [
+    {
+      "$oid": "644a1aa4fbec66d5e1fb2e40"
+    }
+  ],
+  "author": {
+    "$oid": "644a1a076b4f1bf55cc76367"
+  },
+  "occur_date": {
+    "$date": "2023-04-30T00:00:00.000Z"
+  },
+  "time": "10h00",
+  "location": "The Lounge – Ground floor of Sheraton Saigon Hotel & Towers",
+  "address": "88 Đ. Đồng Khởi, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh",
+  "introduce": "<p>Taking inspirations from tropical ingredients and seasonal, The Lounge is proud to feature an exquisite Afternoon Tea to spoil those with a sweet tooth. While away the afternoon over sweet and savory creations artfully displayed on a captivating tea stand and a comprehensive medley of selective tea and coffee for a mesmerizing high tea experience.</p>\r\n",
+  "banner": "/uploads/banner/4ecbab00-4c4b.jpg",
+  "status": "running",
+  "slug": "afternoon-tea-at-the-lounge",
+  "createdAt": {
+    "$date": "2023-04-27T06:50:58.413Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-27T07:09:02.283Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a1c57fbec66d5e1fb2e79"
+  },
+  "name": "[FLOWER 1969’s] WORKSHOP REED DIFFUSER - HỌC LÀM TINH DẦU KHUẾCH TÁN",
+  "categories": [
+    {
+      "$oid": "644a1c0dfbec66d5e1fb2e76"
+    }
+  ],
+  "author": {
+    "$oid": "644a1a076b4f1bf55cc76367"
+  },
+  "occur_date": {
+    "$date": "2023-04-30T00:00:00.000Z"
+  },
+  "time": "02:00 PM - 04:00 PM",
+  "location": "Flower 1969’s - The Seat Cafe",
+  "address": "491/2 Lê Văn Sỹ, Phường 12, Quận 3, TP.HCM, Quận 3, Thành Phố Hồ Chí Minh",
+  "introduce": "<p><strong>- FLOWER 1969&#39;s&nbsp;WORKSHOP REED DIFFUSER</strong><strong>&nbsp;- HỌC L&Agrave;M TINH DẦU KHUẾCH T&Aacute;N</strong></p>\r\n\r\n<p>Chuy&ecirc;n nghi&ecirc;n cứu độc quyền về M&ugrave;i&nbsp;Hương, Flower 1969&#39;s tạo ra Workshop tinh dầu khuếch t&aacute;n nhằm mang đến cho Bạn y&ecirc;u &quot;hương&quot; cơ hội c&ugrave;ng Flower 1969&#39;s chia sẻ,&nbsp;kh&aacute;m ph&aacute; những điều th&uacute; vị, mới mẻ về hương thơm l&agrave;nh t&iacute;nh&nbsp;từ tinh dầu thi&ecirc;n nhi&ecirc;n &amp;&nbsp;phương ph&aacute;p lan toả m&ugrave;i hương th&ocirc;ng qua tinh dầu khuếch t&aacute;n - Một trong những phương ph&aacute;p toả v&agrave; lưu&nbsp;hương an to&agrave;n, thuần tu&yacute; m&agrave;&nbsp;hiệu quả cao.<br />\r\nWorkshop l&agrave;m tinh dầu khuếch t&aacute;n được&nbsp;ưa chuộng bởi sự độc đ&aacute;o, sắc m&agrave;u khi Bạn&nbsp;tự do s&aacute;ng tạo về m&ugrave;i hương, c&ugrave;ng ngoại h&igrave;nh bắt mắt từ hoa cỏ kh&ocirc;&nbsp;để cho ra những th&agrave;nh phẩm tinh dầu khuếch t&aacute;n &quot;Made by Me&quot; - Độc quyền ri&ecirc;ng Bạn.&nbsp;&nbsp;&nbsp;&nbsp;</p>\r\n\r\n<p><br />\r\n<em>Leading on fragrance production, Flower 1969s brings you a new and exciting workshop - Reed Diffuser. Reed Diffuser workshop is popular by its unique, visual, quality. The workshop offers you the opportunity to mix your own smell with colorful dried flowers to create the end products made by you.</em></p>\r\n",
+  "banner": "/uploads/banner/7314b837-db8f.jpg",
+  "status": "running",
+  "slug": "flower-1969's-workshop-reed-diffuser-hoc-lam-tinh-dau-khuech-tan",
+  "createdAt": {
+    "$date": "2023-04-27T06:55:19.121Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-27T07:09:00.797Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a1d2afbec66d5e1fb2eb9"
+  },
+  "name": "[Saigon Sniper] Trải nghiệm bắn súng thể thao",
+  "categories": [
+    {
+      "$oid": "644a1cb5fbec66d5e1fb2eb6"
+    }
+  ],
+  "author": {
+    "$oid": "644a1a076b4f1bf55cc76367"
+  },
+  "occur_date": {
+    "$date": "2023-05-01T00:00:00.000Z"
+  },
+  "time": "09:00 AM - 08:00 PM",
+  "location": "Saigon Sniper",
+  "address": "25 Nguyễn Bỉnh Khiêm, Phường Bến Nghé, Quận 1",
+  "introduce": "<p><em><strong>&quot;MỤC TI&Ecirc;U TRONG T&Acirc;̀M NGẮM&quot;</strong></em></p>\r\n\r\n<p>Bộ m&ocirc;n bắn s&uacute;ng dần trở n&ecirc;n thịnh h&agrave;nh tại Việt Nam v&agrave; được kh&aacute; nhiều bạn trẻ hưởng ứng, lựa chọn l&agrave;m địa điểm l&yacute; tưởng để c&ugrave;ng bạn b&egrave;, người th&acirc;n giải tr&iacute; v&agrave; luyện tập mỗi cuối tuần.</p>\r\n\r\n<p>Tại Saigon Sniper - một trong những C&acirc;u Lạc Bộ (CLB) bắn s&uacute;ng nổi tiếng tại S&agrave;i G&ograve;n, bạn sẽ c&oacute; cơ hội được trải nghiệm bắn s&uacute;ng kh&ocirc;ng kh&aacute;c g&igrave; c&aacute;c xạ thủ chuy&ecirc;n nghiệp. Nếu bạn lần đầu tham gia bắn s&uacute;ng th&igrave; cũng đừng qu&aacute; lo lắng, c&aacute;c hướng dẫn vi&ecirc;n sẽ lu&ocirc;n theo s&aacute;t v&agrave; chỉ dẫn bạn một c&aacute;ch tận t&igrave;nh.</p>\r\n\r\n<p>L&agrave; một m&ocirc;n thể thao kh&ocirc;ng qu&aacute; kh&oacute;, chỉ mất tầm 10-15 ph&uacute;t l&agrave; bạn đ&atilde; c&oacute; thể tự tin ngắm bắn một c&aacute;ch th&agrave;nh thạo. Cuối tuần n&agrave;y, h&atilde;y đến Saigon Sniper để trải nghiệm cảm gi&aacute;c của một xạ thủ chuy&ecirc;n nghiệp v&agrave; đừng qu&ecirc;n đặt dịch vụ tr&ecirc;n Ticketbox để ch&uacute;ng m&igrave;nh chuẩn bị&nbsp;đ&oacute;n tiếp bạn chu đ&aacute;o nha!</p>\r\n\r\n<p>Lưu &yacute;: Chiều cao tối thiểu để tham gia bắn s&uacute;ng l&agrave; 1m4 v&agrave; trẻ em dưới 5 tuổi sẽ kh&ocirc;ng được v&agrave;o c&acirc;u lạc bộ.&nbsp;</p>\r\n",
+  "banner": "/uploads/banner/43775da5-6210.jpg",
+  "status": "pending",
+  "slug": "saigon-sniper-trai-nghiem-ban-sung-the-thao",
+  "createdAt": {
+    "$date": "2023-04-27T06:58:50.160Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-27T07:01:01.033Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a1e4ffbec66d5e1fb2f50"
+  },
+  "name": "HOA SEN SOUNDFEST 2023",
+  "categories": [
+    {
+      "$oid": "644a1aadfbec66d5e1fb2e43"
+    }
+  ],
+  "author": {
+    "$oid": "644a1a076b4f1bf55cc76367"
+  },
+  "occur_date": {
+    "$date": "2023-05-01T00:00:00.000Z"
+  },
+  "time": "06:00 PM - 10:00 PM",
+  "location": "Quảng trường Lâm Viên - Lam Vien Square, Da Lat",
+  "address": "Trần Quốc Toản, Phường 1, Thành Phố Đà Lạt, Tỉnh Lâm Đồng",
+  "introduce": "<p><strong>HOA SEN&nbsp;SOUNDFEST&nbsp;2023</strong>&nbsp;- Lễ hội &acirc;m nhạc đ&aacute;ng mong đợi nhất m&ugrave;a lễ n&agrave;y nằm giữa th&agrave;nh phố Đ&agrave; Lạt mộng mơ c&oacute; sự tham gia của d&agrave;n nhạc giao hưởng h&agrave;ng đầu Ch&acirc;u &Acirc;u -&nbsp;<strong>Bucharest Symphony Orchestra</strong>&nbsp;đến từ Romania, kết hợp với sự xuất hiện của d&agrave;n line-up h&agrave;ng đầu Việt Nam: Mỹ Linh, T&ugrave;ng Dương, Tr&uacute;c Nh&acirc;n, H&agrave; Nhi, Da LAB, Chillies, nghệ sĩ m&uacute;a Linh Nga hứa hẹn sẽ tạo n&ecirc;n một bữa tiệc &acirc;m nhạc v&ocirc; c&ugrave;ng đa dạng.</p>\r\n\r\n<p>V&agrave;o l&uacute;c&nbsp;<strong>18:00</strong>&nbsp;ng&agrave;y&nbsp;<strong>02/05/2023</strong>,&nbsp;giới trẻ Việt Nam sẽ được&nbsp;tiếp cận với xu hướng &acirc;m nhạc ho&agrave;n to&agrave;n mới bằng sự kết hợp độc đ&aacute;o giữa c&aacute;c loại h&igrave;nh nghệ thuật truyền thống phương Đ&ocirc;ng với nền &acirc;m nhạc cổ điển phương T&acirc;y, qua b&agrave;n tay xuất sắc của đạo diễn &acirc;m nhạc Dương Khắc Linh. Trong l&agrave;n gi&oacute; m&aacute;t mẻ của kh&ocirc;ng kh&iacute; Đ&agrave; Lạt, bạn sẽ c&oacute; một trải nghiệm mới lạ c&ugrave;ng &acirc;m nhạc.&nbsp;</p>\r\n",
+  "banner": "/uploads/banner/6ed77234-8ece.jpg",
+  "status": "ready",
+  "slug": "hoa-sen-soundfest-2023",
+  "createdAt": {
+    "$date": "2023-04-27T07:03:43.635Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-27T07:03:43.635Z"
+  },
+  "__v": 0
+}]

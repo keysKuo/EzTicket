@@ -1,0 +1,38 @@
+[{
+  "_id": {
+    "$oid": "644a1a076b4f1bf55cc76367"
+  },
+  "email": "phugiale2912@gmail.com",
+  "password": "12345678",
+  "username": "Lê Gia Phú",
+  "phone": "0852068832",
+  "address": "Số 1 Tân Phong",
+  "level": 2,
+  "createdAt": {
+    "$date": "2023-04-27T06:45:27.880Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-27T06:46:06.116Z"
+  },
+  "__v": 0,
+  "business": {
+    "$oid": "644a1a2efbec66d5e1fb2e39"
+  }
+},{
+  "_id": {
+    "$oid": "644a1f136b4f1bf55cc76386"
+  },
+  "email": "lupinphu2912@gmail.com",
+  "password": "12345678",
+  "username": "Nguyên Hoàng Phú",
+  "phone": "0952068832",
+  "address": "Số 1 Tân Phong",
+  "level": 0,
+  "createdAt": {
+    "$date": "2023-04-27T07:06:59.537Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-27T07:06:59.537Z"
+  },
+  "__v": 0
+}]

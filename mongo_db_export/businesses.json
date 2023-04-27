@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "644a1a2efbec66d5e1fb2e39"
+  },
+  "name": "Sheraton Saigon",
+  "business_type": "Hotel",
+  "business_id": "99999SSH",
+  "tax_id": "99999SSH-000001",
+  "email": "phugiale2912@gmail.com",
+  "phone": "0852068832",
+  "address": "88 Đ. Đồng Khởi, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh",
+  "createdAt": {
+    "$date": "2023-04-27T06:46:06.104Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-27T06:46:06.104Z"
+  },
+  "__v": 0
+}]
