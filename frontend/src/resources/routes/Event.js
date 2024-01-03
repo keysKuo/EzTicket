@@ -6,6 +6,20 @@ const fetch = require('node-fetch');
 const SUD_URL = process.env.SUD_URL || '';
 const API_URL = process.env.API_URL || '';
 const { exchangeDate, countTickets } = require('../utils');
+const default_options = {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json'}
+}
+const { fetchAPI } = require('sud-libs');
+
+
+router.get('/libs', async (req, res, next) => {
+    let users = await fetchAPI(SUD_URL + 'users/list', default_options, (err) => {
+        return res.json(err);
+    })
+
+    return res.json(users);
+})
 
 // Event list -> /ticket/:cate
 router.get('/', async (req, res, next) => {

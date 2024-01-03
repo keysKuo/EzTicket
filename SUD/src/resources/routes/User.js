@@ -245,6 +245,21 @@ router.post('/send-ticket', async (req, res, next) => {
     })
 })
 
+router.get('/list', async (req, res, next) => {
+    await API_USER.readMany({level: 3})
+        .then(users => {
+            
+            if(users.length != 0) {
+                return res.status(200).json({success: true, data: users})
+            }
+
+            return res.status(404).json({success: false, msg: 'Không tìm thấy tài khoản nào'});
+        }) 
+        .catch(err => {
+            console.log(err)
+            return res.status(500).json({success: false, msg: err});
+        })
+})
 
 
 module.exports = router;

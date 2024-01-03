@@ -8,7 +8,6 @@ const { API_Category, API_Event, API_Ticket } = require('../apis');
 const CategoryModel = require('../models/Category');
 const EventModel = require('../models/Event');
 
-
 // [POST]
 router.post('/create', async (req, res, next) => {
     const { name, categories, author, occur_date, time, location, address, introduce, banner } = req.body
@@ -161,6 +160,7 @@ router.put('/switch-status/:id/:status', async (req, res, next) => {
             return res.status(500).json({success: false, message: err});
         })
 })
+
 
 
 

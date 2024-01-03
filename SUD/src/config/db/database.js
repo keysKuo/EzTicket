@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
+const database = process.env.DATABASE || `mongodb://localhost:27017/EzTicket`
 
 async function connect() {
     try {
         await mongoose.connect(
-            `mongodb://localhost:27017/EzTicket`,
+            database,
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
